@@ -33,18 +33,17 @@
 
 
 :root {
-    /* New Color Palette */
-    /* Updated to Golden Amber, Ochre, Turquoise, Deep Forest Green and Pale Cream */
-    --primary-color: #D9A829; /* Golden Amber */
-    --primary-pale-color: #FDFBD4; /* Soft Vanilla */
-    --secondary-color: #CC7722; /* Ochre */
-    --secondary-pale-color: #40E0D0; /* Turquoise */
-    --background-color: #FDFBD4; /* Soft Vanilla */
-    --accent-1-color: #40E0D0; /* Turquoise */
-    --black-color: #2E6F40; /* Deep Forest Green */
-    --white-color: #FDFBD4; /* Soft Vanilla */
-    --text-color: #2E6F40; /* Deep Forest Green */
-    --footer-background-color: #FDFBD4;
+    /* Refreshed Color Palette for a modern civic look */
+    --primary-color: #004085;            /* Deep Blue */
+    --primary-pale-color: #E8F0FE;       /* Soft Pale Blue */
+    --secondary-color: #008080;          /* Teal */
+    --secondary-pale-color: #B2DFDB;     /* Light Teal */
+    --background-color: #E8F0FE;         /* Overall page background */
+    --accent-1-color: #F6B400;           /* Warm Amber accent */
+    --black-color: #1C2833;              /* Dark Navy */
+    --white-color: #FFFFFF;              /* Pure White */
+    --text-color: #1C2833;               /* Default text */
+    --footer-background-color: #004085;
 
     /* Old variables - kept for reference or if still used elsewhere */
     --primary-purple: var(--primary-color);
@@ -67,10 +66,10 @@
     --initial-header-bg-image: url('../images/Landing Page.png');
 
     /* Added RGB values for rgba() usage */
-    --primary-color-rgb: 217, 168, 41; /* rgb for Golden Amber */
-    --secondary-color-rgb: 204, 119, 34; /* rgb for Ochre */
-    --black-color-rgb: 46, 111, 64; /* rgb for Deep Forest Green */
-    --white-color-rgb: 253, 251, 212; /* rgb for Soft Vanilla */
+    --primary-color-rgb: 0, 64, 133;   /* rgb for Deep Blue */
+    --secondary-color-rgb: 0, 128, 128; /* rgb for Teal */
+    --black-color-rgb: 28, 40, 51;      /* rgb for Dark Navy */
+    --white-color-rgb: 255, 255, 255;   /* rgb for Pure White */
 }
 
 
@@ -120,12 +119,12 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
     color: var(--white-color);
     border: none;
     border-radius: 0 15px 15px 0;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 1001; 
@@ -169,7 +168,7 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
     align-self: flex-end; /* Positioned top right */
     background: none; /* No background for close button */
     border: none;
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
     color: var(--text-color);
     padding: 5px;
@@ -197,12 +196,12 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
     color: var(--white-color);
     border: none;
     border-radius: 50%; /* Circular shape */
-    width: 40px; /* Size of the icon button */
-    height: 40px;
+    width: 50px; /* Larger for accessibility */
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px; /* Icon size */
+    font-size: 22px; /* Icon size */
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
@@ -280,7 +279,7 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: var(--initial-header-bg-image);
+    background-image: linear-gradient(rgba(var(--primary-color-rgb),0.65), rgba(var(--secondary-color-rgb),0.65)), var(--initial-header-bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -324,7 +323,7 @@ header::before {
 
 .navbar-nav .nav-link i {
     margin-left: 8px;
-    font-size: 1.1em;
+    font-size: 1.3em;
 }
 
 .navbar-brand {
@@ -871,8 +870,8 @@ body {
 
 
 .pushable-button .front img {
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
 }
 
 .pushable-button .front .text-wrapper {
@@ -1065,8 +1064,8 @@ body {
 }
 
 .pms-swiper-pagination-bullet {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     text-align: center;
     line-height: 40px;
     font-size: 1.05rem;
@@ -1575,8 +1574,8 @@ body {
 }
 
 .shiraz-news-swiper-pagination-bullet {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     text-align: center;
     line-height: 40px;
     font-size: 1.05rem;
@@ -2000,7 +1999,7 @@ body {
 }
 
 .bottom-panel .like i {
-    font-size: 1.1em; /* Font size for like icon */
+    font-size: 1.3em; /* Larger icon for emphasis */
 }
 
 .bottom-panel .like small {
@@ -2037,7 +2036,7 @@ body {
     font-family: shabnamBold, sans-serif;
     display: block;
     font-weight: bold;
-    font-size: 1em; /* Font size for stat values */
+    font-size: 1.1em; /* Larger font for stat values */
     color: var(--text-color) !important; /* Specific color with !important, adjusted for visibility */
     /* --dynamic-text-color was not defined, using static color for visibility */
 }
@@ -2045,7 +2044,7 @@ body {
 .bottom-panel .information p {
     /* Ensure 'shabnamMedium' font is imported or it will fall back to sans-serif */
     font-family: shabnamMedium, sans-serif;
-    font-size: 0.8em; /* Font size for stat labels */
+    font-size: 0.9em; /* Slightly larger labels */
     color: #777; /* Can be updated to a specific shade of text-color */
     margin-bottom: 0px;
     font-weight: bold;
@@ -2579,8 +2578,8 @@ a:hover .district {
 }
 
 .box img {
-    width: 40px;
-    height: 60px;
+    width: 50px;
+    height: 70px;
     object-fit: cover;
     border: none;
     box-shadow: none;
@@ -2663,7 +2662,7 @@ a:hover .district {
 }
 
 .footer-section h3 {
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-bottom: 30px;
     font-family: shabnamMedium;
     position: relative;
@@ -2746,13 +2745,13 @@ a:hover .district {
 .social-icons a {
     color: var(--text-color);
     background-color: var(--background-color);
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    font-size: 1.2em;
+    font-size: 1.4em;
     text-decoration: none;
     transition: all 0.3s ease;
 }
