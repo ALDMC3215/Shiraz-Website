@@ -34,29 +34,30 @@
 
 :root {
     /* New Color Palette */
-    --primary-color: #7993F0;
-    --primary-pale-color: #AEB2FF;
-    --secondary-color: #D9AC3A;
-    --secondary-pale-color: #FFE783;
-    --background-color: #FFFDF7;
-    --accent-1-color: #FD5E53;
-    --black-color: #000000;
-    --white-color: #FFFFFF;
-    --text-color: #383D38;
-    --footer-background-color: #F5F7FE;
+    /* Updated to Golden Amber, Ochre, Turquoise, Deep Forest Green and Pale Cream */
+    --primary-color: #D9A829; /* Golden Amber */
+    --primary-pale-color: #FDFBD4; /* Soft Vanilla */
+    --secondary-color: #CC7722; /* Ochre */
+    --secondary-pale-color: #40E0D0; /* Turquoise */
+    --background-color: #FDFBD4; /* Soft Vanilla */
+    --accent-1-color: #40E0D0; /* Turquoise */
+    --black-color: #2E6F40; /* Deep Forest Green */
+    --white-color: #FDFBD4; /* Soft Vanilla */
+    --text-color: #2E6F40; /* Deep Forest Green */
+    --footer-background-color: #FDFBD4;
 
     /* Old variables - kept for reference or if still used elsewhere */
-    --primary-purple: #8a2be2;
-    --light-purple: #d8bfd8;
-    --lighter-purple: #e6e6fa;
-    --background-start: #b39ddb;
-    --background-end: #8e24aa;
-    --white-text: #fff; /* This should probably be --white-color now */
+    --primary-purple: var(--primary-color);
+    --light-purple: var(--primary-pale-color);
+    --lighter-purple: var(--primary-pale-color);
+    --background-start: var(--background-color);
+    --background-end: var(--background-color);
+    --white-text: var(--white-color);
 
 
     /* Variables for Carousel */
-    --brand-purple: #7c3aed; /* Consider replacing with --primary-color or similar */
-    --brand-light-purple: #c4b5fd; /* Consider replacing with --primary-pale-color or similar */
+    --brand-purple: var(--accent-1-color);
+    --brand-light-purple: var(--primary-pale-color);
     --autoplay-duration: 4000ms;
 
     /* NEW: Dynamic Variables for Accessibility Panel Background/Text Colors */
@@ -66,10 +67,10 @@
     --initial-header-bg-image: url('../images/Landing Page.png');
 
     /* Added RGB values for rgba() usage */
-    --primary-color-rgb: 121, 147, 240;
-    --secondary-color-rgb: 217, 172, 58;
-    --black-color-rgb: 0, 0, 0;
-    --white-color-rgb: 255, 255, 255;
+    --primary-color-rgb: 217, 168, 41; /* rgb for Golden Amber */
+    --secondary-color-rgb: 204, 119, 34; /* rgb for Ochre */
+    --black-color-rgb: 46, 111, 64; /* rgb for Deep Forest Green */
+    --white-color-rgb: 253, 251, 212; /* rgb for Soft Vanilla */
 }
 
 
@@ -115,8 +116,8 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
     left: 0;
     top: 50%;
     transform: translateY(-50%); 
-    background-color: #007bff; 
-    color: white;
+    background-color: var(--accent-1-color);
+    color: var(--white-color);
     border: none;
     border-radius: 0 15px 15px 0;
     width: 50px;
@@ -132,7 +133,7 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
 }
 
 .open-btn:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-color);
 }
 
 
@@ -144,8 +145,8 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
     height: auto; 
     max-height: 90vh; 
     width: 60px;
-    background-color: #f0f0f0; 
-    border-right: 1px solid #ccc;
+    background-color: var(--background-color); 
+    border-right: 1px solid var(--secondary-pale-color);
     box-shadow: 2px 0 10px rgba(0,0,0,0.3);
     z-index: 1000;
     transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
@@ -170,7 +171,7 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
     border: none;
     font-size: 20px;
     cursor: pointer;
-    color: #333;
+    color: var(--text-color);
     padding: 5px;
     border-radius: 50%;
     transition: background-color 0.2s ease;
@@ -178,7 +179,7 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
 }
 
 .close-btn:hover {
-    background-color: #ddd;
+    background-color: var(--primary-pale-color);
 }
 
 /* --- Column for Sidebar Buttons --- */
@@ -192,8 +193,8 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
 
 /* --- General Style for Icon Buttons --- */
 .control-icon-btn {
-    background-color: #007bff; /* Blue color */
-    color: white;
+    background-color: var(--accent-1-color);
+    color: var(--white-color);
     border: none;
     border-radius: 50%; /* Circular shape */
     width: 40px; /* Size of the icon button */
@@ -209,12 +210,12 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
 }
 
 .control-icon-btn:hover {
-    background-color: #0056b3;
+    background-color: var(--secondary-color);
     transform: scale(1.05);
 }
 
 .control-icon-btn.active {
-    background-color: #28a745; /* Green for active/toggled state */
+    background-color: var(--primary-color);
 }
 
 /* --- Current Color Indicator Dot --- */
@@ -231,11 +232,11 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
 
 /* --- Specific Styles for Reset Button --- */
 .control-icon-btn.reset-btn {
-    background-color: #dc3545; /* Red color for reset */
+    background-color: var(--secondary-color);
 }
 
 .control-icon-btn.reset-btn:hover {
-    background-color: #c82333;
+    background-color: var(--primary-color);
 }
 
 
@@ -313,11 +314,12 @@ header::before {
     color: var(--black-color);
     margin-right: 45px;
     font-size: 0.9em;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
     color: var(--dynamic-text-color) !important;
 }
 .navbar-nav .nav-link:hover {
-    color: rgba(var(--black-color-rgb), 0.5) !important;
+    color: var(--accent-1-color) !important;
+    transform: translateY(-2px);
 }
 
 .navbar-nav .nav-link i {
@@ -797,7 +799,7 @@ body {
     background: linear-gradient(
         300deg,
         var(--background-color),
-        #f7f5ff,
+        var(--primary-pale-color),
         var(--background-color)
     );
     background-size: 400% 400%;
@@ -844,10 +846,8 @@ body {
   border-radius: 20px;
   background: linear-gradient(
     to left,
-    hsl(217, 33%, 16%) 0%,
-    hsl(217, 33%, 32%) 8%,
-    hsl(217, 33%, 32%) 92%,
-    hsl(217, 33%, 16%) 100%
+    var(--secondary-color) 0%,
+    var(--primary-color) 100%
   );
 }
 
@@ -861,8 +861,8 @@ body {
   min-height: 80px; 
   direction: rtl; 
   font-size: 1rem;
-  color: white;
-  background: hsl(217, 33%, 27%); 
+  color: var(--white-color);
+  background: var(--secondary-color);
   border-radius: 20px;
   transform: translateY(-4px);
   transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
@@ -885,12 +885,12 @@ body {
 .pushable-button .front .title {
     font-weight: bold;
     font-size: 0.9em;
-    color: #fff;
+    color: var(--white-color);
 }
 
 .pushable-button .front .description {
     font-size: 0.75em;
-    color: #ccc;
+    color: var(--secondary-pale-color);
 }
 
 /* --- Hover and active states --- */
@@ -902,6 +902,7 @@ body {
 .pushable-button:hover .front {
   transform: translateY(-10px);
   transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  background: var(--primary-color);
 }
 
 .pushable-button:active .shadow {
@@ -926,12 +927,12 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #fff;
+    background-color: var(--white-color);
     padding: 15px 0;
 }
 
 .pms-navbar-brand-img {
-    border: 3px solid #FFD700 !important;
+    border: 3px solid var(--secondary-color) !important;
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
@@ -957,14 +958,14 @@ body {
 }
 
 .pms-swiper-slide {
-    background-color: #fff;
+    background-color: var(--white-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 22px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
     border-radius: 25px;
     box-shadow: 0 8px 25px rgba(var(--black-color-rgb),0.15); /* Keep a subtle shadow */
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
@@ -1002,7 +1003,7 @@ body {
     background-color: rgba(var(--white-color-rgb), 0.95);
     padding: 15px 25px;
     border-radius: 35px;
-    color: #333;
+    color: var(--text-color);
     text-align: center;
     font-weight: normal;
     box-shadow: 0 4px 12px rgba(var(--black-color-rgb),0.1);
@@ -1017,13 +1018,13 @@ body {
     font-size: 1.15rem;
     font-weight: bold;
     margin-bottom: 0;
-    color: #333;
+    color: var(--text-color);
     width: 100%;
 }
 
 .pms-swiper-button-prev,
 .pms-swiper-button-next {
-    color: #333;
+    color: var(--text-color);
     filter: drop-shadow(0 0 5px rgba(var(--black-color-rgb),0.2));
     top: 50%;
     transform: translateY(-50%);
@@ -1044,7 +1045,7 @@ body {
 .pms-swiper-button-prev:hover,
 .pms-swiper-button-next:hover {
     background-color: var(--secondary-color); /* Kept a highlight, but not yellow for consistency */
-    color: #333;
+    color: var(--text-color);
 }
 
 .pms-swiper-button-prev {
@@ -1070,9 +1071,9 @@ body {
     line-height: 40px;
     font-size: 1.05rem;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
     opacity: 0.9;
-    background-color: #fff;
+    background-color: var(--white-color);
     border-radius: 50%;
     margin: 0 10px !important;
     transition: all 0.3s ease;
@@ -1086,7 +1087,7 @@ body {
 }
 
 .pms-swiper-pagination-bullet-active {
-    color: #333;
+    color: var(--text-color);
     background-color: var(--secondary-pale-color); /* Changed from yellow to a pale secondary color */
     opacity: 1;
     /* Removed yellow box-shadow */
@@ -1111,7 +1112,7 @@ body {
 }
 
 .pms-background-circle {
-    stroke: #eee;
+    stroke: var(--primary-pale-color);
 }
 
 .pms-progress-circle {
@@ -1141,12 +1142,12 @@ body {
 .pms-bullet-number {
     position: relative;
     z-index: 3;
-    color: #333;
+    color: var(--text-color);
     transition: color 0.3s ease;
 }
 
 .pms-swiper-pagination-bullet-active .pms-bullet-number {
-    color: #333;
+    color: var(--text-color);
 }
 
 .pms-modal-dialog {
@@ -1158,13 +1159,13 @@ body {
     max-height: 70vh;
     overflow-y: auto;
     padding: 25px;
-    color: #333;
+    color: var(--text-color);
 }
 
 .pms-modal-content {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(var(--black-color-rgb),0.2);
-    background-color: #fff;
+    background-color: var(--white-color);
 }
 
 .pms-modal-header {
@@ -1176,7 +1177,7 @@ body {
 }
 
 .pms-modal-title {
-    color: #333;
+    color: var(--text-color);
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -1203,17 +1204,17 @@ body {
 }
 
 .pms-modal-footer {
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--primary-pale-color);
     padding: 15px 25px;
-    background-color: #f8f8f8;
+    background-color: var(--background-color);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
 .pms-modal-footer .pms-btn-secondary {
-    background-color: var(--secondary-color); /* Changed from #FFD700 */
-    border-color: var(--secondary-color); /* Changed from #FFD700 */
-    color: #333;
+    background-color: var(--secondary-color); /* Changed from var(--secondary-color) */
+    border-color: var(--secondary-color); /* Changed from var(--secondary-color) */
+    color: var(--text-color);
     font-weight: bold;
     padding: 10px 25px;
     border-radius: 25px;
@@ -1331,7 +1332,7 @@ body {
 }
 
 .stat-circle-svg {
-    background-color: #f0f4f8; /* رنگ پس‌زمینه ملایم */
+    background-color: var(--background-color); /* رنگ پس‌زمینه ملایم */
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -1357,7 +1358,7 @@ body {
 /* بهبود ظاهر دایره‌های گرافیکی */
 .circle-bg {
     fill: none;
-    stroke: var(--white-color, #fff);
+    stroke: var(--white-color, var(--white-color));
     stroke-width: 10; /* ضخیم‌تر برای ظاهر مدرن */
 }
 
@@ -1386,12 +1387,12 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #fff;
+    background-color: var(--white-color);
     padding: 15px 0;
 }
 
 .shiraz-news-navbar-brand-img {
-    border: 3px solid var(--secondary-color) !important; /* Changed from #FFD700 */
+    border: 3px solid var(--secondary-color) !important; /* Changed from var(--secondary-color) */
     box-shadow: 0 0 10px rgba(var(--secondary-color-rgb), 0.5); /* Changed from yellow */
 }
 
@@ -1436,25 +1437,25 @@ body {
     padding: 12px 20px;
     border-radius: 30px;
     transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s ease;
-    color: #333;
+    color: var(--text-color);
     font-weight: bold;
     border: 1px solid transparent;
     display: inline-block;
-    background-color: #f0f0f0; /* Default background for buttons */
+    background-color: var(--background-color); /* Default background for buttons */
 }
 
 .shiraz-news-btn-link:hover {
-    background-color: var(--secondary-pale-color); /* Changed from #FFD700 */
-    color: #333;
+    background-color: var(--secondary-pale-color); /* Changed from var(--secondary-color) */
+    color: var(--text-color);
     transform: translateY(-2px);
-    border-color: var(--secondary-pale-color); /* Changed from #FFD700 */
+    border-color: var(--secondary-pale-color); /* Changed from var(--secondary-color) */
 }
 
 .shiraz-news-btn-link.active {
-    background-color: var(--secondary-color); /* Changed from #FFD700 */
-    color: #333;
+    background-color: var(--secondary-color); /* Changed from var(--secondary-color) */
+    color: var(--text-color);
     box-shadow: 0 4px 15px rgba(var(--secondary-color-rgb), 0.5); /* Changed from yellow */
-    border-color: var(--secondary-color); /* Changed from #FFD700 */
+    border-color: var(--secondary-color); /* Changed from var(--secondary-color) */
 }
 
 .shiraz-news-swiper {
@@ -1466,14 +1467,14 @@ body {
 }
 
 .swiper-slide { /* Keeping default Swiper class for core functionality */
-    background-color: #fff;
+    background-color: var(--white-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 22px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
     border-radius: 25px;
     box-shadow: 0 8px 25px rgba(var(--black-color-rgb),0.15); /* Subtle shadow */
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
@@ -1511,7 +1512,7 @@ body {
     background-color: rgba(var(--white-color-rgb), 0.6);
     padding: 15px 25px;
     border-radius: 35px;
-    color: #333;
+    color: var(--text-color);
     text-align: center;
     font-weight: normal;
     box-shadow: 0 4px 12px rgba(var(--black-color-rgb),0.1);
@@ -1526,13 +1527,13 @@ body {
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 0;
-    color: #333;
+    color: var(--text-color);
     width: 100%;
 }
 
 .shiraz-news-swiper-button-prev,
 .shiraz-news-swiper-button-next {
-    color: #333;
+    color: var(--text-color);
     filter: drop-shadow(0 0 5px rgba(var(--black-color-rgb),0.2));
     top: 50%; /* Changed from left: 20px; to top: 50%; for vertical centering */
     transform: translateY(-50%); /* Added for true vertical centering */
@@ -1547,7 +1548,7 @@ body {
 .shiraz-news-swiper-button-prev:hover,
 .shiraz-news-swiper-button-next:hover {
     background-color: var(--secondary-color); /* Kept a highlight, but not yellow for consistency */
-    color: #333;
+    color: var(--text-color);
 }
 .shiraz-news-swiper-button-prev {
     left: 50px;
@@ -1580,9 +1581,9 @@ body {
     line-height: 40px;
     font-size: 1.05rem;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
     opacity: 0.9;
-    background-color: #fff;
+    background-color: var(--white-color);
     border-radius: 50%;
     margin: 0 10px !important;
     transition: all 0.3s ease;
@@ -1596,8 +1597,8 @@ body {
 }
 
 .shiraz-news-swiper-pagination-bullet-active {
-    color: #333;
-    background-color: var(--secondary-color); /* Changed from #FFD700 */
+    color: var(--text-color);
+    background-color: var(--secondary-color); /* Changed from var(--secondary-color) */
     opacity: 1;
     /* Removed yellow box-shadow */
     box-shadow: 0 4px 15px rgba(var(--secondary-color-rgb), 0.5); /* Changed to a subtle secondary color shadow */
@@ -1621,7 +1622,7 @@ body {
 }
 
 .shiraz-news-background-circle {
-    stroke: #eee;
+    stroke: var(--primary-pale-color);
 }
 
 .shiraz-news-progress-circle {
@@ -1651,17 +1652,17 @@ body {
 .shiraz-news-bullet-number {
     position: relative;
     z-index: 3;
-    color: #333;
+    color: var(--text-color);
     transition: color 0.3s ease;
 }
 
 .shiraz-news-swiper-pagination-bullet-active .shiraz-news-bullet-number {
-    color: #333;
+    color: var(--text-color);
 }
 
 .shiraz-news-empty-message {
     height: 100%;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
     color: #666;
     box-shadow: none;
     border: none;
@@ -1676,13 +1677,13 @@ body {
     max-height: 70vh;
     overflow-y: auto;
     padding: 25px;
-    color: #333;
+    color: var(--text-color);
 }
 
 .shiraz-news-modal-content {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(var(--black-color-rgb),0.2);
-    background-color: #fff;
+    background-color: var(--white-color);
 }
 .shiraz-news-modal-header {
     border-bottom: 2px solid var(--secondary-pale-color); /* Changed from #FFF9E0 */
@@ -1692,7 +1693,7 @@ body {
     border-top-right-radius: 20px;
 }
 .shiraz-news-modal-title {
-    color: #333;
+    color: var(--text-color);
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -1711,16 +1712,16 @@ body {
     font-size: 1.05rem;
 }
 .shiraz-news-modal-footer {
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--primary-pale-color);
     padding: 15px 25px;
-    background-color: #f8f8f8;
+    background-color: var(--background-color);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 .shiraz-news-modal-footer .shiraz-news-btn-secondary {
-    background-color: var(--secondary-color); /* Changed from #FFD700 */
-    border-color: var(--secondary-color); /* Changed from #FFD700 */
-    color: #333;
+    background-color: var(--secondary-color); /* Changed from var(--secondary-color) */
+    border-color: var(--secondary-color); /* Changed from var(--secondary-color) */
+    color: var(--text-color);
     font-weight: bold;
     padding: 10px 25px;
     border-radius: 25px;
@@ -1947,7 +1948,7 @@ body {
 .card-title {
     /* Ensure 'shabnamBold' font is imported or it will fall back to sans-serif */
     font-family: shabnamBold, sans-serif;
-    color: #333; /* Can be updated to a specific shade of text-color */
+    color: var(--text-color); /* Can be updated to a specific shade of text-color */
     font-weight: bold;
     font-size: 1.25em; /* Default font size for card titles */
     margin-top: 15px; /* Default top margin */
@@ -1979,7 +1980,7 @@ body {
 /* Styles for the bottom panel */
 .bottom-panel {
     width: 100%;
-    border-top: 1px solid #eee; /* Can be updated to a lighter background color */
+    border-top: 1px solid var(--primary-pale-color); /* Can be updated to a lighter background color */
     padding-top: 15px; /* Default top padding */
     display: flex;
     justify-content: space-around; /* Distributes items evenly */
@@ -2037,7 +2038,7 @@ body {
     display: block;
     font-weight: bold;
     font-size: 1em; /* Font size for stat values */
-    color: #333 !important; /* Specific color with !important, adjusted for visibility */
+    color: var(--text-color) !important; /* Specific color with !important, adjusted for visibility */
     /* --dynamic-text-color was not defined, using static color for visibility */
 }
 
@@ -2386,7 +2387,7 @@ body {
 }
 
 .info-section h2 {
-    color: #333; /* Can be updated to a specific shade of text-color */
+    color: var(--text-color); /* Can be updated to a specific shade of text-color */
     margin-top: 0;
     margin-bottom: 20px;
     border-bottom: 2px solid var(--secondary-color); /* Updated */
@@ -2451,7 +2452,7 @@ a:hover .district {
 }
 
 .district-info {
-    border: 1px solid #eee; /* Can be updated to a lighter background color */
+    border: 1px solid var(--primary-pale-color); /* Can be updated to a lighter background color */
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 15px;
@@ -2466,7 +2467,7 @@ a:hover .district {
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.3em;
-    border-bottom: 1px dashed #eee; /* Can be updated to a lighter background color */
+    border-bottom: 1px dashed var(--primary-pale-color); /* Can be updated to a lighter background color */
     padding-bottom: 5px;
 }
 
@@ -2475,7 +2476,7 @@ a:hover .district {
 }
 
 .district-info strong {
-    color: #333; /* Can be updated to a specific shade of text-color */
+    color: var(--text-color); /* Can be updated to a specific shade of text-color */
 }
 
 .district-info.active {
@@ -2569,7 +2570,7 @@ a:hover .district {
     background-color: rgba(var(--white-color-rgb), 0.45);
     font-size: 0.9rem;
     font-weight: 500;
-    color: #1f2937;
+    color: var(--text-color);
     border: 1px solid rgba(var(--white-color-rgb), 0.5);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2603,10 +2604,10 @@ a:hover .district {
 }
 
 .box.active {
-    background: linear-gradient(to bottom, #8b5cf6, #6366f1);
-    color: white;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    color: var(--white-color);
     border: none;
-    box-shadow: 0 8px 25px rgba(109, 112, 241, 0.4);
+    box-shadow: 0 8px 25px rgba(var(--black-color-rgb), 0.2);
     transform: translateY(-5px) scale(1.08);
 }
 
@@ -2744,7 +2745,7 @@ a:hover .district {
 
 .social-icons a {
     color: var(--text-color);
-    background-color: #f0f2f5;
+    background-color: var(--background-color);
     width: 40px;
     height: 40px;
     display: flex;
