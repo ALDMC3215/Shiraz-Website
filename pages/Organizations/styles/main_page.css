@@ -36,16 +36,16 @@
 
 :root {
   /* New Color Palette */
-  --primary-color: #7993f0;
-  --primary-pale-color: #aeb2ff;
-  --secondary-color: #d9ac3a;
-  --secondary-pale-color: #ffe783;
-  --background-color: #fffdf7;
-  --accent-1-color: #fd5e53;
+  --primary-color: #D9A829;
+  --primary-pale-color: #FDFBD4;
+  --secondary-color: #CC7722;
+  --secondary-pale-color: #40E0D0;
+  --background-color: #FDFBD4;
+  --accent-1-color: #2E6F40;
   --black-color: #000000;
   --white-color: #ffffff;
-  --text-color: #383d38;
-  --footer-background-color: #f5f7fe;
+  --text-color: #2E6F40;
+  --footer-background-color: #FDFBD4;
   --primary-purple: #8a2be2;
   --light-purple: #d8bfd8;
   --lighter-purple: #e6e6fa;
@@ -694,7 +694,7 @@ header {
 
 .social-icons a {
   color: var(--text-color);
-  background-color: #f0f2f5;
+  background-color: #FDFBD4;
   width: 40px;
   height: 40px;
   display: flex;
@@ -766,7 +766,7 @@ body {
   background: linear-gradient(
     300deg,
     var(--background-color),
-    #f7f5ff,
+    #FDFBD4,
     var(--background-color)
   );
   background-size: 400% 400%;
@@ -780,7 +780,7 @@ body {
 
 /* --- Main Title Styling --- */
 .page-title {
-  color: #1a202c;
+  color: #2E6F40;
   font-weight: 700;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -803,7 +803,7 @@ body {
 
   border-radius: 16px;
   text-decoration: none;
-  color: #2d3748;
+  color: #2E6F40;
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -816,7 +816,7 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.8);
   border-color: rgba(255, 255, 255, 0.5);
-  color: #0d6efd;
+  color: #40E0D0;
 }
 
 .card-button h5 {
@@ -830,11 +830,11 @@ body {
 .card-main-icon {
   font-size: 2.5rem; /* Larger icon size */
   transition: transform 0.3s ease, color 0.3s ease;
-  color: #5a67d8;
+  color: #40E0D0;
 }
 
 .card-button:hover .card-main-icon {
   transform: scale(1.1); /* Icon grows on hover */
-  color: #0d6efd; /* Inherits the primary blue color on hover */
+  color: #40E0D0; /* Inherits the primary blue color on hover */
 }
 /* End Sazman ha */

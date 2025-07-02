@@ -36,16 +36,16 @@
 
 :root {
     /* New Color Palette */
-    --primary-color: #7993F0;
-    --primary-pale-color: #AEB2FF;
-    --secondary-color: #D9AC3A;
-    --secondary-pale-color: #FFE783;
-    --background-color: #FFFDF7;
-    --accent-1-color: #FD5E53;
+    --primary-color: #D9A829;
+    --primary-pale-color: #FDFBD4;
+    --secondary-color: #CC7722;
+    --secondary-pale-color: #40E0D0;
+    --background-color: #FDFBD4;
+    --accent-1-color: #2E6F40;
     --black-color: #000000;
     --white-color: #FFFFFF;
-    --text-color: #383D38;
-    --footer-background-color: #F5F7FE;
+    --text-color: #2E6F40;
+    --footer-background-color: #FDFBD4;
     /* Old variables - kept for reference or if still used elsewhere */
     --primary-purple: #8a2be2;
     --light-purple: #d8bfd8;
@@ -734,7 +734,7 @@ header {
 
 .social-icons a {
     color: var(--text-color);
-    background-color: #f0f2f5;
+    background-color: #FDFBD4;
     width: 40px;
     height: 40px;
     display: flex;

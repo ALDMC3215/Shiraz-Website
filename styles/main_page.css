@@ -34,16 +34,16 @@
 
 :root {
     /* New Color Palette */
-    --primary-color: #7993F0;
-    --primary-pale-color: #AEB2FF;
-    --secondary-color: #D9AC3A;
-    --secondary-pale-color: #FFE783;
-    --background-color: #FFFDF7;
-    --accent-1-color: #FD5E53;
+    --primary-color: #D9A829;
+    --primary-pale-color: #FDFBD4;
+    --secondary-color: #CC7722;
+    --secondary-pale-color: #40E0D0;
+    --background-color: #FDFBD4;
+    --accent-1-color: #2E6F40;
     --black-color: #000000;
     --white-color: #FFFFFF;
-    --text-color: #383D38;
-    --footer-background-color: #F5F7FE;
+    --text-color: #2E6F40;
+    --footer-background-color: #FDFBD4;
 
     /* Old variables - kept for reference or if still used elsewhere */
     --primary-purple: #8a2be2;
@@ -144,7 +144,7 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
     height: auto; 
     max-height: 90vh; 
     width: 60px;
-    background-color: #f0f0f0; 
+    background-color: #FDFBD4; 
     border-right: 1px solid #ccc;
     box-shadow: 2px 0 10px rgba(0,0,0,0.3);
     z-index: 1000;
@@ -738,7 +738,7 @@ body {
     background: linear-gradient(
         300deg,
         var(--background-color),
-        #f7f5ff,
+        #FDFBD4,
         var(--background-color)
     );
     background-size: 400% 400%;
@@ -1118,7 +1118,7 @@ a{
 .pms-modal-footer {
     border-top: 1px solid #eee;
     padding: 15px 25px;
-    background-color: #f8f8f8;
+    background-color: #FDFBD4;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -1344,7 +1344,7 @@ a{
     font-weight: bold;
     border: 1px solid transparent;
     display: inline-block;
-    background-color: #f0f0f0; /* Default background for buttons */
+    background-color: #FDFBD4; /* Default background for buttons */
 }
 
 .shiraz-news-btn-link:hover {
@@ -1565,7 +1565,7 @@ a{
 
 .shiraz-news-empty-message {
     height: 100%;
-    background-color: #f0f0f0;
+    background-color: #FDFBD4;
     color: #666;
     box-shadow: none;
     border: none;
@@ -1617,7 +1617,7 @@ a{
 .shiraz-news-modal-footer {
     border-top: 1px solid #eee;
     padding: 15px 25px;
-    background-color: #f8f8f8;
+    background-color: #FDFBD4;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -2473,7 +2473,7 @@ a:hover .district {
     background-color: rgba(var(--white-color-rgb), 0.45);
     font-size: 0.9rem;
     font-weight: 500;
-    color: #1f2937;
+    color: #2E6F40;
     border: 1px solid rgba(var(--white-color-rgb), 0.5);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2507,7 +2507,7 @@ a:hover .district {
 }
 
 .box.active {
-    background: linear-gradient(to bottom, #8b5cf6, #6366f1);
+    background: linear-gradient(to bottom, #D9A829, #CC7722);
     color: white;
     border: none;
     box-shadow: 0 8px 25px rgba(109, 112, 241, 0.4);
@@ -2648,7 +2648,7 @@ a:hover .district {
 
 .social-icons a {
     color: var(--text-color);
-    background-color: #f0f2f5;
+    background-color: #FDFBD4;
     width: 40px;
     height: 40px;
     display: flex;
