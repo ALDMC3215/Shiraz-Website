@@ -248,16 +248,43 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
 
 /* header */
 
+/* انیمیشن تنفس پس‌زمینه برای هدر */
+@keyframes subtle-zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* زوم آرام به داخل */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 header {
     font-family: shabnamMedium, sans-serif;
-    background-image: var(--initial-header-bg-image);
-    background-size: 100% 100%, 100% 100%, cover;
-    background-repeat: no-repeat;
     height: 100vh;
     flex-direction: column;
     color: var(--text-color);
     position: relative;
     background-color: var(--dynamic-bg-color) !important;
+    overflow: hidden; /* مهم: برای جلوگیری از بیرون زدن پس‌زمینه */
+}
+
+/* ساخت یک لایه مجازی برای نگهداری و انیمیت کردن پس‌زمینه */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--initial-header-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* قرار دادن پس‌زمینه پشت محتوا */
+    animation: subtle-zoom 25s ease-in-out infinite; /* اعمال انیمیشن */
 }
 
 .navbar {
@@ -270,7 +297,7 @@ header {
     justify-content: space-between;
     align-items: center;
     border-radius: 100px;
-    background-color: rgba(var(--secondary-color-rgb), 0.9); /* Replaced with --secondary-color equivalent */
+    background-color: rgba(var(--secondary-color-rgb), 0.9);
     background-blend-mode: plus-lighter;
     backdrop-filter: blur(50px);
     padding: 10px 10px;
@@ -283,14 +310,14 @@ header {
 }
 
 .navbar-nav .nav-link {
-    color: var(--black-color); /* Updated */
+    color: var(--black-color);
     margin-right: 45px;
     font-size: 0.9em;
     transition: color 0.3s ease;
     color: var(--dynamic-text-color) !important;
 }
 .navbar-nav .nav-link:hover {
-    color: rgba(var(--black-color-rgb), 0.5) !important; /* Kept black for hover effect, can be updated */
+    color: rgba(var(--black-color-rgb), 0.5) !important;
 }
 
 .navbar-nav .nav-link i {
@@ -299,7 +326,7 @@ header {
 }
 
 .navbar-brand {
-    color: var(--white-color) !important; /* Updated */
+    color: var(--white-color) !important;
     font-weight: 700;
     font-size: 1.5em;
     color: var(--dynamic-text-color) !important;
@@ -404,7 +431,7 @@ header {
     display: flex;
     align-items: center;
     padding: 0px 16px;
-    color: var(--primary-color); /* Updated */
+    color: var(--primary-color);
     font-size: 1.2em;
 }
 
@@ -434,7 +461,7 @@ header {
     .sm-icon span svg {
         font-size: 1.25em;
         margin-left: 10px;
-        color: var(--black-color); /* Updated */
+        color: var(--black-color);
     }
 
     .sm-icon img {
@@ -447,11 +474,11 @@ header {
     }
 
     .navbar-toggler:focus {
-        outline: var(--black-color); /* Updated */
+        outline: var(--black-color);
     }
 
     .navbar-toggler svg {
-        color: var(--black-color); /* Updated */
+        color: var(--black-color);
     }
 
     .navbar-collapse {
@@ -481,7 +508,7 @@ header {
     .sm-icon span svg {
         font-size: 1.25em;
         margin-left: 10px;
-        color: var(--black-color); /* Updated */
+        color: var(--black-color);
     }
 
     .sm-icon img {
@@ -494,11 +521,11 @@ header {
     }
 
     .navbar-toggler:focus {
-        outline: var(--black-color); /* Updated */
+        outline: var(--black-color);
     }
 
     .navbar-toggler svg {
-        color: var(--black-color); /* Updated */
+        color: var(--black-color);
     }
 
     .logo-text {
@@ -529,7 +556,7 @@ header {
     .sm-icon span svg {
         font-size: 1.25em;
         margin-left: 10px;
-        color: var(--black-color); /* Updated */
+        color: var(--black-color);
     }
 
     .sm-icon img {
@@ -542,11 +569,11 @@ header {
     }
 
     .navbar-toggler:focus {
-        outline: var(--black-color); /* Updated */
+        outline: var(--black-color);
     }
 
     .navbar-toggler svg {
-        color: var(--black-color); /* Updated */
+        color: var(--black-color);
     }
 
     .logo-text {
@@ -569,21 +596,29 @@ header {
 }
 
 @media (min-width: 992px) {
-    .navbar .dropdown:hover .dropdown-menu {
-        display: block;
+    .navbar .dropdown:hover > .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
         margin-top: 0px;
     }
 }
 
 .dropdown-menu {
-    background-color: rgba(var(--secondary-color-rgb), 1); /* Replaced with --secondary-color equivalent */
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transform-origin: top;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    background-color: rgba(var(--secondary-color-rgb), 1);
     backdrop-filter: blur(50px);
     border-radius: 12px;
     box-shadow: 0px 8px 16px rgba(var(--black-color-rgb), 0.15);
     padding: 15px;
     min-width: 200px;
     z-index: 1060;
-    width: 350px; /* Default desktop width */
+    width: 350px;
 }
 
 .dropdown-menu svg {
@@ -605,7 +640,25 @@ header {
     direction: rtl;
     border-radius: 8px;
     margin-bottom: 15px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+.navbar .dropdown:hover .dropdown-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.navbar .dropdown:hover .dropdown-menu li:nth-child(1) .dropdown-item { transition-delay: 0.05s; }
+.navbar .dropdown:hover .dropdown-menu li:nth-child(2) .dropdown-item { transition-delay: 0.1s; }
+.navbar .dropdown:hover .dropdown-menu li:nth-child(3) .dropdown-item { transition-delay: 0.15s; }
+.navbar .dropdown:hover .dropdown-menu li:nth-child(4) .dropdown-item { transition-delay: 0.2s; }
+.navbar .dropdown:hover .dropdown-menu li:nth-child(5) .dropdown-item { transition-delay: 0.25s; }
+.navbar .dropdown:hover .dropdown-menu li:nth-child(6) .dropdown-item { transition-delay: 0.3s; }
+.navbar .dropdown:hover .dropdown-menu li:nth-child(7) .dropdown-item { transition-delay: 0.35s; }
+.navbar .dropdown:hover .dropdown-menu li:nth-child(8) .dropdown-item { transition-delay: 0.4s; }
+
 
 .dropdown-item:last-child {
     margin-bottom: 0;
@@ -619,7 +672,7 @@ header {
     padding: 0;
     margin-bottom: 15px;
     text-align: right;
-    color: var(--black-color) !important; /* Updated */
+    color: var(--black-color) !important;
 }
 
 .mayor-image-wrapper {
@@ -627,13 +680,13 @@ header {
     height: 80px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid var(--black-color); /* Updated */
+    border: 2px solid var(--black-color);
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 10px rgba(var(--black-color-rgb), 0.1);
-    background-color: var(--white-color); /* Updated */
-    flex-shrink: 0; /* جلوگیری از کوچک شدن عکس */
+    background-color: var(--white-color);
+    flex-shrink: 0;
 }
 
 .mayor-image {
@@ -654,14 +707,14 @@ header {
 .mayor-title {
     font-family: shabnamLight, sans-serif;
     font-size: 0.8em;
-    color: #444; /* Can be updated to a specific shade of text-color */
+    color: #444;
     margin-bottom: 0;
     color: var(--dynamic-text-color) !important;
 }
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-    background-color: var(--secondary-pale-color); /* Updated */
+    background-color: var(--secondary-pale-color);
 }
 
 .dropdown-item i {
@@ -669,7 +722,7 @@ header {
     font-size: 1.1em;
     width: 20px;
     text-align: center;
-    color: var(--primary-color); /* Updated */
+    color: var(--primary-color);
     transition: color 0.2s ease;
 }
 
@@ -682,41 +735,49 @@ header {
     .navbar-collapse .dropdown-menu {
         position: static;
         float: none;
-        width: 95%; /* Make dropdown menu wider on mobile */
-        max-width: 400px; /* Limit max width for consistency */
-        margin: 10px auto; /* Center on mobile and add some margin */
-        background-color: rgba(var(--secondary-color-rgb), 0.95); /* Keep a background */
-        border: 1px solid rgba(var(--black-color-rgb), 0.1); /* Add a subtle border */
-        box-shadow: 0px 4px 8px rgba(var(--black-color-rgb), 0.1); /* Add a subtle shadow */
-        padding: 10px; /* Adjust padding */
+        width: 95%;
+        max-width: 400px;
+        margin: 10px auto;
+        background-color: rgba(var(--secondary-color-rgb), 0.95);
+        border: 1px solid rgba(var(--black-color-rgb), 0.1);
+        box-shadow: 0px 4px 8px rgba(var(--black-color-rgb), 0.1);
+        padding: 10px;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .navbar-collapse.show .dropdown-menu {
+        display: block;
     }
 
     .navbar-collapse .dropdown-item {
-        color: var(--black-color); /* Updated */
-        padding: 8px 12px; /* Adjusted padding for better touch targets */
+        color: var(--black-color);
+        padding: 8px 12px;
         justify-content: flex-start;
         text-align: right;
         direction: rtl;
-        font-size: 0.9em; /* Slightly larger font */
+        font-size: 0.9em;
     }
 
     .navbar-collapse .dropdown-item:hover,
     .navbar-collapse .dropdown-item:focus {
-        background-color: var(--secondary-pale-color); /* Updated to a paled secondary color */
-        color: var(--black-color) !important; /* Updated */
+        background-color: var(--secondary-pale-color);
+        color: var(--black-color) !important;
     }
 
     .navbar-collapse .dropdown-item i {
-        color: var(--primary-color); /* Updated to primary color for consistency */
+        color: var(--primary-color);
     }
 
     .navbar-collapse .dropdown-item:hover i,
     .navbar-collapse .dropdown-item:focus i {
-        color: var(--primary-color); /* Updated */
+        color: var(--primary-color);
     }
 
     .navbar-nav .nav-link {
-        color: var(--black-color); /* Updated */
+        color: var(--black-color);
         margin-right: 0px;
         padding-right: 15px;
     }
@@ -725,7 +786,6 @@ header {
         height: 200px;
     }
 }
-
 /* header */
 
 /* bodyBG */
@@ -734,7 +794,6 @@ body {
     font-family: "Shabnam", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* background: linear-gradient(-45deg, #aeb2ff, #e4e5ff); */
     background: linear-gradient(
         300deg,
         var(--background-color),
@@ -743,88 +802,116 @@ body {
     );
     background-size: 400% 400%;
     min-height: 100vh;
-    color: var(--text-color); /* Set base text color here */
+    color: var(--text-color); 
 }
 
 /* bodyBG */
 
 /* Buttons */
-.row {
-    padding-top: 30px;
-    display: flex;
-    flex-wrap: wrap !important;
-    background: transparent !important;
+
+
+.pushable-button {
+  position: relative;
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-a{
-    text-decoration: none;
+/* Shadow layer */
+.pushable-button .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
-.card-item {
-    width: 90%;
-    height: 100%;
-    background-color: var(--primary-pale-color); /* Updated */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23d1d9ff" opacity="0.8"><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(0,0) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(50,0) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(0,50) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(50,50) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(25,25) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(75,25) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(25,75) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(75,75) scale(0.25)"/></g></svg>');
-    background-size: 40px 40px;
-    border-radius: 24px;
-    box-shadow: 0px 2px 3px 0px var(--primary-color); /* Updated */
-    padding: 15px 30px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--dynamic-card-bg-color) !important;
+/* Edge layer */
+.pushable-button .edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(
+    to left,
+    hsl(217, 33%, 16%) 0%,
+    hsl(217, 33%, 32%) 8%,
+    hsl(217, 33%, 32%) 92%,
+    hsl(217, 33%, 16%) 100%
+  );
 }
 
-.card-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(var(--black-color-rgb), 0.2);
+
+.pushable-button .front {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  min-height: 80px; 
+  direction: rtl; 
+  font-size: 1rem;
+  color: white;
+  background: hsl(217, 33%, 27%); 
+  border-radius: 20px;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  user-select: none;
 }
 
-.card-text-box {
-    text-align: start;
+
+.pushable-button .front img {
+    width: 35px;
+    height: 35px;
+}
+
+.pushable-button .front .text-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-}
-.card-item .card-text-top {
-    display: block;
-    font-size: 1em;
-    font-weight: 600;
-    color: var(--text-color); /* Updated */
-    color: var(--dynamic-text-color) !important;
-}
-.card-item .card-text-description-top {
-    width: 100%;
-    display: block;
-    font-size: 0.8em;
-    color: #5c5a72; /* Can be updated to a specific shade of text-color */
-    margin-top: 4px;
-    color: var(--dynamic-text-color) !important;
-}
-.card-item .icon-wrapper {
-    order: 2;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    flex-shrink: 0;
-}
-.card-item .icon-wrapper img {
-    max-width: 100%;
-    max-height: 100%;
+
 }
 
-@media (max-width: 575.98px) {
-    .card-item .card-text-top {
-        font-size: 0.8em;
-    }
-    .card-item .card-text-description-top {
-        font-size: 0.6em;
-    }
+.pushable-button .front .title {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #fff;
+}
+
+.pushable-button .front .description {
+    font-size: 0.75em;
+    color: #ccc;
+}
+
+/* --- Hover and active states --- */
+.pushable-button:hover .shadow {
+  transform: translateY(8px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable-button:hover .front {
+  transform: translateY(-10px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable-button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.pushable-button:active .front {
+  transform: translateY(-6px);
+  transition: transform 34ms;
 }
 
 /* Buttons */
@@ -1212,34 +1299,42 @@ a{
 
 /* information */
 
+/* --- استایل‌های عمومی --- */
 .main-container {
     min-height: 100vh;
     display: flex;
     align-items: center;
 }
 
-
-
 .description-text {
     font-size: 1.1rem;
-    color: var(--text-color); /* Updated */
+    color: var(--text-color);
     line-height: 2;
     text-align: justify;
 }
 
+
+/* --- استایل جدید و بهبودیافته بخش آمار --- */
 .stat-circle-container {
-    width: 90px;
-    height: 90px;
+    width: 100px; /* کمی بزرگ‌تر برای نمایش بهتر */
+    height: 100px;
     position: relative;
     margin: 0 auto;
+    border-radius: 50%; /* برای اعمال صحیح سایه */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* انیمیشن برای افکت هاور */
+}
+
+/* افکت هاور برای تعامل بهتر با کاربر */
+.stat-circle-container:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .stat-circle-svg {
-    background-color: var(--white-color); /* Updated */
+    background-color: #f0f4f8; /* رنگ پس‌زمینه ملایم */
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    /* padding: auto; - Removed invalid property */
 }
 
 .stat-number-container {
@@ -1251,33 +1346,34 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
-    color: var(--text-color); /* Updated */
+    font-size: 1.3rem; /* فونت بزرگ‌تر و خواناتر */
+    color: var(--text-color);
 }
 
 .stat-number {
-    font-size: 1rem;
     font-weight: 700;
 }
 
+/* بهبود ظاهر دایره‌های گرافیکی */
 .circle-bg {
     fill: none;
-    stroke: var(--white-color); /* Updated */
-    stroke-width: 5;
+    stroke: var(--white-color, #fff);
+    stroke-width: 10; /* ضخیم‌تر برای ظاهر مدرن */
 }
 
 .circle-progress {
     fill: none;
-    stroke: var(--secondary-pale-color); /* Updated */
-    stroke-width: 5;
+    stroke: var(--secondary-pale-color, #6a5acd); /* استفاده از رنگ اصلی تم */
+    stroke-width: 10; /* ضخیم‌تر برای هماهنگی */
     stroke-linecap: round;
-    transition: stroke-dashoffset 0.3s ease;
+    transition: stroke-dashoffset 1.5s ease; /* هماهنگ با انیمیشن جاوااسکریپت */
 }
 
 .stat-label {
     font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--text-color); /* Updated */
+    font-weight: 600; /* کمی ضخیم‌تر برای تاکید بیشتر */
+    color: var(--text-color);
+    margin-top: 1rem; /* فاصله بیشتر از دایره */
 }
 /* information */
 
