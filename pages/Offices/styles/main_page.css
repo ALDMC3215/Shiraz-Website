@@ -241,8 +241,8 @@ header {
   font-family: shabnamMedium, sans-serif;
   background-image: linear-gradient(
       120deg,
-      rgba(var(--primary-color-rgb), 0.9),
-      rgba(var(--secondary-color-rgb), 0.9)
+      rgba(var(--primary-color-rgb), 0.75),
+      rgba(var(--secondary-color-rgb), 0.75)
     ),
     var(--initial-header-bg-image);
   background-position: center;
@@ -253,6 +253,8 @@ header {
   flex-direction: column;
   color: var(--white-color);
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   animation: headerFadeIn 0.8s ease-out;
 }
 
@@ -898,6 +900,8 @@ a {
 
 .card-button {
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -911,7 +915,6 @@ a {
   border-radius: 18px;
   text-decoration: none;
   color: var(--text-color);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 3px 10px rgba(var(--black-color-rgb), 0.12);
   min-height: 170px;
   overflow: hidden;
@@ -1183,6 +1186,8 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   overflow: hidden;
   z-index: 1;
   box-shadow: 0 2px 8px rgba(var(--black-color-rgb), 0.1);
@@ -1247,6 +1252,8 @@ a {
 
 .pms-bullet-number {
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   z-index: 3;
   color: #333;
   transition: color 0.3s ease;
@@ -1421,6 +1428,8 @@ a {
   width: 90px;
   height: 90px;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   margin: 0 auto;
 }
 
@@ -1687,6 +1696,8 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   overflow: hidden;
   z-index: 1;
   box-shadow: 0 2px 8px rgba(var(--black-color-rgb), 0.1);
@@ -1747,6 +1758,8 @@ a {
 
 .shiraz-news-bullet-number {
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   z-index: 3;
   color: #333;
   transition: color 0.3s ease;
@@ -2412,6 +2425,8 @@ a {
   min-width: 140px;
   box-sizing: border-box;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -2671,11 +2686,14 @@ a:hover .district {
   -ms-overflow-style: none;
   scroll-behavior: smooth;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   width: 100%;
   box-sizing: border-box;
   box-shadow: 0 8px 32px 0 rgba(var(--black-color-rgb), 0.1);
   margin-bottom: 25px;
 }
+
 
 .container-zone.active-drag {
   scroll-behavior: auto;
@@ -2779,6 +2797,8 @@ a:hover .district {
   background-color: rgba(var(--white-color-rgb), 0.5);
   padding: 40px 0 0;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   overflow: hidden;
 }
 
@@ -2814,6 +2834,8 @@ a:hover .district {
   margin-bottom: 30px;
   font-family: shabnamMedium;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   border: none;
 }
 

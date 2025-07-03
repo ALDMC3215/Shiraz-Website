@@ -6,15 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ensure header element exists before trying to get its offsetHeight
     const headerHeight = header ? header.offsetHeight : 0;
 
-    window.addEventListener("scroll", function () {
-        if (window.scrollY >= headerHeight) {
-            navbar.classList.add("fix-navbar-nav");
-            header.classList.add("header-exit");
-        } else {
-            navbar.classList.remove("fix-navbar-nav");
-            header.classList.remove("header-exit");
-        }
-    });
+    // Allow header to scroll naturally without becoming fixed
 
     // --- Unified Modal Opening Function ---
     // This function can now be used for both sliders.

@@ -241,8 +241,8 @@ header {
   font-family: shabnamMedium, sans-serif;
   background-image: linear-gradient(
       120deg,
-      rgba(var(--primary-color-rgb), 0.9),
-      rgba(var(--secondary-color-rgb), 0.9)
+      rgba(var(--primary-color-rgb), 0.75),
+      rgba(var(--secondary-color-rgb), 0.75)
     ),
     var(--initial-header-bg-image);
   background-position: center;
@@ -253,8 +253,11 @@ header {
   flex-direction: column;
   color: var(--white-color);
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   animation: headerFadeIn 0.8s ease-out;
 }
+
 
 header.header-exit {
   animation: headerFadeOut 0.8s ease-in forwards;
@@ -359,8 +362,7 @@ header.header-exit {
     opacity: 0;
     transform: translateY(-20px);
   }
-}
-
+	
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -382,6 +384,8 @@ header.header-exit {
   animation: slideDown 0.4s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
+
 
 .main {
   flex-grow: 1;
@@ -898,6 +902,8 @@ a {
 
 .card-button {
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -911,7 +917,6 @@ a {
   border-radius: 18px;
   text-decoration: none;
   color: var(--text-color);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 3px 10px rgba(var(--black-color-rgb), 0.12);
   min-height: 170px;
   overflow: hidden;
@@ -919,6 +924,7 @@ a {
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
 }
+
 
 .card-button::before {
   content: "";
@@ -1183,10 +1189,13 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   overflow: hidden;
   z-index: 1;
   box-shadow: 0 2px 8px rgba(var(--black-color-rgb), 0.1);
 }
+
 
 .pms-swiper-pagination-bullet-active {
   color: #333;
@@ -1247,10 +1256,13 @@ a {
 
 .pms-bullet-number {
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   z-index: 3;
   color: #333;
   transition: color 0.3s ease;
 }
+
 
 .pms-swiper-pagination-bullet-active .pms-bullet-number {
   color: #333;
@@ -1421,8 +1433,11 @@ a {
   width: 90px;
   height: 90px;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   margin: 0 auto;
 }
+
 
 .stat-circle-svg {
   background-color: var(--white-color); /* Updated */
@@ -1687,10 +1702,13 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   overflow: hidden;
   z-index: 1;
   box-shadow: 0 2px 8px rgba(var(--black-color-rgb), 0.1);
 }
+
 
 .shiraz-news-swiper-pagination-bullet-active {
   color: #333;
@@ -1747,10 +1765,13 @@ a {
 
 .shiraz-news-bullet-number {
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   z-index: 3;
   color: #333;
   transition: color 0.3s ease;
 }
+
 
 .shiraz-news-swiper-pagination-bullet-active .shiraz-news-bullet-number {
   color: #333;
@@ -2403,7 +2424,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--white-color); /* Updated */
+  color: var(--white-color);
   text-align: center;
   padding: 10px 0;
   flex-shrink: 0;
@@ -2412,10 +2433,13 @@ a {
   min-width: 140px;
   box-sizing: border-box;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 
 .stat-number-section {
   font-size: 28px;
@@ -2470,20 +2494,22 @@ a {
   .stat-item {
     min-width: 130px; /* ممکن است نیاز به حفظ این min-width باشد */
   }
+	
+	
+	
 }
 
 @media (max-width: 575.98px) {
   /* از sm به پایین (موبایل) */
   .stats-container {
-    gap: 3px; /* گپ بسیار کم برای موبایل‌های کوچک */
-    padding: 0 3px; /* پدینگ افقی کانتینر برای استفاده حداکثری از فضا */
+    gap: 3px;
+    padding: 0 3px;
   }
   .stats-section {
-    padding: 30px 3px; /* پدینگ کمتر در موبایل */
+    padding: 30px 3px;
   }
   .stat-item {
-    min-width: 120px; /* این مقدار نهایی برای موبایل‌های بسیار کوچک است. اگر باز هم مشکل داشت،
-                                باید این را کم کم کاهش دهید یا font-size clamp() را تهاجمی‌تر کنید. */
+    min-width: 120px;
   }
 }
 
@@ -2523,6 +2549,7 @@ a {
 .info-section::-webkit-scrollbar {
   display: none;
 }
+
 
 .info-section h2 {
   color: #333; /* Can be updated to a specific shade of text-color */
@@ -2663,7 +2690,8 @@ a:hover .district {
   background-color: rgba(var(--white-color-rgb), 0.5);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(var(--white-color-rgb), 0.2);
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   padding: 16px;
   gap: 16px;
   flex-wrap: nowrap;
@@ -2676,6 +2704,7 @@ a:hover .district {
   box-shadow: 0 8px 32px 0 rgba(var(--black-color-rgb), 0.1);
   margin-bottom: 25px;
 }
+
 
 .container-zone.active-drag {
   scroll-behavior: auto;
@@ -2779,6 +2808,8 @@ a:hover .district {
   background-color: rgba(var(--white-color-rgb), 0.5);
   padding: 40px 0 0;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   overflow: hidden;
 }
 
@@ -2814,8 +2845,10 @@ a:hover .district {
   margin-bottom: 30px;
   font-family: shabnamMedium;
   position: relative;
-  border: none;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
 }
+
 
 .footer-section.links ul {
   list-style: none;

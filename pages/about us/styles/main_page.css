@@ -241,8 +241,8 @@ header {
   font-family: shabnamMedium, sans-serif;
   background-image: linear-gradient(
       120deg,
-      rgba(var(--primary-color-rgb), 0.9),
-      rgba(var(--secondary-color-rgb), 0.9)
+      rgba(var(--primary-color-rgb), 0.75),
+      rgba(var(--secondary-color-rgb), 0.75)
     ),
     var(--initial-header-bg-image);
   background-position: center;
@@ -253,8 +253,11 @@ header {
   flex-direction: column;
   color: var(--white-color);
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   animation: headerFadeIn 0.8s ease-out;
 }
+
 
 header.header-exit {
   animation: headerFadeOut 0.8s ease-in forwards;
@@ -370,9 +373,8 @@ header.header-exit {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.fix-navbar-nav {
+	
+/* .fix-navbar-nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -380,8 +382,9 @@ header.header-exit {
   z-index: 1100;
   box-shadow: none;
   animation: slideDown 0.4s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
+  transition: all 0.3s ease-in-out; */
+
+
 
 .main {
   flex-grow: 1;
@@ -898,6 +901,8 @@ a {
 
 .card-button {
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -911,7 +916,6 @@ a {
   border-radius: 18px;
   text-decoration: none;
   color: var(--text-color);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 3px 10px rgba(var(--black-color-rgb), 0.12);
   min-height: 170px;
   overflow: hidden;
@@ -919,6 +923,7 @@ a {
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
 }
+
 
 .card-button::before {
   content: "";
@@ -1183,10 +1188,13 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   overflow: hidden;
   z-index: 1;
   box-shadow: 0 2px 8px rgba(var(--black-color-rgb), 0.1);
 }
+
 
 .pms-swiper-pagination-bullet-active {
   color: #333;
@@ -1197,7 +1205,6 @@ a {
   /* Removed yellow box-shadow */
   box-shadow: 0 4px 15px rgba(var(--secondary-color-rgb), 0.3); /* Changed to a more subtle secondary color shadow */
 }
-
 .pms-progress-circle-svg {
   position: absolute;
   top: 0;
@@ -1214,6 +1221,7 @@ a {
   fill: none;
   transform-origin: center;
 }
+
 
 .pms-background-circle {
   stroke: #eee;
@@ -1247,10 +1255,13 @@ a {
 
 .pms-bullet-number {
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   z-index: 3;
   color: #333;
   transition: color 0.3s ease;
 }
+
 
 .pms-swiper-pagination-bullet-active .pms-bullet-number {
   color: #333;
@@ -1421,8 +1432,11 @@ a {
   width: 90px;
   height: 90px;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   margin: 0 auto;
 }
+
 
 .stat-circle-svg {
   background-color: var(--white-color); /* Updated */
@@ -1687,10 +1701,13 @@ a {
   justify-content: center;
   align-items: center;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   overflow: hidden;
   z-index: 1;
   box-shadow: 0 2px 8px rgba(var(--black-color-rgb), 0.1);
 }
+
 
 .shiraz-news-swiper-pagination-bullet-active {
   color: #333;
@@ -1747,10 +1764,13 @@ a {
 
 .shiraz-news-bullet-number {
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   z-index: 3;
   color: #333;
   transition: color 0.3s ease;
 }
+
 
 .shiraz-news-swiper-pagination-bullet-active .shiraz-news-bullet-number {
   color: #333;
@@ -1900,96 +1920,91 @@ a {
     justify-content: center;
     margin-top: 10px;
   }
-
-  .shiraz-news-category-list-item {
-    width: 50%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  .shiraz-news-category-list-item:nth-last-child(1),
-  .shiraz-news-category-list-item:nth-last-child(2) {
-    margin-bottom: 0;
-  }
-
-  .shiraz-news-btn-link {
-    width: calc(100% - 20px); /* Adjust width for margin on smaller screens */
-    margin: 0 auto;
-  }
-
-  .shiraz-news-swiper-pagination {
-    bottom: 10px !important;
-  }
-
-  .shiraz-news-swiper-pagination-bullet {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 0.9rem;
-    margin: 0 5px !important;
-  }
-
-  /* Modal adjustments for smaller screens */
-  .pms-modal-dialog,
-  .shiraz-news-modal-dialog {
-    width: 95vw; /* Almost full width of the viewport */
-    margin: 20px auto; /* Center with some top/bottom margin */
-  }
-
-  .pms-modal-body,
-  .shiraz-news-modal-body {
-    padding: 15px; /* Reduced padding */
-  }
-
-  .pms-modal-title,
-  .shiraz-news-modal-title {
-    font-size: 1.2rem; /* Smaller title */
-  }
-
-  .pms-modal-body p,
-  .shiraz-news-modal-body-text {
-    font-size: 0.9rem; /* Smaller body text */
-  }
-
-  .pms-modal-header,
-  .shiraz-news-modal-header {
-    padding: 15px; /* Reduced header padding */
-  }
-
-  .pms-modal-footer,
-  .shiraz-news-modal-footer {
-    padding: 10px 15px; /* Reduced footer padding */
-  }
+	
+.shiraz-news-category-list-item {
+  width: 50%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.shiraz-news-category-list-item:nth-last-child(1),
+.shiraz-news-category-list-item:nth-last-child(2) {
+  margin-bottom: 0;
 }
 
-/* For even smaller screens, if needed, further adjust button size/position */
+.shiraz-news-btn-link {
+  width: calc(100% - 20px);
+  margin: 0 auto;
+}
+
+.shiraz-news-swiper-pagination {
+  bottom: 10px !important;
+}
+
+.shiraz-news-swiper-pagination-bullet {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 0.9rem;
+  margin: 0 5px !important;
+}
+
+.pms-modal-dialog,
+.shiraz-news-modal-dialog {
+  width: 95vw;
+  margin: 20px auto;
+}
+
+.pms-modal-body,
+.shiraz-news-modal-body {
+  padding: 15px;
+}
+
+.pms-modal-title,
+.shiraz-news-modal-title {
+  font-size: 1.2rem;
+}
+
+.pms-modal-body p,
+.shiraz-news-modal-body-text {
+  font-size: 0.9rem;
+}
+
+.pms-modal-header,
+.shiraz-news-modal-header {
+  padding: 15px;
+}
+
+.pms-modal-footer,
+.shiraz-news-modal-footer {
+  padding: 10px 15px;
+}
+
 @media (max-width: 575.98px) {
-  /* Further adjustment for the first slider (pms-swiper) on very small screens */
   .pms-swiper {
-    height: 250px; /* Make it even smaller */
+    height: 250px;
   }
 
   .pms-swiper-slide {
-    height: 230px !important; /* Adjust slide height */
+    height: 230px !important;
   }
 
   .pms-swiper-button-prev,
   .pms-swiper-button-next {
-    width: 35px; /* Even smaller on very small mobile */
-    height: 35px; /* Even smaller on very small mobile */
+    width: 35px;
+    height: 35px;
   }
 
   .pms-swiper-button-prev::after,
   .pms-swiper-button-next::after {
-    font-size: 1rem; /* Even smaller icon on very small mobile */
+    font-size: 1rem;
   }
 
-  /* Further adjustment for the second slider (shiraz-news-swiper) on very small screens */
   .shiraz-news-swiper {
-    height: 250px; /* Make it even smaller */
+    height: 250px;
   }
 
   .swiper-slide {
-    height: 230px !important; /* Adjust slide height */
+    height: 230px !important;
   }
 
   .shiraz-news-swiper-button-prev,
@@ -1998,339 +2013,12 @@ a {
     height: 30px;
     font-size: 1.2rem;
   }
+
   .shiraz-news-swiper-button-prev::after,
   .shiraz-news-swiper-button-next::after {
     font-size: 1.2rem;
   }
 }
-
-/* end slider 2 */
-
-/* cart */
-.card {
-  /* No fixed width here; Bootstrap columns handle width. Height is auto, adapting to content. */
-  height: auto; /* Let content define height */
-  border-radius: 20px 100px 20px 100px !important; /* Specific rounded corners from your provided code */
-  overflow: hidden;
-  border-width: 1px 2px 3px 1px; /* Specific border width from your provided code */
-  border-style: solid; /* Specific border style from your provided code */
-  border-color: var(--text-color); /* Updated */
-  box-shadow: 5px 10px 25px rgba(var(--black-color-rgb), 0.25),
-    0px 4px 4px rgba(var(--black-color-rgb), 0.25); /* Specific shadow from your provided code */
-  margin-bottom: var(
-    --bs-gutter-y,
-    24px
-  ); /* Use Bootstrap gutter variable for vertical spacing */
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  margin-bottom: 25px; /* Transition for hover effect */
-}
-
-.card:hover {
-  transform: translateY(-5px); /* Lift card slightly on hover */
-  box-shadow: 8px 15px 30px rgba(var(--black-color-rgb), 0.3),
-    0px 6px 6px rgba(var(--black-color-rgb), 0.3); /* Enhanced shadow on hover */
-}
-
-.card-img-top {
-  height: 180px; /* Default height for card images */
-  width: 95%; /* Default width for card images */
-  object-fit: cover; /* Ensures image covers the area without distortion */
-  margin: 10px 10px 0 0; /* Default margin for card images */
-  border-radius: 15px 90px 20px 20px; /* Specific rounded corners from your provided code */
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  padding: 20px; /* Default padding for card body */
-  flex-grow: 1; /* Allows card body to expand and push content to bottom */
-}
-
-.card-title {
-  font-family: shabnamBold, sans-serif;
-  color: #333;
-  font-weight: bold;
-  font-size: 1.25em;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.card-text {
-  font-family: shabnamLight, sans-serif;
-  font-size: 1.05em;
-  line-height: 1.5em;
-  margin-right: 10px;
-  margin-top: 60px;
-  text-align: justify;
-  margin-bottom: 15px;
-  color: #555;
-  flex-grow: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  line-clamp: 5;
-  -webkit-box-orient: vertical;
-}
-
-/* Styles for the bottom panel */
-.bottom-panel {
-  width: 100%;
-  border-top: 1px solid #eee; /* Can be updated to a lighter background color */
-  padding-top: 15px; /* Default top padding */
-  display: flex;
-  justify-content: space-around; /* Distributes items evenly */
-  align-items: center;
-  margin-top: auto; /* Pushes the panel to the bottom of the card body */
-}
-
-.bottom-panel .like {
-  display: flex;
-  flex-direction: column; /* Stacks icon and text vertically */
-  justify-content: space-between;
-  gap: 5px; /* Space between icon and text */
-  align-items: center;
-  margin-top: 15px;
-  margin-bottom: 20px; /* Default bottom margin */
-  color: var(--accent-1-color); /* Updated */
-}
-
-.bottom-panel .like i {
-  font-size: 1.1em; /* Font size for like icon */
-}
-
-.bottom-panel .like small {
-  /* Ensure 'shabnamLight' font is imported or it will fall back to sans-serif */
-  font-family: shabnamLight, sans-serif;
-  font-size: 0.75em; /* Font size for like count */
-  color: #555 !important; /* Specific color with !important from your provided code */
-  font-weight: normal;
-  /* --dynamic-text-color was not defined, using static color for visibility */
-}
-
-.bottom-panel .information {
-  width: 80%; /* Default width for information panel */
-  padding: 10px 30px; /* Default padding for information panel */
-  box-shadow: 2px 3px 2px rgba(var(--black-color-rgb), 0.25); /* Specific shadow from your provided code */
-  border-radius: 10px 70px; /* Specific rounded corners from your provided code */
-  display: flex;
-  justify-content: space-between; /* Distributes stat items evenly */
-  align-items: center;
-  flex-grow: 1; /* Allows information panel to take available space */
-  margin-right: 20px; /* Default right margin */
-  margin-left: 0; /* Ensures correct RTL behavior */
-}
-
-.bottom-panel .information > div {
-  display: flex;
-  flex-direction: column; /* Stacks value and label vertically */
-  align-items: center;
-  white-space: nowrap; /* Prevents text wrapping for values/labels */
-}
-
-.bottom-panel .information small {
-  /* Ensure 'shabnamBold' font is imported or it will fall back to sans-serif */
-  font-family: shabnamBold, sans-serif;
-  display: block;
-  font-weight: bold;
-  font-size: 1em; /* Font size for stat values */
-  color: #333 !important; /* Specific color with !important, adjusted for visibility */
-  /* --dynamic-text-color was not defined, using static color for visibility */
-}
-
-.bottom-panel .information p {
-  /* Ensure 'shabnamMedium' font is imported or it will fall back to sans-serif */
-  font-family: shabnamMedium, sans-serif;
-  font-size: 0.8em; /* Font size for stat labels */
-  color: #777; /* Can be updated to a specific shade of text-color */
-  margin-bottom: 0px;
-  font-weight: bold;
-  line-height: 1.2em;
-  color: #555 !important; /* Specific color with !important, adjusted for visibility */
-  /* --dynamic-text-color was not defined, using static color for visibility */
-}
-
-/* Media Queries for responsiveness */
-
-/* For devices between 992px and 1199.98px (Medium Desktops/Large Tablets Landscape) */
-@media (max-width: 1199.98px) {
-  .card {
-    height: 500px; /* Adjusted height for this breakpoint */
-  }
-  .card-img-top {
-    height: 140px;
-  }
-  .card-title {
-    font-size: 1.1em;
-  }
-  .card-text {
-    margin-top: 40px;
-    font-size: 0.9em;
-    line-height: 1.3em;
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
-  }
-  .card-body {
-    padding: 18px;
-  }
-  .bottom-panel {
-    margin-top: 60px;
-    padding-top: 12px;
-  }
-  .bottom-panel .information small {
-    font-size: 0.9em;
-  }
-  .bottom-panel .information p {
-    font-size: 0.7em;
-  }
-}
-
-/* For devices between 768px and 991.98px (Small Desktops/Tablets Landscape) */
-@media (max-width: 991.98px) {
-  .card {
-    height: 450px; /* Adjusted height for this breakpoint */
-  }
-  .card-img-top {
-    height: 100px;
-  }
-  .card-title {
-    font-size: 1em;
-  }
-  .card-text {
-    font-size: 0.75em;
-    line-height: 1.2em;
-    margin-top: 25px;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-  }
-  .card-body {
-    padding: 15px;
-  }
-  .bottom-panel {
-    margin-top: 30px;
-    padding-top: 10px;
-  }
-  .bottom-panel .like i {
-    font-size: 0.9em;
-  }
-  .bottom-panel .like small {
-    font-size: 0.6em;
-  }
-  .bottom-panel .information {
-    padding: 6px 12px;
-  }
-  .bottom-panel .information small {
-    font-size: 0.7em;
-  }
-  .bottom-panel .information p {
-    font-size: 0.5em;
-  }
-}
-
-/* For devices between 576px and 767.98px (Small Tablets/Large Phones Landscape) */
-@media (max-width: 767.98px) {
-  /* For screens smaller than 768px, Bootstrap's col-sm-6 will make two columns. */
-  .card {
-    height: auto; /* Let height adjust to content */
-    min-height: 280px; /* Maintain a minimum height */
-    border-radius: 16px !important; /* Specific border-radius */
-  }
-  .card-img-top {
-    height: 70px;
-    width: calc(100% - 20px);
-    margin: 8px auto 0 auto;
-    border-radius: 8px 40px 8px 8px;
-  }
-  .card-title {
-    font-size: 0.9em;
-    margin-bottom: 6px;
-    margin-top: 6px;
-  }
-  .card-text {
-    font-size: 0.7em;
-    line-height: 1.1em;
-    margin-bottom: 6px;
-    margin-top: 12px;
-    margin-right: 0;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    line-clamp: 3; /* Standard property for compatibility */
-  }
-  .card-body {
-    padding: 8px;
-  }
-  .bottom-panel {
-    padding-top: 5px;
-    margin-top: 10px;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    gap: 8px;
-  }
-  .bottom-panel .like {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 8px;
-  }
-  .bottom-panel .information {
-    padding: 5px 8px;
-    margin-right: 0;
-    border-radius: 8px 40px;
-  }
-  .bottom-panel .like i {
-    font-size: 0.75em;
-  }
-  .bottom-panel .like small {
-    font-size: 0.5em;
-  }
-  .bottom-panel .information small {
-    font-size: 0.6em;
-  }
-  .bottom-panel .information p {
-    font-size: 0.4em;
-  }
-}
-
-/* For small mobile devices (Phones Portrait) - Below 576px */
-@media (max-width: 575.98px) {
-  /* Overriding Bootstrap's col-12 to ensure two columns (50% width) on extra small screens */
-  .col-12.col-sm-6.col-md-4 {
-    /* Targeting the actual Bootstrap column div used in HTML */
-    width: 40%; /* Force two columns side-by-side */
-    flex-shrink: 0;
-    flex-grow: 0;
-    max-width: 50%;
-    margin-right: 30px;
-    margin-bottom: 20px;
-  }
-
   .card {
     height: auto;
     min-height: 240px;
@@ -2412,10 +2100,13 @@ a {
   min-width: 140px;
   box-sizing: border-box;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 
 .stat-number-section {
   font-size: 28px;
@@ -2663,7 +2354,6 @@ a:hover .district {
   background-color: rgba(var(--white-color-rgb), 0.5);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(var(--white-color-rgb), 0.2);
   padding: 16px;
   gap: 16px;
   flex-wrap: nowrap;
@@ -2671,11 +2361,14 @@ a:hover .district {
   -ms-overflow-style: none;
   scroll-behavior: smooth;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   width: 100%;
   box-sizing: border-box;
   box-shadow: 0 8px 32px 0 rgba(var(--black-color-rgb), 0.1);
   margin-bottom: 25px;
 }
+
 
 .container-zone.active-drag {
   scroll-behavior: auto;
@@ -2779,8 +2472,11 @@ a:hover .district {
   background-color: rgba(var(--white-color-rgb), 0.5);
   padding: 40px 0 0;
   position: relative;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   overflow: hidden;
 }
+
 
 .main-footer::before {
   content: "";
@@ -2814,8 +2510,10 @@ a:hover .district {
   margin-bottom: 30px;
   font-family: shabnamMedium;
   position: relative;
-  border: none;
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
 }
+
 
 .footer-section.links ul {
   list-style: none;
