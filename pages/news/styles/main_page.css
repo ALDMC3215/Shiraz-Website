@@ -36,16 +36,16 @@
 
 :root {
     /* New Color Palette */
-    --primary-color: #D9A829;
-    --primary-pale-color: #FDFBD4;
-    --secondary-color: #CC7722;
-    --secondary-pale-color: #40E0D0;
-    --background-color: #FDFBD4;
-    --accent-1-color: #2E6F40;
+    --primary-color: #C28838;
+    --primary-pale-color: #FFEBC1;
+    --secondary-color: #B75E20;
+    --secondary-pale-color: #FFD3A5;
+    --background-color: #FFF9E6;
+    --accent-1-color: #8C3D1E;
     --black-color: #000000;
     --white-color: #FFFFFF;
-    --text-color: #2E6F40;
-    --footer-background-color: #FDFBD4;
+    --text-color: #333333;
+    --footer-background-color: #F2E2C4;
     /* Old variables - kept for reference or if still used elsewhere */
     --primary-purple: #8a2be2;
     --light-purple: #d8bfd8;
@@ -57,7 +57,7 @@
     /* Variables for Carousel */
     --brand-purple: #7c3aed;
     /* Consider replacing with --primary-color or similar */
-    --brand-light-purple: #D9A829;
+    --brand-light-purple: var(--primary-color);
     /* Consider replacing with --primary-pale-color or similar */
     --autoplay-duration: 4000ms;
     /* NEW: Dynamic Variables for Accessibility Panel Background/Text Colors */
@@ -65,15 +65,20 @@
     --dynamic-card-bg-color: initial;
     --dynamic-text-color: initial;
     --initial-header-bg-image: url('../images/Landing Page.png');
+    /* Added RGB values for rgba() usage */
+    --primary-color-rgb: 194, 136, 56;
+    --secondary-color-rgb: 183, 94, 32;
+    --black-color-rgb: 0, 0, 0;
+    --white-color-rgb: 255, 255, 255;
 
-        --primary-color: #D9A829;
+        --primary-color: #C28838;
     --primary-accent: #40E0D0;
-    --primary-light: #FDFBD4;
-    --background-color: #FDFBD4;
+    --primary-light: var(--background-color);
+    --background-color: #FFF9E6;
     --surface-color: #ffffff;
-    --border-color: #D9A829;
-    --text-primary: #2E6F40;
-    --text-secondary: #CC7722;
+    --border-color: var(--primary-color);
+    --text-primary: var(--accent-1-color);
+    --text-secondary: var(--secondary-color);
     --shadow-color-light: rgba(217, 168, 41, 0.07);
     --shadow-color-medium: rgba(217, 168, 41, 0.14);
     --radius-large: 16px;
@@ -88,7 +93,7 @@
 
 header {
     font-family: shabnamMedium, sans-serif;
-    background-image: var(--initial-header-bg-image);
+    background-image: radial-gradient(circle at 50% 50%, #FFD37E 0%, #D09E3F 60%, #B56A28 100%);
     background-size: 100% 100%, 100% 100%, cover;
     background-repeat: no-repeat;
     height: 50vh;
@@ -96,6 +101,11 @@ header {
     color: var(--text-color);
     position: relative;
     background-color: var(--dynamic-bg-color) !important;
+    animation: headerFadeIn 0.8s ease-out;
+}
+
+header.header-exit {
+    animation: headerFadeOut 0.8s ease-in forwards;
 }
 
 .navbar {
@@ -122,17 +132,14 @@ header {
 }
 
 .navbar-nav .nav-link {
-    color: var(--black-color);
-    /* Updated */
+    color: var(--background-color);
     margin-right: 45px;
-    font-size: 0.9em;
+    font-size: 1rem;
     transition: color 0.3s ease;
-    color: var(--dynamic-text-color) !important;
 }
 
 .navbar-nav .nav-link:hover {
-    color: rgba(0, 0, 0, 0.5) !important;
-    /* Kept black for hover effect, can be updated */
+    color: var(--white-color) !important;
 }
 
 .navbar-nav .nav-link i {
@@ -142,10 +149,8 @@ header {
 
 .navbar-brand {
     color: var(--white-color) !important;
-    /* Updated */
     font-weight: 700;
-    font-size: 1.5em;
-    color: var(--dynamic-text-color) !important;
+    font-size: 1.6em;
 }
 
 @keyframes slideDown {
@@ -157,6 +162,15 @@ header {
         transform: translateY(0);
         opacity: 1;
     }
+}
+@keyframes headerFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes headerFadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
 }
 
 .fix-navbar-nav {
@@ -217,6 +231,7 @@ header {
     align-items: center;
     border-radius: 50%;
     margin-right: 20px;
+    cursor: pointer;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(50px);
 }
@@ -269,10 +284,10 @@ header {
 
 .description-text-head {
     width: 80%;
-    font-size: 1em;
+    font-size: 1.1em;
     line-height: 1.8;
     margin-top: 40px;
-    color: var(--dynamic-text-color) !important;
+    color: var(--white-color) !important;
 }
 
 .botom-img {
@@ -917,7 +932,7 @@ body{
 
 .social-icons a {
     color: var(--text-color);
-    background-color: #FDFBD4;
+    background-color: var(--background-color);
     width: 40px;
     height: 40px;
     display: flex;
