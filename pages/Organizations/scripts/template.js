@@ -5,13 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const headerHeight = header.offsetHeight;
 
-    window.addEventListener("scroll", function () {
-        if (window.scrollY >= headerHeight) {
-            navbar.classList.add("fix-navbar-nav");
-        } else {
-            navbar.classList.remove("fix-navbar-nav");
-        }
-    });
    
 });
 
