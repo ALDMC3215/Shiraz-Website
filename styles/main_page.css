@@ -238,19 +238,11 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
     background-color: #c82333;
 }
 
-
-
-
-/* malol */
-
-
-
-
 /* header */
 
 header {
     font-family: shabnamMedium, sans-serif;
-    background-image: var(--initial-header-bg-image);
+    background-image: radial-gradient(circle at 50% 50%, #FFD700 0%, #D9A829 60%, #B8860B 100%);
     background-size: 100% 100%, 100% 100%, cover;
     background-repeat: no-repeat;
     height: 100vh;
