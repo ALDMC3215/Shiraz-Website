@@ -793,8 +793,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // For production, you might just hide the section or display a message.
     } else {
         const SCROLL_SPEED = 1;
-        const INTERVAL_TIME = 15;
-        let autoplayZoneInterval = null;
+        let autoplayZoneRequest = null;
 
         // Clone and append/prepend for infinite scroll effect
         originalZoneBoxes.forEach(box => {
@@ -824,19 +823,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // When scrolling past the original content, jump back to the start of the cloned content
             if (zoneContainer.scrollLeft >= originalContentWidth * 2) {
-                zoneContainer.classList.add('no-smooth-scroll'); // Temporarily disable smooth scroll for instant jump
+                zoneContainer.classList.add('no-smooth-scroll');
                 zoneContainer.scrollLeft = originalContentWidth;
                 zoneContainer.classList.remove('no-smooth-scroll');
             }
+
+            autoplayZoneRequest = requestAnimationFrame(continuousScroll);
         }
 
         function startAutoplay() {
-            stopAutoplay(); // Clear any existing interval
-            autoplayZoneInterval = setInterval(continuousScroll, INTERVAL_TIME);
+            stopAutoplay();
+            autoplayZoneRequest = requestAnimationFrame(continuousScroll);
         }
 
         function stopAutoplay() {
-            clearInterval(autoplayZoneInterval);
+            cancelAnimationFrame(autoplayZoneRequest);
         }
 
         allZoneBoxes.forEach((link) => {
@@ -866,6 +867,14 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             zoneContainer.scrollLeft = originalContentWidth;
             startAutoplay();
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
+            }
         });
 
         startAutoplay(); // Start autoplay when the DOM is loaded
