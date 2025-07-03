@@ -3,6 +3,7 @@
 @font-face {
   font-family: shabnam;
   src: url("../fonts/Shabnam.ttf") format("truetype");
+
   font-weight: normal;
   font-display: swap;
 }
@@ -29,6 +30,10 @@
   src: url("../fonts/NotoNastaliqUrdu-Regular.ttf") format("truetype");
   font-weight: normal;
   font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 :root {
