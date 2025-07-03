@@ -258,6 +258,7 @@ header {
   animation: headerFadeIn 0.8s ease-out;
 }
 
+
 header.header-exit {
   animation: headerFadeOut 0.8s ease-in forwards;
 }
@@ -361,8 +362,7 @@ header.header-exit {
     opacity: 0;
     transform: translateY(-20px);
   }
-}
-
+	
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -373,6 +373,18 @@ header.header-exit {
     transform: translateY(0);
   }
 }
+
+.fix-navbar-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  box-shadow: none;
+  animation: slideDown 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
 
 
 .main {
@@ -905,7 +917,6 @@ a {
   border-radius: 18px;
   text-decoration: none;
   color: var(--text-color);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 3px 10px rgba(var(--black-color-rgb), 0.12);
   min-height: 170px;
   overflow: hidden;
@@ -913,6 +924,7 @@ a {
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
 }
+
 
 .card-button::before {
   content: "";
@@ -1184,6 +1196,7 @@ a {
   box-shadow: 0 2px 8px rgba(var(--black-color-rgb), 0.1);
 }
 
+
 .pms-swiper-pagination-bullet-active {
   color: #333;
   background-color: var(
@@ -1249,6 +1262,7 @@ a {
   color: #333;
   transition: color 0.3s ease;
 }
+
 
 .pms-swiper-pagination-bullet-active .pms-bullet-number {
   color: #333;
@@ -1423,6 +1437,7 @@ a {
   border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   margin: 0 auto;
 }
+
 
 .stat-circle-svg {
   background-color: var(--white-color); /* Updated */
@@ -1694,6 +1709,7 @@ a {
   box-shadow: 0 2px 8px rgba(var(--black-color-rgb), 0.1);
 }
 
+
 .shiraz-news-swiper-pagination-bullet-active {
   color: #333;
   background-color: var(--secondary-color); /* Changed from #FFD700 */
@@ -1755,6 +1771,7 @@ a {
   color: #333;
   transition: color 0.3s ease;
 }
+
 
 .shiraz-news-swiper-pagination-bullet-active .shiraz-news-bullet-number {
   color: #333;
@@ -2407,7 +2424,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--white-color); /* Updated */
+  color: var(--white-color);
   text-align: center;
   padding: 10px 0;
   flex-shrink: 0;
@@ -2422,6 +2439,7 @@ a {
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 
 .stat-number-section {
   font-size: 28px;
@@ -2476,20 +2494,22 @@ a {
   .stat-item {
     min-width: 130px; /* ممکن است نیاز به حفظ این min-width باشد */
   }
+	
+	
+	
 }
 
 @media (max-width: 575.98px) {
   /* از sm به پایین (موبایل) */
   .stats-container {
-    gap: 3px; /* گپ بسیار کم برای موبایل‌های کوچک */
-    padding: 0 3px; /* پدینگ افقی کانتینر برای استفاده حداکثری از فضا */
+    gap: 3px;
+    padding: 0 3px;
   }
   .stats-section {
-    padding: 30px 3px; /* پدینگ کمتر در موبایل */
+    padding: 30px 3px;
   }
   .stat-item {
-    min-width: 120px; /* این مقدار نهایی برای موبایل‌های بسیار کوچک است. اگر باز هم مشکل داشت،
-                                باید این را کم کم کاهش دهید یا font-size clamp() را تهاجمی‌تر کنید. */
+    min-width: 120px;
   }
 }
 
@@ -2529,6 +2549,7 @@ a {
 .info-section::-webkit-scrollbar {
   display: none;
 }
+
 
 .info-section h2 {
   color: #333; /* Can be updated to a specific shade of text-color */
@@ -2669,7 +2690,8 @@ a:hover .district {
   background-color: rgba(var(--white-color-rgb), 0.5);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(var(--white-color-rgb), 0.2);
+  border: 3px solid;
+  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   padding: 16px;
   gap: 16px;
   flex-wrap: nowrap;
@@ -2677,13 +2699,12 @@ a:hover .district {
   -ms-overflow-style: none;
   scroll-behavior: smooth;
   position: relative;
-  border: 3px solid;
-  border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
   width: 100%;
   box-sizing: border-box;
   box-shadow: 0 8px 32px 0 rgba(var(--black-color-rgb), 0.1);
   margin-bottom: 25px;
 }
+
 
 .container-zone.active-drag {
   scroll-behavior: auto;
@@ -2826,8 +2847,8 @@ a:hover .district {
   position: relative;
   border: 3px solid;
   border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
-  border: none;
 }
+
 
 .footer-section.links ul {
   list-style: none;

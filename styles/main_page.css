@@ -258,6 +258,7 @@ header {
   animation: headerFadeIn 0.8s ease-out;
 }
 
+
 header.header-exit {
   animation: headerFadeOut 0.8s ease-in forwards;
 }
