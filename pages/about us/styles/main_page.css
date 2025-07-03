@@ -36,16 +36,16 @@
 
 :root {
     /* New Color Palette */
-    --primary-color: #D9A829;
-    --primary-pale-color: #FDFBD4;
-    --secondary-color: #CC7722;
-    --secondary-pale-color: #40E0D0;
-    --background-color: #FDFBD4;
-    --accent-1-color: #2E6F40;
+    --primary-color: #C28838;
+    --primary-pale-color: #FFEBC1;
+    --secondary-color: #B75E20;
+    --secondary-pale-color: #FFD3A5;
+    --background-color: #FFF9E6;
+    --accent-1-color: #8C3D1E;
     --black-color: #000000;
     --white-color: #FFFFFF;
-    --text-color: #2E6F40;
-    --footer-background-color: #FDFBD4;
+    --text-color: #333333;
+    --footer-background-color: #F2E2C4;
     --primary-purple: #8a2be2;
     --light-purple: #d8bfd8;
     --lighter-purple: #e6e6fa;
@@ -59,13 +59,18 @@
     --dynamic-card-bg-color: initial;
     --dynamic-text-color: initial;
     --initial-header-bg-image: url('../images/Landing Page.png');
-    --primary-color: #D9A829;
+    /* Added RGB values for rgba() usage */
+    --primary-color-rgb: 194, 136, 56;
+    --secondary-color-rgb: 183, 94, 32;
+    --black-color-rgb: 0, 0, 0;
+    --white-color-rgb: 255, 255, 255;
+    --primary-color: #C28838;
     --primary-color-light: #aeb2ff;
-    --secondary-color: #CC7722;
+    --secondary-color: #B75E20;
     --secondary-color-light: #ffe783;
     --text-primary: #333733;
     --text-secondary: #5c615c;
-    --background-color: #FDFBD4;
+    --background-color: #FFF9E6;
     --surface-color: #ffffff;
     --border-color: #eaeaea;
     --shadow-color: rgba(90, 100, 120, 0.1);
@@ -694,7 +699,7 @@ header {
 
 .social-icons a {
   color: var(--text-color);
-  background-color: #FDFBD4;
+  background-color: var(--background-color);
   width: 40px;
   height: 40px;
   display: flex;
@@ -782,7 +787,7 @@ header {
 
 body {
     font-family: "Vazirmatn", sans-serif;
-    background: linear-gradient( 300deg, var(--background-color), #FDFBD4, var(--background-color));
+    background: linear-gradient( 300deg, var(--background-color), var(--background-color), var(--background-color));
     background-size: 200% 200%;
     animation: animated-bg 35s ease infinite;
     color: var(--text-primary);
