@@ -586,6 +586,19 @@ document.addEventListener("DOMContentLoaded", function () {
     startAutoplay();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card-button');
+    const cardObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    cards.forEach(card => cardObserver.observe(card));
+});
+
 // zone
 
 

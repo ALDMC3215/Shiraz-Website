@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
         statsObserver.observe(item);
     });
 
-    const fadeItems = document.querySelectorAll('.card-item, .stat-item');
+    const fadeItems = document.querySelectorAll('.card-item, .stat-item, .card-button');
     const fadeObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
