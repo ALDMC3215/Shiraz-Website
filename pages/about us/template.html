@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شهرداری شیراز</title>
 
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../../styles/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="styles/main_page.css">
+    <link rel="stylesheet" href="../../styles/main_page.css">
 
 </head>
 
@@ -18,141 +18,161 @@
 
     <!-- Header -->
 
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
 
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-
-
-                <div class=" container collapse navbar-collapse mt-3" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="../../main_page.html"><i class="fas fa-home"></i> صفحه اصلی</a>
-                        </li>
-                        <!-- شهرداری شیراز -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownShiraz" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user"></i> شهرداری شیراز
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownShiraz">
+    <!-- header -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="sm-icon d-flex align-items-center d-lg-none">
+                <span class="fs-5 text-white">
+                    <i class="fas fa-search"></i>
+                </span>
+                <a href="../ai.html">
+                    <img src="../../images/icon/AI Button.png" alt="">
+                </a>
+            </div>
+            <div class=" container collapse navbar-collapse mt-3" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../../main_page.html"><i class="fas fa-home"></i> صفحه اصلی</a>
+                    </li>
+                    <!-- شهرداری شیراز -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownShiraz" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user"></i> شهرداری شیراز
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownShiraz">
+                            <li>
                                 <div class="mayor-profile">
                                     <div class="mayor-image-wrapper">
-                                        <img src="images/shardar.jpg" alt="عکس شهردار" class="mayor-image">
+                                        <img src="../../images/shardar.jpg" alt="عکس شهردار" class="mayor-image">
                                     </div>
                                     <div>
                                         <h4 class="mayor-name">محمدحسن اسدی</h4>
                                         <p class="mayor-title">شهردار شیراز</p>
                                     </div>
                                 </div>
+                            </li>
+                            <li>
                                 <hr class="dropdown-divider">
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-building"></i>درباره شهرداری</a></li>
-                                <li><a class="dropdown-item" href="../past-mayour/template.html"><i class="fas fa-users"></i>شهرداران پیشین</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-sitemap"></i>ساختار سازمانی</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-scroll"></i>مصوبات شورای شهر</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-file-pen"></i>تدوین برنامه راهبردی شهر</a></li>
-                                <!-- <li><a class="dropdown-item" href="#"><i class="fas fa-comment-alt"></i> پیام شهردار</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-scroll"></i> منشور اخلاقی</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-phone-alt"></i> تماس با شهردار</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-sitemap"></i> ساختار سازمانی</a></li> -->
-                            </ul>
-                        </li>
-                        <!-- خدمات الکترونیک -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownServices" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-desktop"></i> خدمات الکترونیک
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownServices">
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 5px;" class="fas fa-file-invoice-dollar"></i> پرداخت عوارض نوسازی</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-car-side"></i> پرداخت عوارض خودرو</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-users-cog"></i> شهروند سپاری</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-folder-open"></i> استعلام پرونده‌ها</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 2px;" class="fas fa-concierge-bell"></i> میز خدمت الکترونیک</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 2px;" class="fas fa-phone-volume"></i> سامانه ۱۳۷</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-file-signature"></i> ثبت شکایت و پیگیری</a></li>
-                            </ul>
-                        </li>
-                        <!-- سازمان ها و معاونت ها -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOrganizations" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-briefcase"></i> سازمان‌ها و معاونت‌ها
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownOrganizations">
-                                <li><a class="dropdown-item" href="../Organizations/template.html"><i class="fas fa-landmark"></i>سازمان ها </a></li>
-                                <li><a class="dropdown-item" href="../Vice-Chancellors/template.html"><i class="fas fa-layer-group"></i> معاونت ها</a></li>
-                                <li><a class="dropdown-item" href="../Offices/template.html"><i style="margin-right: 2px;" class="fas fa-building"></i>ادارات کل</a></li>
-                                <li><a class="dropdown-item" href="../Other/template.html"><i style="margin-right: 2px;" class="fas fa-ellipsis"></i>سایر</a></li>
-                            </ul>
-                        </li>
-                        <!-- تب نقشه و راهنما -->
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMap" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-map-marked-alt"></i> نقشه و راهنما
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMap">
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-map"></i> نقشه مناطق شهری</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-walking"></i> راهنمای مراجعات حضوری</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-map-pin"></i> آدرس ادارات شهرداری</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-star"></i> موقعیت مکان‌های مهم</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-store"></i> راهنمای اماکن خدماتی</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-traffic-light"></i> ترافیک و حمل‌ونقل</a></li>
-                            </ul>
-                        </li> -->
-                        <!-- سامانه ها -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMap" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-grip"></i> سامانه ها
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMap">
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 2px;" class="fas fa-file-import"></i>نظام جامع پذیرش و بررسی پیشنهادها</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-road"></i>سامانه مدیریت و نام گذاری منابع</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 2px;" class="fas fa-book-atlas"></i>سامانه جامع قوانین و مقررات شهرداری</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 2px;" class="fas fa-tree-city"></i>سامانه کاشت درخت</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 2px;" class="fas fa-users"></i>سامانه سرو</a></li>
-                            </ul>
-                        </li>
-                        <!-- اخبار و رسانه -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNews" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-newspaper"></i> اخبار و رسانه
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownNews">
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 1px;" class="fas fa-bullhorn"></i> اخبار شهرداری</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 2px;" class="fas fa-exclamation-circle"></i> اطلاعیه‌ها</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 1px;" class="fas fa-camera-retro"></i> گزارش تصویری</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-video"></i> گزارش ویدئویی</a></li>
-                                <li><a class="dropdown-item" href="../news/template.html"><i style="margin-right: 2px;" class="fas fa-archive"></i>پرتال خبری</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="margin-right: 3px;" class="fas fa-calendar-alt"></i> مناسبت‌ها و رویدادها</a></li>
-                            </ul>
-                        </li>
-                        <!-- درباره ما -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContact" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-circle-info"></i> درباره ما
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownContact">
-                                <li><a style="margin-right: 2px;" class="dropdown-item" href="#"><i class="fas fa-circle-info"></i> اطلاعات شهرداری</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-scale-balanced"></i> قوانین و مقررات</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-rectangle-list"></i> راهبردهای موضوعی</a></li>
-                                <li><a style="margin-right: 2px;" class="dropdown-item" href="#"><i class="fas fa-shield-heart"></i> منشور اخلاقی کارکنان</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                            </li>
+                            <li><a class="dropdown-item mr-3" href="../about us/template.html"><i class="fas fa-building"></i>درباره شهرداری</a></li>
+                            <li><a class="dropdown-item" href="../past-mayour/template.html"><i class="fas fa-users"></i>شهرداران پیشین</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sitemap"></i>ساختار سازمانی</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-scroll"></i>مصوبات شورای شهر</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-pen"></i>تدوین برنامه
+                                    راهبردی شهر</a></li>
+                        </ul>
+                    </li>
+                    <!-- خدمات الکترونیک -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownServices" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-desktop"></i> خدمات الکترونیک
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownServices">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-invoice-dollar icon-margin-right"></i> پرداخت عوارض
+                                    نوسازی</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-car-side"></i> پرداخت عوارض
+                                    خودرو</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-users-cog"></i> شهروند سپاری</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-folder-open"></i> استعلام
+                                    پرونده‌ها</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-concierge-bell icon-margin-right"></i> میز خدمت الکترونیک</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-phone-volume icon-margin-right"></i> سامانه ۱۳۷</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-signature"></i> ثبت شکایت و
+                                    پیگیری</a></li>
+                        </ul>
+                    </li>
+                    <!-- سازمان ها و معاونت ها -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOrganizations" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-briefcase"></i> سازمان‌ها و معاونت‌ها
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownOrganizations">
+                            <li><a class="dropdown-item" href="../Organizations/template.html"><i class="fas fa-landmark"></i>سازمان ها </a></li>
+                            <li><a class="dropdown-item" href="../Vice-Chancellors/template.html"><i class="fas fa-layer-group"></i> معاونت ها</a></li>
+                            <li><a class="dropdown-item" href="../Offices/template.html"><i class="fas fa-building icon-margin-right-2"></i>ادارات کل</a></li>
+                            <li><a class="dropdown-item" href="../Other/template.html"><i class="fas fa-ellipsis icon-margin-right-2"></i>سایر</a></li>
+                        </ul>
+                    </li>
+                    <!-- سامانه ها -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMap" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-grip"></i> سامانه ها
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMap">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-import icon-margin-right"></i>نظام جامع پذیرش و بررسی
+                                    پیشنهادها</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-road"></i>سامانه مدیریت و نام
+                                    گذاری منابع</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-book-atlas icon-margin-right-2"></i>سامانه جامع قوانین و
+                                    مقررات شهرداری</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-tree-city icon-margin-right-2"></i>سامانه کاشت درخت</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-users icon-margin-right-2"></i>سامانه سرو</a></li>
+                        </ul>
+                    </li>
+                    <!-- اخبار و رسانه -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNews" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-newspaper"></i> اخبار و رسانه
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownNews">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-bullhorn icon-margin-right-1"></i> اخبار شهرداری</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-exclamation-circle icon-margin-right-2"></i> اطلاعیه‌ها</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-camera-retro icon-margin-right-1"></i> گزارش تصویری</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-video"></i> گزارش ویدئویی</a>
+                            </li>
+                            <li><a class="dropdown-item" href="../news/template.html"><i class="fas fa-archive icon-margin-right-2"></i>پرتال خبری</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-calendar-alt icon-margin-right-3"></i> مناسبت‌ها و
+                                    رویدادها</a></li>
+                        </ul>
+                    </li>
+                    <!-- درباره ما -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../about us/template.html" id="navbarDropdownContact" role="button" aria-expanded="false">
+                            <i class="fas fa-circle-info"></i> درباره ما
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownContact">
+                            <li><a class="dropdown-item mr-2" href="../about us/template.html"><i class="fas fa-circle-info"></i> اطلاعات شهرداری</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-scale-balanced"></i> قوانین و
+                                    مقررات</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-rectangle-list"></i> راهبردهای
+                                    موضوعی</a></li>
+                            <li><a class="dropdown-item mr-2" href="#"><i class="fas fa-shield-heart"></i> منشور
+                                    اخلاقی کارکنان</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </nav>
-
-        <div class="main">
-            <img style="width: 300px;" class="logo-text" src="images/title 6.png" alt="َشهرداری شیراز">
-
-
         </div>
-    </header>
+    </nav>
 
-    <!-- header -->
+    <div class="main">
+        <div class="search-container d-none d-lg-flex">
+            <div class="serach">
+                <input type="text" class="form-control search-input" placeholder="جست و جو...">
+                <i class="fas fa-search"></i>
+            </div>
+            <a href="../ai.html" class="ai" title="دسترسی به هوش مصنوعی شهرداری شیراز">
+                <span>
+                    <img src="../../images/icon/AI Button.png" alt="">
+                </span>
+            </a>
+        </div>
+        <img class="logo-text" src="../../images/City TypoLogo.png" alt="َشهرداری شیراز">
+        <p class="description-text-head">
+            شیراز، قلب فرهنگی ایران و یکی از قطب‌های بزرگ علمی، تاریخی، گردشگری و اقتصادی جنوب کشور است.
+        </p>
+        <img class="botom-img" src="../../images/shahcheragh.png" alt="">
+    </div>
+</header>
 
 
 
@@ -329,7 +349,6 @@
             </section>
         </main>
 
-    </body>
     <!-- End Body -->
 
 
@@ -382,8 +401,8 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="scripts/bootstrap.bundle.min.js"></script>
-    <script src="scripts/all.min.js"></script>
+    <script src="../../scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../scripts/all.min.js"></script>
     <script src="scripts/template.js"></script>
 </body>
 
