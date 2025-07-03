@@ -67,10 +67,9 @@
 }
 
 
-
 header {
     font-family: shabnamMedium, sans-serif;
-    background-image: var(--initial-header-bg-image);
+    background-image: radial-gradient(circle at 50% 50%, #FFD37E 0%, #D09E3F 60%, #B56A28 100%);
     background-size: 100% 100%, 100% 100%, cover;
     background-repeat: no-repeat;
     height: 50vh;
@@ -78,8 +77,12 @@ header {
     color: var(--text-color);
     position: relative;
     background-color: var(--dynamic-bg-color) !important;
+    animation: headerFadeIn 0.8s ease-out;
 }
 
+header.header-exit {
+    animation: headerFadeOut 0.8s ease-in forwards;
+}
 .navbar {
     position: relative;
     z-index: 1050;
@@ -103,19 +106,15 @@ header {
 }
 
 .navbar-nav .nav-link {
-    color: var(--black-color);
-    /* Updated */
+    color: var(--background-color);
     margin-right: 45px;
-    font-size: 0.9em;
+    font-size: 1rem;
     transition: color 0.3s ease;
-    color: var(--dynamic-text-color) !important;
 }
 
 .navbar-nav .nav-link:hover {
-    color: rgba(0, 0, 0, 0.5) !important;
-    /* Kept black for hover effect, can be updated */
+    color: var(--white-color) !important;
 }
-
 .navbar-nav .nav-link i {
     margin-left: 8px;
     font-size: 1.1em;
@@ -125,8 +124,8 @@ header {
     color: var(--white-color) !important;
     /* Updated */
     font-weight: 700;
-    font-size: 1.5em;
-    color: var(--dynamic-text-color) !important;
+    font-size: 1.6em;
+    
 }
 
 @keyframes slideDown {
@@ -138,6 +137,15 @@ header {
         transform: translateY(0);
         opacity: 1;
     }
+}
+@keyframes headerFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes headerFadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
 }
 
 .fix-navbar-nav {
@@ -198,6 +206,7 @@ header {
     align-items: center;
     border-radius: 50%;
     margin-right: 20px;
+    cursor: pointer;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(50px);
 }
@@ -250,10 +259,10 @@ header {
 
 .description-text-head {
     width: 80%;
-    font-size: 1em;
+    font-size: 1.1em;
     line-height: 1.8;
     margin-top: 40px;
-    color: var(--dynamic-text-color) !important;
+    color: var(--white-color) !important;
 }
 
 .botom-img {

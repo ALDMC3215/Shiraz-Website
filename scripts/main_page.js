@@ -9,8 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", function () {
         if (window.scrollY >= headerHeight) {
             navbar.classList.add("fix-navbar-nav");
+            header.classList.add("header-exit");
         } else {
             navbar.classList.remove("fix-navbar-nav");
+            header.classList.remove("header-exit");
         }
     });
 
@@ -230,6 +232,18 @@ document.addEventListener("DOMContentLoaded", function () {
     statItems.forEach(item => {
         statsObserver.observe(item);
     });
+
+    const fadeItems = document.querySelectorAll('.card-item, .stat-item');
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    fadeItems.forEach(el => fadeObserver.observe(el));
 
     // --- Slider 2 Logic (shiraz-news-swiper) ---
     const shirazNewsSliderData = {
