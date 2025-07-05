@@ -945,7 +945,7 @@ a {
   box-shadow: 0 12px 24px rgba(var(--black-color-rgb), 0.18);
   border-color: rgba(255, 255, 255, 0.4);
   background-color: rgba(255, 255, 255, 0.7);
-  color: #40E0D0;
+  color: var(--secondary-color);
 }
 
 .card-button:hover::before {
@@ -962,13 +962,13 @@ a {
 
 .card-main-icon {
   font-size: 2.25rem;
-  color: var(--primary-color, #40E0D0);
+  color: var(--primary-color, var(--secondary-color));
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .card-button:hover .card-main-icon {
   transform: scale(1.125);
-  color: #40E0D0;
+  color: var(--secondary-color);
 }
 
 .card-button.animate {
@@ -1037,8 +1037,8 @@ a {
 }
 
 .pms-navbar-brand-img {
-  border: 3px solid #ffd700 !important;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  border: 3px solid var(--secondary-color) !important;
+  box-shadow: 0 0 10px rgba(var(--secondary-color-rgb), 0.5);
 }
 
 .pms-container-fluid-my-5 {

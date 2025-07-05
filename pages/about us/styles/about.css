@@ -5,6 +5,94 @@ body.bg {
   font-family: shabnam, sans-serif;
 }
 
+#hero-about {
+  position: relative;
+  background: url("../images/derak-park.jpg") center/cover no-repeat fixed;
+  color: var(--white-color);
+  padding: 160px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+#hero-about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--black-color-rgb), 0.55),
+    rgba(var(--black-color-rgb), 0.25)
+  );
+}
+
+.hero-about-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-about-title {
+  font-size: 3rem;
+  font-family: shabnamBold, sans-serif;
+  text-shadow: 0 2px 6px rgba(var(--black-color-rgb), 0.4);
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: slideInDown 0.9s ease-out forwards;
+}
+
+.hero-about-subtitle {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(var(--black-color-rgb), 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInUp 0.9s ease-out 0.2s forwards;
+}
+
+.animate-on-load {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-load.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 #services {
   padding: 60px 0;
   position: relative;
