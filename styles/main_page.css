@@ -1043,9 +1043,9 @@ a {
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 150px);
-  padding-left: 15px;
+  /* padding-left: 15px;
   padding-right: 15px;
-  background: linear-gradient(135deg, #ffffff 0%, #f3f5f6 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f3f5f6 100%); */
   border-radius: 20px;
   box-shadow: 0 6px 18px rgba(var(--black-color-rgb), 0.1);
   position: relative;
@@ -1088,9 +1088,8 @@ a {
 }
 
 .pms-swiper-slide-active {
-  /* Removed yellow box-shadow and border-color */
   box-shadow: 0 12px 35px rgba(var(--black-color-rgb), 0.2); /* Changed to a neutral shadow */
-  border-color: transparent; /* Removed yellow border */
+  border-color: transparent;
   transform: scale(1.03);
 }
 
