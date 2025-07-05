@@ -5,6 +5,53 @@ body.bg {
   font-family: shabnam, sans-serif;
 }
 
+#hero-about {
+  position: relative;
+  background: url("../images/derak-park.jpg") center/cover no-repeat;
+  color: var(--white-color);
+  padding: 120px 0;
+  text-align: center;
+}
+
+#hero-about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--black-color-rgb), 0.45);
+}
+
+.hero-about-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-about-title {
+  font-size: 2.5rem;
+  font-family: shabnamMedium, sans-serif;
+}
+
+.hero-about-subtitle {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.hero-about-title,
+.hero-about-subtitle {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 #services {
   padding: 60px 0;
   position: relative;
