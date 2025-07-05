@@ -5,6 +5,24 @@ body.bg {
   font-family: shabnam, sans-serif;
 }
 
+/*
+ * Limit the width of content wrappers so that the
+ * layout stays centered on large screens. This helps
+ * prevent elements from stretching too wide and keeps
+ * a consistent design across sections.
+ */
+.service-timeline,
+.mayor-message-wrapper,
+.showcase-wrapper,
+.quick-links-container,
+.contact-wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 #hero-about {
   position: relative;
   background: url("../images/derak-park.jpg") center/cover no-repeat fixed;
@@ -28,6 +46,9 @@ body.bg {
 .hero-about-content {
   position: relative;
   z-index: 1;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-about-title {
@@ -113,6 +134,10 @@ body.bg {
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 8px rgba(var(--black-color-rgb), 0.05);
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .service-icon-container {
@@ -179,6 +204,8 @@ body.bg {
   position: relative;
   width: 80%;
   max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .showcase-image {
