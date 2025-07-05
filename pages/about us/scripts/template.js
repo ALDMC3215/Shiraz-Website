@@ -576,10 +576,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    startAutoplay();
+startAutoplay();
 });
 
 // zone
 
+
+// simple animation observer
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedEls = document.querySelectorAll('.animate-on-load');
+    const observer = new IntersectionObserver((entries, ob) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                ob.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    animatedEls.forEach(el => observer.observe(el));
+});
 
 
