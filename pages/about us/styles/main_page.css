@@ -67,6 +67,7 @@
 
     /* Added RGB values for rgba() usage */
     --primary-color-rgb: 121, 147, 240;
+    --primary-pale-color-rgb: 174, 178, 255;
     --secondary-color-rgb: 217, 172, 58;
     --black-color-rgb: 0, 0, 0;
     --white-color-rgb: 255, 255, 255;
@@ -2718,3 +2719,481 @@ a:hover .district {
     }
 }
 /* footer */
+
+/* ===================================================================
+   About Us Page Body Styles
+=================================================================== */
+
+/* General Section Styles */
+main {
+    background-color: var(--background-color);
+}
+main > section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'shabnamBold', sans-serif;
+    font-size: 2.5rem;
+    color: var(--text-color) !important;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-family: 'shabnamLight', sans-serif;
+    font-size: 1.1rem;
+    color: #6c757d !important;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    line-height: 1.8;
+}
+
+/* Background Shapes */
+main .bg-shape-1 {
+    position: absolute;
+    top: -50px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(var(--primary-color-rgb), 0.1) 0%, rgba(var(--primary-color-rgb), 0) 70%);
+    z-index: 0;
+    border-radius: 50%;
+}
+
+main .bg-shape-2 {
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(var(--secondary-color-rgb), 0.1) 0%, rgba(var(--secondary-color-rgb), 0) 70%);
+    z-index: 0;
+    border-radius: 50%;
+}
+main .bg-shape-3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(var(--primary-pale-color-rgb), 0.1) 0%, rgba(var(--primary-pale-color-rgb), 0) 80%);
+    z-index: 0;
+    border-radius: 50%;
+}
+
+
+/* Section 1: Services */
+#services .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 15px;
+}
+
+#services .service-card {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+    z-index: 1;
+}
+
+#services .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+#services .service-icon-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px auto;
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+#services .service-icon-container i {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+#services .service-card:hover .service-icon-container {
+    background-color: var(--primary-color);
+}
+#services .service-card:hover .service-icon-container i {
+    color: var(--white-color) !important;
+}
+
+#services .service-card h3 {
+    font-family: 'shabnamMedium', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--text-color) !important;
+}
+
+#services .service-card p {
+    font-family: 'shabnamLight', sans-serif;
+    color: #6c757d !important;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+
+/* Section: Mayor's Message */
+#mayor-message {
+    background-color: var(--footer-background-color);
+}
+
+#mayor-message .mayor-message-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: auto;
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+#mayor-message .mayor-photo-container {
+    flex: 0 0 200px;
+    text-align: center;
+}
+
+#mayor-message .mayor-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid var(--secondary-pale-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#mayor-message .mayor-text-container {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    padding-right: 40px;
+}
+
+#mayor-message .quote-icon {
+    position: absolute;
+    top: -10px;
+    right: 0px;
+    font-size: 4rem;
+    color: rgba(var(--secondary-color-rgb), 0.2);
+    z-index: 1;
+}
+
+#mayor-message h2 {
+    font-family: 'shabnamBold', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    color: var(--text-color) !important;
+}
+
+#mayor-message blockquote {
+    font-family: 'shabnam', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #555 !important;
+    margin-bottom: 20px;
+    border-right: 3px solid var(--secondary-color);
+    padding-right: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+#mayor-message .mayor-name {
+    font-family: 'shabnamBold', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-color) !important;
+    margin-bottom: 5px;
+}
+
+#mayor-message .mayor-title {
+    font-family: 'shabnamLight', sans-serif;
+    font-size: 1rem;
+    color: #777 !important;
+}
+
+@media (max-width: 767px) {
+    #mayor-message .mayor-message-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    #mayor-message .mayor-text-container {
+        padding-right: 0;
+    }
+    #mayor-message .quote-icon {
+        top: -20px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    #mayor-message blockquote {
+        text-align: justify;
+        border-right: none;
+        padding-right: 0;
+        border-top: 3px solid var(--secondary-color);
+        padding-top: 15px;
+    }
+}
+
+
+/* Section: Building Showcase */
+#building-showcase .showcase-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+#building-showcase .showcase-container {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+#building-showcase .showcase-image {
+    width: 100%;
+    display: block;
+    vertical-align: middle;
+}
+#building-showcase .showcase-overlay{
+    display: none !important;
+}
+
+
+/* Section: Quick Links */
+#quick-links {
+    background-color: var(--footer-background-color);
+}
+#quick-links .quick-links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+#quick-links .quick-link-blade {
+    display: flex;
+    align-items: center;
+    background-color: var(--white-color);
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+#quick-links .quick-link-blade:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background-color: var(--primary-pale-color);
+    border-color: var(--primary-color);
+}
+
+#quick-links .quick-link-blade:hover h3,
+#quick-links .quick-link-blade:hover .arrow-icon i {
+    color: var(--primary-color) !important;
+}
+#quick-links .quick-link-blade:hover .link-icon {
+    background-color: var(--white-color);
+}
+#quick-links .quick-link-blade:hover .link-icon i {
+     color: var(--primary-color) !important;
+}
+
+
+#quick-links .link-icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    border-radius: 50%;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+}
+
+#quick-links .link-icon i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+#quick-links h3 {
+    font-family: 'shabnamMedium', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-color) !important;
+    margin: 0;
+    flex-grow: 1;
+    transition: color 0.3s ease;
+}
+
+#quick-links .arrow-icon {
+    font-size: 1.5rem;
+    color: #ccc;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#quick-links .quick-link-blade:hover .arrow-icon {
+    transform: translateX(-5px);
+}
+
+/* Section 4: Contact */
+#contact .contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    max-width: 1100px;
+    margin: auto;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+#contact .form-container {
+    flex: 1 1 500px;
+    padding: 40px;
+}
+
+#contact #contact-form .input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+#contact #contact-form .form-label {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1rem;
+    color: #888 !important;
+    background-color: var(--white-color);
+    padding: 0 5px;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#contact #contact-form .form-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'shabnam', sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+    background-color: transparent;
+    position: relative;
+}
+#contact #contact-form .form-input:focus {
+    border-color: var(--primary-color);
+}
+
+#contact #contact-form .form-input:focus + .form-label,
+#contact #contact-form .form-input:valid + .form-label {
+    top: -10px;
+    font-size: 0.85rem;
+    color: var(--primary-color) !important;
+}
+
+#contact #contact-form textarea.form-input {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#contact .submit-btn {
+    width: 100%;
+    padding: 15px 20px;
+    background-image: linear-gradient(45deg, var(--primary-color), var(--primary-pale-color));
+    color: var(--white-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: 'shabnamBold', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#contact .submit-btn:hover {
+    box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.4);
+    transform: translateY(-3px);
+}
+
+#contact .info-panel {
+    flex: 1 1 300px;
+    background-color: var(--footer-background-color);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#contact .info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+
+#contact .info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+    width: 25px;
+    text-align: center;
+}
+
+#contact .info-text h4 {
+    font-family: 'shabnamBold', sans-serif;
+    margin: 0 0 5px 0;
+    color: var(--text-color) !important;
+}
+
+#contact .info-text p {
+    margin: 0;
+    line-height: 1.7;
+    color: #555 !important;
+}
+
+#contact .logo-container {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+#contact .municipality-logo {
+    max-width: 150px;
+    opacity: 0.8;
+}
+
+@media(max-width: 991px) {
+    #contact .contact-wrapper {
+        flex-direction: column;
+    }
+}
