@@ -51,6 +51,7 @@
   --white-color: #ffffff;
   --text-color: #4E3629; /* Dark Brown/Ochre Text */
   --footer-background-color: #F5EEDC; /* Light Beige for Footer */
+  --gold-gradient: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
 
   --brand-color-main: #D4AF37;
   --brand-color-light: #EADDAA;
@@ -572,83 +573,109 @@ header {
 /* ============================================= */
 
 /* ---------- Buttons Section ---------- */
+
+/* A new class to control the padding of the whole section */
+.quick-access-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .row {
-  padding-top: 30px;
-  display: flex;
-  flex-wrap: wrap !important;
   background: transparent !important;
 }
 
-a {
+.card-link {
   text-decoration: none;
+  display: block; /* Ensures the link takes up the full space of the column for better clickability */
+  height: 100%;
 }
 
 .card-item {
-  width: 90%;
+  width: 100%;
   height: 100%;
-  background-color: var(--primary-pale-color);
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" opacity="0.1"><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(0,0) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(50,0) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(0,50) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(50,50) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(25,25) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(75,25) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(25,75) scale(0.25)"/><path d="M50 0 L61.8 18.2 H81.8 L66.8 30.9 L72.6 50 L50 38.2 L27.4 50 L33.2 30.9 L18.2 18.2 H38.2 Z" transform="translate(75,75) scale(0.25)"/></g></svg>');
-  background-size: 40px 40px;
+  min-height: 100px; /* Increased min-height for a better look */
+  background-image: url("../images/Button BG.png");
+  background-size: cover;
   border-radius: 24px;
-  box-shadow: 0px 2px 3px 0px var(--secondary-color);
-  padding: 15px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  padding: 16px; /* Adjusted padding */
   overflow: hidden;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  flex-direction: row; /* Changed to row to match HTML order (icon on right in RTL) */
   align-items: center;
-  transition: all 0.3s ease;
-  background-color: var(--dynamic-card-bg-color) !important;
+  justify-content: space-between; /* This creates the desired alignment */
+  gap: 28px; /* Adjusted gap */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-right: 1px solid #FFA94D; /* Calming orange */
+  border-bottom: 1px solid #FFA94D; /* Calming orange */
 }
 
 .card-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(var(--black-color-rgb), 0.2);
+  transform: translateY(-8px); /* A more noticeable lift effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* The icon wrapper is now just for alignment and spacing */
+.card-item .icon-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Styling for the PNG image icons (Optimized Size) --- */
+.card-item .icon-wrapper img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+
+/* --- Text container styling --- */
 .card-text-box {
-  text-align: start;
+  text-align: right;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
-}
-.card-item .card-text-top {
-  display: block;
-  font-size: 1em;
-  font-weight: 600;
-  color: var(--text-color);
-}
-.card-item .card-text-description-top {
-  width: 100%;
-  display: block;
-  font-size: 0.8em;
-  color: var(--text-color);
-  opacity: 0.8;
-  margin-top: 4px;
-}
-.card-item .icon-wrapper {
-  order: 2;
-  width: 40px;
-  height: 40px;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-.card-item .icon-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
+  flex-grow: 1;
 }
 
-@media (max-width: 575.98px) {
+.card-item .card-text-top {
+  font-size: 1.05em; /* Slightly larger title */
+  font-weight: 700; /* Bolder title */
+  color: var(--text-color, #2c2c2c);
+  line-height: 1.4;
+}
+
+.card-item .card-text-description-top {
+  font-size: 0.85em; /* Slightly larger description */
+  color: var(--text-color, #555);
+  opacity: 0.9;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 767.98px) {
+  .card-item {
+    padding: 12px;
+    min-height: 85px;
+    gap: 10px;
+  }
+  .card-item .icon-wrapper img {
+    width: 40px;  /* Optimized size for mobile */
+    height: 40px; /* Optimized size for mobile */
+  }
   .card-item .card-text-top {
-    font-size: 0.8em;
+    font-size: 0.95em;
   }
   .card-item .card-text-description-top {
-    font-size: 0.6em;
+    font-size: 0.75em;
   }
 }
+
+
+
 
 /* ---------- Slider 1 (Events) ---------- */
 
@@ -1092,6 +1119,15 @@ a {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* START: FIX for News Slider Buttons Position */
+.shiraz-news-swiper-button-prev {
+  left: 20px;
+}
+.shiraz-news-swiper-button-next {
+  right: 20px;
+}
+/* END: FIX for News Slider Buttons Position */
+
 .shiraz-news-swiper-button-prev::after,
 .shiraz-news-swiper-button-next::after {
     font-size: 1.5rem;
@@ -1140,6 +1176,13 @@ a {
   box-shadow: 0 4px 15px rgba(var(--secondary-color-rgb), 0.5);
 }
 
+/* START: FIX for News Slider Bullets */
+/* This hides the incorrectly generated SVG element that appears as a black circle */
+.shiraz-news-swiper-pagination-bullet svg {
+  display: none !important;
+}
+/* END: FIX for News Slider Bullets */
+
 .shiraz-news-empty-message {
   height: 100%;
   background-color: #f0f0f0;
@@ -1182,7 +1225,7 @@ a {
 
 .card {
   height: auto;
-  border-radius: 20px 100px 20px 100px !important;
+  border-radius: 20px 80px 20px 80px !important;
   overflow: hidden;
   border-width: 1px 2px 3px 1px;
   border-style: solid;
@@ -1206,7 +1249,7 @@ a {
   width: 95%;
   object-fit: cover;
   margin: 10px 10px 0 0;
-  border-radius: 15px 90px 20px 20px;
+  border-radius: 20px 70px 20px 20px;
 }
 
 .card-body {
@@ -1272,15 +1315,18 @@ a {
 .bottom-panel .like small {
   font-family: shabnamLight, sans-serif;
   font-size: 0.75em;
+  font-weight: bold;
   color: var(--text-color) !important;
   font-weight: normal;
 }
 
 .bottom-panel .information {
   width: 80%;
-  padding: 10px 30px;
+  height: 70px;
+  padding-left: 40px;
+  padding-right: 20px;
   box-shadow: 2px 3px 2px rgba(var(--black-color-rgb), 0.25);
-  border-radius: 10px 70px;
+  border-radius: 0px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1302,13 +1348,13 @@ a {
   display: block;
   font-weight: bold;
   font-size: 1em;
-  color: var(--text-color) !important;
+  color: var(--black-color) !important;
 }
 
 .bottom-panel .information p {
   font-family: shabnamMedium, sans-serif;
   font-size: 0.8em;
-  color: var(--text-color) !important;
+  color: var(--black-color) !important;
   opacity: 0.8;
   margin-bottom: 0px;
   font-weight: bold;
@@ -1320,20 +1366,34 @@ a {
 .stats-section {
   width: 100%;
   padding: 60px 20px;
-  background-image: url("../images/info background.png");
-  background-size: 100% 100%, 100% 100%, cover;
-  background-repeat: no-repeat;
+  position: relative;
+  background: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: saturate(0.6) brightness(1.2) hue-rotate(270deg);
+}
+
+.stats-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/info background.png");
+  background-size: 100% 100%, 100% 100%, cover;
+  background-repeat: no-repeat;
+  opacity: 0.5; /* Adjust this value for desired opacity */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stats-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .stats-container {
   padding: 0 15px;
   max-width: 100%;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   box-sizing: border-box;
   gap: 20px;
 }
@@ -1381,136 +1441,236 @@ a {
   background-color: rgba(var(--white-color-rgb), 0.3);
 }
 
-/* ---------- Map Section ---------- */
 
+/* ---------- Optimized Map Section (Final Version) ---------- */
+
+:root {
+    --map-bg-color: transparent; /* No background for the main container */
+    --map-border-color: #e9ecef;
+    --map-shadow-color-rgb: 0, 0, 0;
+    --map-district-fill: #D5D8DC; /* A slightly more engaging neutral color */
+    --map-district-stroke: #ffffff;
+    --map-district-hover-fill: #AEB6BF;
+    --map-district-active-fill: var(--primary-color, #ff8c00);
+    --map-district-active-glow-rgb: var(--primary-color-rgb, 255, 140, 0);
+    --map-info-bg: #ffffff;
+    --map-info-header-border: var(--primary-color, #ff8c00);
+    --map-info-active-bg: var(--primary-pale-color, #fff5e6);
+    --map-info-active-border: var(--primary-color, #ff8c00);
+    --map-label-color: #212529;
+    --map-tooltip-bg: #212529;
+    --map-tooltip-text: #ffffff;
+}
+
+/* The main container for the map section */
 .container-mp {
-  display: flex;
-  flex-direction: row-reverse !important;
-  justify-content: space-between;
-  gap: 30px;
-  max-width: 1300px;
-  margin: 100px auto;
-  flex-wrap: wrap;
-  align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 80px 40px;
+    background: var(--map-bg-color);
+}
+
+/* This wrapper controls the layout (map on left, info on right for RTL) */
+.map-content-wrapper {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row; 
+    gap: 90px;
+    /* flex-wrap: wrap; */
+    align-items: center;
 }
 
 .map-section {
-  width: 550px;
-  background: transparent;
-  padding: 20px;
-  border-radius: 10px;
+    flex: 1 1 50%; /* Map section takes up half the space */
+    min-width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky; 
+    top: 100px;
+    padding: 20px;
+    /* background-color: black; */
 }
 
 .info-section {
-  width: 600px;
-  background: transparent;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(var(--black-color-rgb), 0.05);
-  height: 500px;
-  overflow-y: auto;
-  scrollbar-width: none;
+    flex: 1 1 45%; /* Info section takes the other half */
+    min-width: 00px;
+    /* background: var(--map-info-bg); */
+    padding: 10px;
+    border-radius: 16px;
+    /* border: 1px solid var(--map-border-color); */
+    /* box-shadow: 0 8px 24px rgba(var(--map-shadow-color-rgb), 0.05); */
+    /* Set a max-height to ensure it doesn't get too long */
+    max-height: 60vh; 
+    overflow-y: auto;
+    direction: rtl;
 }
 
+/* Custom Scrollbar Styling */
+/* .info-section::-webkit-scrollbar {
+    width: 8px;
+}
+.info-section::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.info-section::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+.info-section::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+} */
+
 .info-section h2 {
-  color: var(--text-color);
-  margin-top: 0;
-  margin-bottom: 20px;
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 10px;
+    color: var(--map-label-color);
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--map-info-header-border);
+    padding-bottom: 15px;
+    font-weight: 700;
 }
 
 .map-container {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
+    width: 100%;
 }
 
 .shiraz-map-svg {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 .district {
-  stroke: var(--white-color);
-  stroke-width: 2;
-  transition: all 0.3s ease;
+  fill: var(--map-district-fill);
+  stroke: var(--map-district-stroke);
+  stroke-width: 2.5;
+  transition: fill 0.3s, stroke 0.3s, filter 0.3s, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* filter: drop-shadow(0 4px 12px rgba(var(--map-shadow-color-rgb), 0.18)); */
   cursor: pointer;
+  /* Add a subtle gradient overlay for depth */
+  /* This requires SVG structure, but for CSS: */
+  /* Use a slight pattern or highlight on hover/active */
 }
 
-a:hover .district {
-  opacity: 0.8;
-  transform: scale(1.02);
-  filter: brightness(1.1);
-}
-
-.district-label {
-  font-family: "Vazirmatn", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  fill: var(--text-color);
-  pointer-events: none;
-  text-anchor: middle;
-  dominant-baseline: middle;
-}
-
-#district-1, #district-2, #district-3, #district-4, #district-5, #district-6, #district-7, #district-8, #district-9, #district-10, #district-11 {
-  fill: var(--primary-pale-color);
+.district:hover, .district:focus {
+  fill: var(--map-district-hover-fill);
+  stroke: var(--primary-color);
+  filter: drop-shadow(0 8px 24px rgba(var(--primary-color-rgb), 0.25));
+  transform: scale(1.025);
+  z-index: 2;
 }
 
 .district.active {
-  fill: var(--accent-2-color) !important;
-  stroke: var(--white-color);
-  stroke-width: 3;
-  opacity: 1;
-  transform: scale(1.03);
+  fill: var(--map-district-active-fill) !important;
+  stroke: var(--primary-color);
+  filter: drop-shadow(0 0 16px rgba(var(--primary-color-rgb), 0.35));
+  animation: district-subtle-glow 1.8s infinite alternate ease-in-out;
+  transform: scale(1.04);
+  z-index: 3;
 }
 
+/* Polished hover effect */
+a:hover .district {
+    fill: var(--map-district-hover-fill);
+    transform: translateY(-3px);
+    filter: drop-shadow(0 5px 10px rgba(var(--map-shadow-color-rgb), 0.12));
+}
+
+.district-label {
+    font-family: "shabnam", "Vazirmatn", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    fill: var(--map-label-color);
+    pointer-events: none;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/* Active State with a subtle but clear glow */
+.district.active {
+    fill: var(--map-district-active-fill) !important;
+    stroke-width: 1.5;
+    stroke: #fff;
+    animation: district-subtle-glow 1.8s infinite alternate ease-in-out;
+}
+
+@keyframes district-subtle-glow {
+    from {
+        filter: drop-shadow(0 0 3px rgba(var(--map-district-active-glow-rgb), 0.3));
+    }
+    to {
+        filter: drop-shadow(0 0 10px rgba(var(--map-district-active-glow-rgb), 0.6));
+    }
+}
+
+/* Info cards styling */
 .district-info {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 15px;
-  background-color: var(--background-color);
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(var(--black-color-rgb), 0.03);
-  color: var(--text-color);
+    border: 1px solid var(--map-border-color);
+    border-right: 4px solid var(--map-border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .district-info h3 {
-  color: var(--accent-2-color);
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.3em;
-  border-bottom: 1px dashed #eee;
-  padding-bottom: 5px;
+    color: var(--map-label-color);
+    margin-top: 0;
+    font-size: 1.2em;
+    font-weight: 700;
 }
-
-.district-info p { margin: 5px 0; }
-.district-info strong { color: var(--text-color); }
 
 .district-info.active {
-  background-color: var(--primary-pale-color);
-  border-color: var(--primary-color);
-  box-shadow: 0 4px 10px rgba(var(--primary-color-rgb), 0.3);
-  transform: translateY(-5px);
+    background-color: var(--map-info-active-bg);
+    border-color: var(--map-info-active-border);
+    box-shadow: 0 6px 12px rgba(var(--map-district-active-glow-rgb), 0.15);
+    transform: scale(1.02);
 }
 
+/* Tooltip styling */
 #district-hover-label {
-  position: fixed;
-  z-index: 9999;
-  pointer-events: none;
-  display: none;
-  background: var(--secondary-pale-color);
-  border: 1px solid var(--secondary-color);
-  border-radius: 8px;
-  padding: 0.3em 0.8em;
-  font-size: 1.1em;
-  color: var(--text-color);
-  font-weight: bold;
-  box-shadow: 0 2px 8px rgba(var(--black-color-rgb), 0.1);
-  white-space: nowrap;
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    display: none;
+    background: var(--brand-color-light);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 1em;
+    color: var(--map-tooltip-text);
+    box-shadow: 0 4px 10px rgba(var(--map-shadow-color-rgb), 0.2);
+    white-space: nowrap;
+    transition: opacity 0.2s;
 }
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .map-content-wrapper {
+        flex-direction: column-reverse; /* Stack info on top of map */
+        gap: 30px;
+    }
+    .container-mp {
+        padding: 40px 20px;
+    }
+    .map-section {
+        position: static; /* Unstick the map on mobile */
+        width: 100%;
+        min-width: unset;
+    }
+    .info-section {
+        width: 100%;
+        max-height: 50vh; /* Adjust height for mobile */
+        min-width: unset;
+    }
+}
+
+
+
+
 
 /* ---------- Zone Section ---------- */
 

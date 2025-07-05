@@ -1,53 +1,60 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-
     // ===================================================================
     // ==================== STICKY NAVBAR ON SCROLL ======================
     // ===================================================================
+    // This script makes the navbar stick to the top after scrolling down.
     const navbar = document.querySelector('.navbar');
     const header = document.querySelector('header');
 
+    // We only run this if a header and navbar element actually exist on the page.
     if (header && navbar) {
-        // The point at which the navbar becomes sticky is the bottom of the header.
-        const stickyPoint = header.offsetTop + header.offsetHeight;
+        // The point at which the navbar should become sticky is the bottom of the header.
+        const stickyPoint = header.offsetHeight;
 
         window.addEventListener("scroll", function() {
             // When scroll position is greater than the bottom of the header
             if (window.scrollY > stickyPoint) {
+                // Add the 'navbar-fixed' class. The corresponding styles must exist in the CSS file.
                 navbar.classList.add('navbar-fixed');
             } else {
+                // Remove the class when the user scrolls back to the top.
                 navbar.classList.remove('navbar-fixed');
             }
         });
     }
 
-
     // ===================================================================
     // ==================== UNIFIED MODAL FUNCTION =====================
     // ===================================================================
+    // A reusable function to open a Bootstrap modal with dynamic content.
+    // Used by both sliders to show details.
     function openSlideDetailModal(item, modalId, imageId, descriptionId) {
         const modalElement = document.getElementById(modalId);
         if (!modalElement) {
             console.error(`Modal with ID '${modalId}' not found.`);
             return;
         }
+
         const modalTitle = modalElement.querySelector('.modal-title');
         const modalImage = modalElement.querySelector(`#${imageId}`);
         const modalDescription = modalElement.querySelector(`#${descriptionId}`);
+
         if (modalTitle) modalTitle.textContent = item.title;
         if (modalImage) {
-            modalImage.src = item.image || 'https://via.placeholder.com/1280x700/CCCCCC/666666?text=بدون+عکس';
+            modalImage.src = item.image || 'https://via.placeholder.com/1280x700/CCCCCC/666666?text=بدون+عکس'; // Fallback image
             modalImage.alt = item.title;
         }
         if (modalDescription) modalDescription.textContent = item.description;
+
         const modalInstance = new bootstrap.Modal(modalElement);
         modalInstance.show();
     }
 
-
     // ===================================================================
     // ==================== SLIDER 1 (PMS SLIDER) LOGIC ==================
     // ===================================================================
+    // This section controls the main events slider (pms-swiper).
     const pmsSwiperElement = document.querySelector('.pms-swiper');
     if (pmsSwiperElement) {
         const pmsAutoplayDelay = 4000;
@@ -55,12 +62,13 @@ document.addEventListener("DOMContentLoaded", function() {
         function setPmsBulletAnimation(swiperInstance) {
             const bullets = document.querySelectorAll('.pms-swiper-pagination-bullet');
             const realIndex = swiperInstance.realIndex;
+
             bullets.forEach((bullet, index) => {
                 const progressCircle = bullet.querySelector('.pms-progress-circle');
                 if (progressCircle) {
                     progressCircle.style.animation = 'none';
                     if (index === realIndex) {
-                        void progressCircle.offsetWidth;
+                        void progressCircle.offsetWidth; // Force reflow
                         progressCircle.style.animation = `fill-circle ${pmsAutoplayDelay / 1000}s linear forwards`;
                     } else {
                         progressCircle.style.strokeDashoffset = '100.5';
@@ -74,10 +82,19 @@ document.addEventListener("DOMContentLoaded", function() {
             grabCursor: true,
             centeredSlides: true,
             loop: true,
-            autoplay: { delay: pmsAutoplayDelay, disableOnInteraction: false },
+            autoplay: {
+                delay: pmsAutoplayDelay,
+                disableOnInteraction: false,
+            },
             speed: 700,
             spaceBetween: 40,
-            coverflowEffect: { rotate: 15, stretch: 0, depth: 100, modifier: 1, slideShadows: false },
+            coverflowEffect: {
+                rotate: 15,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: false,
+            },
             pagination: {
                 el: '.pms-swiper-pagination',
                 clickable: true,
@@ -85,10 +102,20 @@ document.addEventListener("DOMContentLoaded", function() {
                     return `<span class="${className} pms-swiper-pagination-bullet"><svg class="pms-progress-circle-svg" viewBox="0 0 36 36"><circle class="pms-background-circle" cx="18" cy="18" r="16" fill="none" stroke="#ddd" stroke-width="3"></circle><circle class="pms-progress-circle" cx="18" cy="18" r="16" fill="none" stroke-dasharray="100.5" stroke-dashoffset="100.5"></circle></svg><span class="pms-bullet-number">${index + 1}</span></span>`;
                 }
             },
-            navigation: { nextEl: '.pms-swiper-button-next', prevEl: '.pms-swiper-button-prev' },
+            navigation: {
+                nextEl: '.pms-swiper-button-next',
+                prevEl: '.pms-swiper-button-prev',
+            },
             breakpoints: {
-                992: { slidesPerView: 1, effect: 'coverflow', coverflowEffect: { rotate: 0, stretch: 0, depth: 0, modifier: 1, slideShadows: false } },
-                0: { slidesPerView: 1, effect: 'slide' }
+                992: {
+                    slidesPerView: 1,
+                    effect: 'coverflow',
+                    coverflowEffect: { rotate: 0, stretch: 0, depth: 0, modifier: 1, slideShadows: false }
+                },
+                0: {
+                    slidesPerView: 1,
+                    effect: 'slide'
+                }
             },
             on: {
                 init: setPmsBulletAnimation,
@@ -105,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         setPmsBulletAnimation(pmsSwiper);
     }
-
 
     // ===================================================================
     // ==================== STATS COUNTER ANIMATION ======================
@@ -139,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const currentCount = progress * target;
 
                 numberSpan.innerText = toPersianDigits(isFloat ? currentCount.toFixed(1) : Math.floor(currentCount));
-                const offset = circumference - (progress * circumference * (target / 100)); // Corrected progress calculation
+                const offset = circumference - (progress * circumference * (target / 100));
                 progressCircle.style.strokeDashoffset = offset;
 
                 if (progress < 1) {
@@ -164,7 +190,6 @@ document.addEventListener("DOMContentLoaded", function() {
         statItems.forEach(item => statsObserver.observe(item));
     }
 
-
     // ===================================================================
     // ================== SLIDER 2 (NEWS SLIDER) LOGIC ===================
     // ===================================================================
@@ -172,82 +197,32 @@ document.addEventListener("DOMContentLoaded", function() {
     const shirazNewsContainer = document.querySelector('.shiraz-news-main-container');
     if (shirazNewsContainer) {
         const shirazNewsSliderData = {
-            'پایگاه خبری': [{
-                title: 'همایش پیاده‌روی خانوادگی در پارک کوهپایه',
-                description: 'با هدف تقویت هویت شهری و مستندسازی تاریخ و فرهنگ شیراز، مرکز شیرازشناسی در بوستان بعثت افتتاح شد. این مرکز که در بنایی تاریخی و مرمت‌شده به نام کوشک بعثت قرار دارد، شامل بخش‌های پژوهشی، نمایشگاهی و آموزشی است. در مراسم افتتاحیه، از دانشنامه ۱۷ جلدی شیراز نیز رونمایی شد که حاصل سال‌ها تلاش پژوهشگران بومی است. مرکز شیرازشناسی به‌عنوان مرجع فرهنگی برای شهروندان، دانشجویان و گردشگران طراحی شده و قرار است میزبان نشست‌های تخصصی، کارگاه‌های آموزشی و نمایشگاه‌های موضوعی باشد. این اقدام شهرداری شیراز در راستای ارتقای آگاهی عمومی نسبت به پیشینه تاریخی شهر، گامی مؤثر در توسعه پایدار فرهنگی محسوب می‌شود.',
-                image: '../images/photo/پیاده‌روی خانوادگی در پارک.jpg'
-            }, {
-                title: 'افتتاح مرکز شیرازشناسی در بوستان بعثت',
-                description: 'شهرداری شیراز با هدف بهبود وضعیت ترافیک شهری، طرح‌های نوینی را به اجرا گذاشته است. این طرح‌ها شامل توسعه حمل و نقل عمومی، هوشمندسازی چراغ‌های راهنمایی و رانندگی، و فرهنگ‌سازی در زمینه استفاده کمتر از خودروی شخصی است. امید است با این اقدامات، شاهد روان‌تر شدن ترافیک در ساعات اوج باشیم.',
-                image: '../images/roydad/افتتاح مرکز شیرازشناسی در بوستان بعثت.jpg'
-            }, {
-                title: 'افتتاح فاز جدید پل کابلی ولیعصر (عج) شیراز',
-                description: 'فاز جدید پل کابلی ولیعصر (عج) در شیراز به بهره‌برداری رسید. این پروژه که از جمله طرح‌های بزرگ عمرانی شهرداری شیراز محسوب می‌شود، نقش بسزایی در روان‌سازی ترافیک و تسهیل عبور و مرور در یکی از پرترددترین نقاط شهر ایفا خواهد کرد.',
-                image: '../images/pol.jpg'
-            }, {
-                title: 'افزایش ظرفیت گردشگری با اقامتگاه‌های بوم‌گردی',
-                description: 'با هدف توسعه صنعت گردشگری و جذب بیشتر توریست، چندین اقامتگاه بوم‌گردی جدید در مناطق مختلف شیراز و اطراف آن به بهره‌برداری رسید. این اقامتگاه‌ها با حفظ معماری سنتی، تجربه‌ای متفاوت و اصیل از فرهنگ و طبیعت فارس را برای بازدیدکنندگان فراهم می‌کنند.',
-                image: '../images/boomgardi.jpg'
-            }, {
-                title: 'تقاطع غیرهمسطح شهیدان آماده بهره‌برداری',
-                description: 'فاز جدید پل کابلی ولیعصر (عج) در شیراز به بهره‌برداری رسید. این پروژه که از جمله طرح‌های بزرگ عمرانی شهرداری شیراز محسوب می‌شود، نقش بسزایی در روان‌سازی ترافیک و تسهیل عبور و مرور در یکی از پرترددترین نقاط شهر ایفا خواهد کرد.',
-                image: '../images/shahidan.jpg'
-            }],
-            'گزارش تصویری': [{
-                title: 'نمایشگاه صنایع‌دستی در باغ عفیف‌آباد',
-                description: 'اغ تاریخی عفیف‌آباد میزبان نمایشگاهی از صنایع‌دستی هنرمندان شیرازی بود. از خاتم‌کاری و قلم‌زنی گرفته تا سفال و گلیم، آثار هنری اصیل ایرانی در فضایی سنتی به نمایش درآمدند. این نمایشگاه فرصتی برای آشنایی با هنرهای بومی و حمایت از تولیدکنندگان محلی فراهم کرد.',
-                image: '../images/photo/نمایشگاه صنایع‌دستی در عفیف‌آباد.jpg'
-            }, {
-                title: ' جشنواره خیابانی «رنگ زندگی» در بلوار چمران',
-                description: 'در یک رویداد پرشور هنری، خیابان‌های بلوار چمران شیراز میزبان جشنواره «رنگ زندگی» شدند. هنرمندان خیابانی با نقاشی، موسیقی زنده و نمایش‌های تعاملی، فضای شهری را به گالری زنده‌ای تبدیل کردند. این جشنواره با هدف ترویج هنر شهری و مشارکت مردمی برگزار شد و با استقبال گسترده شهروندان همراه بود.',
-                image: '../images/photo/جشنواره.jpg'
-            }, {
-                title: 'تئاتر خیابانی صدای شهر در شیراز',
-                description: 'گروهی از هنرمندان جوان با اجرای تئاتر خیابانی «صدای شهر» در میدان شهرداری، روایت‌هایی از زندگی روزمره شهروندان را به تصویر کشیدند. این اجرا با محوریت همدلی، عدالت اجتماعی و امید، توجه رهگذران را جلب کرد و تحسین بسیاری را برانگیخت.',
-                image: '../images/photo/اجرای تئاتر خیابانی «صدای شهر» در میدان شهرداری.jpg'
-            }, {
-                title: 'جشن شب یلدای محله سنگ سیاه شیراز',
-                description: 'در شب یلدا، اهالی محله سنگ سیاه با برگزاری جشن محلی، آیین‌های سنتی ایرانی را زنده کردند. از شاهنامه‌خوانی و موسیقی سنتی گرفته تا سفره‌های رنگارنگ و بازی‌های محلی، این جشن نمادی از همبستگی و هویت فرهنگی بود',
-                image: '../images/photo/جشن شب یلدا در محله سنگ سیاه.jpg'
-            }, {
-                title: 'کارگاه نقاشی کودکان در شیراز',
-                description: 'فرهنگسرای طوبی میزبان کارگاه نقاشی ویژه کودکان بود. در این برنامه، کودکان با راهنمایی مربیان هنری، احساسات خود را روی بوم آوردند. هدف از این کارگاه، پرورش خلاقیت، افزایش اعتماد به نفس و آشنایی با رنگ‌ها و فرم‌ها بود.',
-                image: '../images/photo/کارگاه نقاشی کودکان در فرهنگسرا.jpg'
-            }],
-            'رویدادهای شهر': [{
-                title: 'رونمایی از سمفونی شیراز با آهنگسازی کارن همایون‌فر',
-                description: 'در مراسمی باشکوه و کم‌نظیر، سمفونی شیراز با آهنگسازی استاد کارن همایون‌فر و اجرای ارکستر ملی ایران در تالار حافظ رونمایی شد. این اثر موسیقایی با الهام از تاریخ، طبیعت و فرهنگ غنی شیراز خلق شده و تلاش دارد تا روح شهر را در قالب نت‌ها و ملودی‌ها به تصویر بکشد. حضور چهره‌های برجسته هنری، مسئولان فرهنگی و استقبال پرشور مردم، این رویداد را به یکی از نقاط اوج هفته شیراز تبدیل کرد. سمفونی شیراز نه‌تنها یک اثر هنری، بلکه گامی در جهت معرفی ظرفیت‌های فرهنگی این کلان‌شهر در سطح ملی و بین‌المللی است. این برنامه با کلیدواژه‌هایی چون «موسیقی شیراز»، «هویت فرهنگی» و «رویداد هنری شیراز» در فضای مجازی بازتاب گسترده‌ای داشت',
-                image: '../images/roydad/رونمایی از سمفونی شیراز با آهنگسازی کارن همایون‌فر.jpg'
-            }, {
-                title: 'جشن دختران در باغ عفیف‌آباد',
-                description: 'در تقارن هفته شیراز با دهه کرامت، جشن باشکوهی با حضور بیش از سه هزار دختر نوجوان در باغ تاریخی عفیف‌آباد برگزار شد. این برنامه با هدف تقویت روحیه، ایجاد نشاط اجتماعی و پاسداشت مقام دختران، شامل اجرای موسیقی زنده، مسابقات فرهنگی، نمایشگاه‌های هنری و اهدای جوایز بود. حضور خانواده‌ها، فضای صمیمی و مشارکت نهادهای مردمی، این جشن را به الگویی موفق از رویدادهای فرهنگی-اجتماعی تبدیل کرد.',
-                image: '../images/roydad/جشن دختران در باغ عفیف‌آباد.jpg'
-            }, {
-                title: 'آیین تعویض قرآن دروازه قرآن شیراز',
-                description: 'در یکی از آیینی‌ترین رویدادهای هفته شیراز، مراسم تعویض قرآن دروازه قرآن با حضور مسئولان شهری، هنرمندان و جمعی از شهروندان برگزار شد. این آیین که هر ساله در آستانه روز شیراز برگزار می‌شود، نمادی از احترام به میراث معنوی و تاریخی شهر است. دروازه قرآن، به‌عنوان یکی از نمادهای فرهنگی شیراز، با قرار گرفتن قرآن نفیس در بالای آن، همواره یادآور پیوند عمیق این شهر با ارزش‌های دینی و فرهنگی بوده است. امسال نیز با تعویض قرآن و قرائت آیاتی از کلام‌الله مجید، فضای روحانی و معنوی خاصی در محل حاکم شد. این رویداد در رسانه‌های محلی بازتاب گسترده‌ای داشت و به‌عنوان یکی از شاخص‌ترین برنامه‌های فرهنگی هفته شیراز معرفی شد',
-                image: '../images/roydad/آیین تعویض قرآن دروازه قرآن شیراز.jpg'
-            }, {
-                title: 'رونمایی از ۱۷ سردیس مشاهیر شیراز در باغ ارم',
-                description: 'در مراسمی رسمی و فرهنگی، از ۱۷ سردیس مشاهیر و نخبگان شیرازی در باغ ارم رونمایی شد. این سردیس‌ها شامل چهره‌هایی چون دکتر خدادوست، دکتر ملک‌حسینی و دیگر برگزیدگان جایزه علامه قطب‌الدین شیرازی بودند. این اقدام در راستای تقویت هویت شهری، الگوسازی برای نسل جوان و پاسداشت مفاخر علمی و فرهنگی شیراز انجام شد. باغ ارم، با معماری تاریخی و فضای سبز دل‌انگیز، بستر مناسبی برای این رویداد فاخر بود',
-                image: '../images/roydad/رونمایی از ۱۷ سردیس مشاهیر شیراز در باغ ارم.jpg'
-            }],
-            'هم قدم با شیراز': [{
-                title: 'درخت‌کاری در شیراز  مشارکت مردمی برای شهری سبزتر',
-                description: 'در یک صبح بهاری، گروهی از دانش‌آموزان، فعالان محیط‌زیست و شهروندان داوطلب در تپه الله‌اکبر گرد هم اومدن تا با کاشت نهال، سهمی در آینده سبز شیراز داشته باشن. این برنامه که با همکاری شهرداری و سازمان‌های مردم‌نهاد برگزار شد، بخشی از طرح «شیراز نفس می‌کشد» بود.در کنار کاشت درخت، کارگاه‌های آموزشی درباره حفظ منابع طبیعی و بازیافت هم برگزار شد. بچه‌ها با دست‌های خاکی و دل‌های شاد، نهال‌هایی کاشتن که شاید روزی سایه‌سار نسل بعدی بشن.«هم‌قدم با شیراز» یعنی همین—قدم زدن در مسیر مسئولیت‌پذیری و عشق به زمین',
-                image: '../images/hamgam/درخت‌کاری داوطلبانه در تپه الله‌اکبر.jpg'
-            }, {
-                title: 'روایت یک روز با پاکبانان شیراز؛ قهرمانان خاموش شهر',
-                description: 'ساعت ۴ صبح، وقتی بیشتر شهر هنوز در خواب فرو رفته، پاکبانان شیراز کارشون رو شروع می‌کنن. با جاروهای بلند و لباس‌های فسفری، خیابون‌ها رو تمیز می‌کنن تا ما روزمون رو با آرامش شروع کنیم. در یکی از برنامه‌های «هم‌قدم با شیراز»، خبرنگار محلی یک روز کامل رو با یکی از این پاکبان‌ها گذروند؛ از جمع‌آوری زباله تا گفت‌وگو با مردم. نتیجه؟ احترام بیشتر، آگاهی بیشتر، و قدردانی از کسانی که بی‌صدا، شهر رو زنده نگه می‌دارن',
-                image: '../images/hamgam/پاکبان .jpg'
-            }, {
-                title: 'قصه‌های محله سنگ‌سیاه؛ جایی که تاریخ هنوز نفس می‌کشه',
-                description: 'در دل بافت تاریخی شیراز، محله‌ای هست که هنوز صدای پای تاریخ در کوچه‌هاش شنیده می‌شه: سنگ‌سیاه. این محله با معماری سنتی، بازارچه‌های قدیمی، و حضور آرامگاه سید تاج‌الدین غریب، یکی از قطب‌های فرهنگی و مذهبی شهره. اما چیزی که سنگ‌سیاه رو خاص‌تر می‌کنه، مردمشه؛ پیرمردی که هنوز با چرخ دستی‌اش فالوده می‌فروشه، یا مادری که هر روز جلوی در خونه‌اش گلدون‌ها رو آب می‌ده و با رهگذرا خوش‌وبش می‌کنه.«هم‌قدم با شیراز» یعنی ایستادن کنار همین آدم‌ها، شنیدن قصه‌هاشون، و دیدن شهری که با مردمش زنده‌ست',
-                image: '../images/hamgam/قصه‌های محله سنگ‌سیاه.jpg'
-            }, {
-                title: 'بازارهای سنتی و خرید سوغاتی در شیراز.',
-                description: 'در قلب شیراز، جایی هست که هنوز صدای چکش مس‌گران، عطر ادویه‌های شرقی و گفت‌وگوی گرم فروشنده‌ها، تو رو به قرن‌ها پیش می‌بره: بازار وکیل. این بازار تاریخی که به دستور کریم‌خان زند ساخته شده، نه‌فقط یک مرکز خرید، بلکه موزه‌ای زنده از فرهنگ و اقتصاد مردمیهدر برنامه «هم‌قدم با شیراز»، همراه شدیم با یک استاد خاتم‌کار که بیش از ۴۰ ساله در حجره کوچکش هنر می‌آفرینه. از خاطراتش گفت، از روزهایی که بازار پر از صدای ساز و آواز بود، و از گردشگرهایی که با چشم‌های پر از شگفتی به هنر ایرانی نگاه می‌کردن.بازار وکیل، جاییه که هنوز می‌شه با مردم حرف زد، چای خورد، و فهمید شیراز فقط یک شهر نیست—یه حسه',
-                image: '../images/hamgam/یک روز در بازار وکیل.jpg'
-            }]
+            'پایگاه خبری': [
+                { title: 'همایش پیاده‌روی خانوادگی در پارک کوهپایه', description: 'با هدف تقویت هویت شهری و مستندسازی تاریخ و فرهنگ شیراز، مرکز شیرازشناسی در بوستان بعثت افتتاح شد. این مرکز که در بنایی تاریخی و مرمت‌شده به نام کوشک بعثت قرار دارد، شامل بخش‌های پژوهشی، نمایشگاهی و آموزشی است. در مراسم افتتاحیه، از دانشنامه ۱۷ جلدی شیراز نیز رونمایی شد که حاصل سال‌ها تلاش پژوهشگران بومی است. مرکز شیرازشناسی به‌عنوان مرجع فرهنگی برای شهروندان، دانشجویان و گردشگران طراحی شده و قرار است میزبان نشست‌های تخصصی، کارگاه‌های آموزشی و نمایشگاه‌های موضوعی باشد. این اقدام شهرداری شیراز در راستای ارتقای آگاهی عمومی نسبت به پیشینه تاریخی شهر، گامی مؤثر در توسعه پایدار فرهنگی محسوب می‌شود.', image: '../images/photo/پیاده‌روی خانوادگی در پارک.jpg' },
+                { title: 'افتتاح مرکز شیرازشناسی در بوستان بعثت', description: 'شهرداری شیراز با هدف بهبود وضعیت ترافیک شهری، طرح‌های نوینی را به اجرا گذاشته است. این طرح‌ها شامل توسعه حمل و نقل عمومی، هوشمندسازی چراغ‌های راهنمایی و رانندگی، و فرهنگ‌سازی در زمینه استفاده کمتر از خودروی شخصی است. امید است با این اقدامات، شاهد روان‌تر شدن ترافیک در ساعات اوج باشیم.', image: '../images/roydad/افتتاح مرکز شیرازشناسی در بوستان بعثت.jpg' },
+                { title: 'افتتاح فاز جدید پل کابلی ولیعصر (عج) شیراز', description: 'فاز جدید پل کابلی ولیعصر (عج) در شیراز به بهره‌برداری رسید. این پروژه که از جمله طرح‌های بزرگ عمرانی شهرداری شیراز محسوب می‌شود، نقش بسزایی در روان‌سازی ترافیک و تسهیل عبور و مرور در یکی از پرترددترین نقاط شهر ایفا خواهد کرد.', image: '../images/pol.jpg' },
+                { title: 'افزایش ظرفیت گردشگری با اقامتگاه‌های بوم‌گردی', description: 'با هدف توسعه صنعت گردشگری و جذب بیشتر توریست، چندین اقامتگاه بوم‌گردی جدید در مناطق مختلف شیراز و اطراف آن به بهره‌برداری رسید. این اقامتگاه‌ها با حفظ معماری سنتی، تجربه‌ای متفاوت و اصیل از فرهنگ و طبیعت فارس را برای بازدیدکنندگان فراهم می‌کنند.', image: '../images/boomgardi.jpg' },
+                { title: 'تقاطع غیرهمسطح شهیدان آماده بهره‌برداری', description: 'فاز جدید پل کابلی ولیعصر (عج) در شیراز به بهره‌برداری رسید. این پروژه که از جمله طرح‌های بزرگ عمرانی شهرداری شیراز محسوب می‌شود، نقش بسزایی در روان‌سازی ترافیک و تسهیل عبور و مرور در یکی از پرترددترین نقاط شهر ایفا خواهد کرد.', image: '../images/shahidan.jpg' }
+            ],
+            'گزارش تصویری': [
+                { title: 'نمایشگاه صنایع‌دستی در باغ عفیف‌آباد', description: 'اغ تاریخی عفیف‌آباد میزبان نمایشگاهی از صنایع‌دستی هنرمندان شیرازی بود. از خاتم‌کاری و قلم‌زنی گرفته تا سفال و گلیم، آثار هنری اصیل ایرانی در فضایی سنتی به نمایش درآمدند. این نمایشگاه فرصتی برای آشنایی با هنرهای بومی و حمایت از تولیدکنندگان محلی فراهم کرد.', image: '../images/photo/نمایشگاه صنایع‌دستی در عفیف‌آباد.jpg' },
+                { title: ' جشنواره خیابانی «رنگ زندگی» در بلوار چمران', description: 'در یک رویداد پرشور هنری، خیابان‌های بلوار چمران شیراز میزبان جشنواره «رنگ زندگی» شدند. هنرمندان خیابانی با نقاشی، موسیقی زنده و نمایش‌های تعاملی، فضای شهری را به گالری زنده‌ای تبدیل کردند. این جشنواره با هدف ترویج هنر شهری و مشارکت مردمی برگزار شد و با استقبال گسترده شهروندان همراه بود.', image: '../images/photo/جشنواره.jpg' },
+                { title: 'تئاتر خیابانی صدای شهر در شیراز', description: 'گروهی از هنرمندان جوان با اجرای تئاتر خیابانی «صدای شهر» در میدان شهرداری، روایت‌هایی از زندگی روزمره شهروندان را به تصویر کشیدند. این اجرا با محوریت همدلی، عدالت اجتماعی و امید، توجه رهگذران را جلب کرد و تحسین بسیاری را برانگیخت.', image: '../images/photo/اجرای تئاتر خیابانی «صدای شهر» در میدان شهرداری.jpg' },
+                { title: 'جشن شب یلدای محله سنگ سیاه شیراز', description: 'در شب یلدا، اهالی محله سنگ سیاه با برگزاری جشن محلی، آیین‌های سنتی ایرانی را زنده کردند. از شاهنامه‌خوانی و موسیقی سنتی گرفته تا سفره‌های رنگارنگ و بازی‌های محلی، این جشن نمادی از همبستگی و هویت فرهنگی بود', image: '../images/photo/جشن شب یلدا در محله سنگ سیاه.jpg' },
+                { title: 'کارگاه نقاشی کودکان در شیراز', description: 'فرهنگسرای طوبی میزبان کارگاه نقاشی ویژه کودکان بود. در این برنامه، کودکان با راهنمایی مربیان هنری، احساسات خود را روی بوم آوردند. هدف از این کارگاه، پرورش خلاقیت، افزایش اعتماد به نفس و آشنایی با رنگ‌ها و فرم‌ها بود.', image: '../images/photo/کارگاه نقاشی کودکان در فرهنگسرا.jpg' }
+            ],
+            'رویدادهای شهر': [
+                { title: 'رونمایی از سمفونی شیراز با آهنگسازی کارن همایون‌فر', description: 'در مراسمی باشکوه و کم‌نظیر، سمفونی شیراز با آهنگسازی استاد کارن همایون‌فر و اجرای ارکستر ملی ایران در تالار حافظ رونمایی شد. این اثر موسیقایی با الهام از تاریخ، طبیعت و فرهنگ غنی شیراز خلق شده و تلاش دارد تا روح شهر را در قالب نت‌ها و ملودی‌ها به تصویر بکشد. حضور چهره‌های برجسته هنری، مسئولان فرهنگی و استقبال پرشور مردم، این رویداد را به یکی از نقاط اوج هفته شیراز تبدیل کرد. سمفونی شیراز نه‌تنها یک اثر هنری، بلکه گامی در جهت معرفی ظرفیت‌های فرهنگی این کلان‌شهر در سطح ملی و بین‌المللی است. این برنامه با کلیدواژه‌هایی چون «موسیقی شیراز»، «هویت فرهنگی» و «رویداد هنری شیراز» در فضای مجازی بازتاب گسترده‌ای داشت', image: '../images/roydad/رونمایی از سمفونی شیراز با آهنگسازی کارن همایون‌فر.jpg' },
+                { title: 'جشن دختران در باغ عفیف‌آباد', description: 'در تقارن هفته شیراز با دهه کرامت، جشن باشکوهی با حضور بیش از سه هزار دختر نوجوان در باغ تاریخی عفیف‌آباد برگزار شد. این برنامه با هدف تقویت روحیه، ایجاد نشاط اجتماعی و پاسداشت مقام دختران، شامل اجرای موسیقی زنده، مسابقات فرهنگی، نمایشگاه‌های هنری و اهدای جوایز بود. حضور خانواده‌ها، فضای صمیمی و مشارکت نهادهای مردمی، این جشن را به الگویی موفق از رویدادهای فرهنگی-اجتماعی تبدیل کرد.', image: '../images/roydad/جشن دختران در باغ عفیف‌آباد.jpg' },
+                { title: 'آیین تعویض قرآن دروازه قرآن شیراز', description: 'در یکی از آیینی‌ترین رویدادهای هفته شیراز، مراسم تعویض قرآن دروازه قرآن با حضور مسئولان شهری، هنرمندان و جمعی از شهروندان برگزار شد. این آیین که هر ساله در آستانه روز شیراز برگزار می‌شود، نمادی از احترام به میراث معنوی و تاریخی شهر است. دروازه قرآن، به‌عنوان یکی از نمادهای فرهنگی شیراز، با قرار گرفتن قرآن نفیس در بالای آن، همواره یادآور پیوند عمیق این شهر با ارزش‌های دینی و فرهنگی بوده است. امسال نیز با تعویض قرآن و قرائت آیاتی از کلام‌الله مجید، فضای روحانی و معنوی خاصی در محل حاکم شد. این رویداد در رسانه‌های محلی بازتاب گسترده‌ای داشت و به‌عنوان یکی از شاخص‌ترین برنامه‌های فرهنگی هفته شیراز معرفی شد', image: '../images/roydad/آیین تعویض قرآن دروازه قرآن شیراز.jpg' },
+                { title: 'رونمایی از ۱۷ سردیس مشاهیر شیراز در باغ ارم', description: 'در مراسمی رسمی و فرهنگی، از ۱۷ سردیس مشاهیر و نخبگان شیرازی در باغ ارم رونمایی شد. این سردیس‌ها شامل چهره‌هایی چون دکتر خدادوست، دکتر ملک‌حسینی و دیگر برگزیدگان جایزه علامه قطب‌الدین شیرازی بودند. این اقدام در راستای تقویت هویت شهری، الگوسازی برای نسل جوان و پاسداشت مفاخر علمی و فرهنگی شیراز انجام شد. باغ ارم، با معماری تاریخی و فضای سبز دل‌انگیز، بستر مناسبی برای این رویداد فاخر بود', image: '../images/roydad/رونمایی از ۱۷ سردیس مشاهیر شیراز در باغ ارم.jpg' }
+            ],
+            'هم قدم با شیراز': [
+                { title: 'درخت‌کاری در شیراز  مشارکت مردمی برای شهری سبزتر', description: 'در یک صبح بهاری، گروهی از دانش‌آموزان، فعالان محیط‌زیست و شهروندان داوطلب در تپه الله‌اکبر گرد هم اومدن تا با کاشت نهال، سهمی در آینده سبز شیراز داشته باشن. این برنامه که با همکاری شهرداری و سازمان‌های مردم‌نهاد برگزار شد، بخشی از طرح «شیراز نفس می‌کشد» بود.در کنار کاشت درخت، کارگاه‌های آموزشی درباره حفظ منابع طبیعی و بازیافت هم برگزار شد. بچه‌ها با دست‌های خاکی و دل‌های شاد، نهال‌هایی کاشتن که شاید روزی سایه‌سار نسل بعدی بشن.«هم‌قدم با شیراز» یعنی همین—قدم زدن در مسیر مسئولیت‌پذیری و عشق به زمین', image: '../images/hamgam/درخت‌کاری داوطلبانه در تپه الله‌اکبر.jpg' },
+                { title: 'روایت یک روز با پاکبانان شیراز؛ قهرمانان خاموش شهر', description: 'ساعت ۴ صبح، وقتی بیشتر شهر هنوز در خواب فرو رفته، پاکبانان شیراز کارشون رو شروع می‌کنن. با جاروهای بلند و لباس‌های فسفری، خیابون‌ها رو تمیز می‌کنن تا ما روزمون رو با آرامش شروع کنیم. در یکی از برنامه‌های «هم‌قدم با شیراز»، خبرنگار محلی یک روز کامل رو با یکی از این پاکبان‌ها گذروند؛ از جمع‌آوری زباله تا گفت‌وگو با مردم. نتیجه؟ احترام بیشتر، آگاهی بیشتر، و قدردانی از کسانی که بی‌صدا، شهر رو زنده نگه می‌دارن', image: '../images/hamgam/پاکبان .jpg' },
+                { title: 'قصه‌های محله سنگ‌سیاه؛ جایی که تاریخ هنوز نفس می‌کشه', description: 'در دل بافت تاریخی شیراز، محله‌ای هست که هنوز صدای پای تاریخ در کوچه‌هاش شنیده می‌شه: سنگ‌سیاه. این محله با معماری سنتی، بازارچه‌های قدیمی، و حضور آرامگاه سید تاج‌الدین غریب، یکی از قطب‌های فرهنگی و مذهبی شهره. اما چیزی که سنگ‌سیاه رو خاص‌تر می‌کنه، مردمشه؛ پیرمردی که هنوز با چرخ دستی‌اش فالوده می‌فروشه، یا مادری که هر روز جلوی در خونه‌اش گلدون‌ها رو آب می‌ده و با رهگذرا خوش‌وبش می‌کنه.«هم‌قدم با شیراز» یعنی ایستادن کنار همین آدم‌ها، شنیدن قصه‌هاشون، و دیدن شهری که با مردمش زنده‌ست', image: '../images/hamgam/قصه‌های محله سنگ‌سیاه.jpg' },
+                { title: 'بازارهای سنتی و خرید سوغاتی در شیراز.', description: 'در قلب شیراز، جایی هست که هنوز صدای چکش مس‌گران، عطر ادویه‌های شرقی و گفت‌وگوی گرم فروشنده‌ها، تو رو به قرن‌ها پیش می‌بره: بازار وکیل. این بازار تاریخی که به دستور کریم‌خان زند ساخته شده، نه‌فقط یک مرکز خرید، بلکه موزه‌ای زنده از فرهنگ و اقتصاد مردمیهدر برنامه «هم‌قدم با شیراز»، همراه شدیم با یک استاد خاتم‌کار که بیش از ۴۰ ساله در حجره کوچکش هنر می‌آفرینه. از خاطراتش گفت، از روزهایی که بازار پر از صدای ساز و آواز بود، و از گردشگرهایی که با چشم‌های پر از شگفتی به هنر ایرانی نگاه می‌کردن.بازار وکیل، جاییه که هنوز می‌شه با مردم حرف زد، چای خورد، و فهمید شیراز فقط یک شهر نیست—یه حسه', image: '../images/hamgam/یک روز در بازار وکیل.jpg' }
+            ]
         };
 
         let shirazNewsSwiperInstance = null;
@@ -261,12 +236,11 @@ document.addEventListener("DOMContentLoaded", function() {
             bullets.forEach((bullet, index) => {
                 const progressCircle = bullet.querySelector('.shiraz-news-progress-circle');
                 if (progressCircle) {
+                    progressCircle.style.animation = 'none';
                     if (index === realIndex) {
-                        progressCircle.style.animation = 'none';
                         void progressCircle.offsetWidth;
                         progressCircle.style.animation = `fill-circle ${shirazNewsAutoplayDelay / 1000}s linear forwards`;
                     } else {
-                        progressCircle.style.animation = 'none';
                         progressCircle.style.strokeDashoffset = '100.5';
                     }
                 }
@@ -275,7 +249,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         function populateShirazNewsSwiper(dataArray) {
             const swiperWrapper = document.querySelector('.shiraz-news-swiper .swiper-wrapper');
-            swiperWrapper.innerHTML = ''; // Clear previous slides
+            if (!swiperWrapper) return;
+            swiperWrapper.innerHTML = '';
 
             const nextBtn = document.querySelector('.shiraz-news-swiper-button-next');
             const prevBtn = document.querySelector('.shiraz-news-swiper-button-prev');
@@ -292,8 +267,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 return;
             } else {
-                if (nextBtn) nextBtn.style.display = 'block';
-                if (prevBtn) prevBtn.style.display = 'block';
+                if (nextBtn) nextBtn.style.display = 'flex';
+                if (prevBtn) prevBtn.style.display = 'flex';
                 if (paginationEl) paginationEl.style.display = 'block';
             }
 
@@ -358,7 +333,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (defaultButton) defaultButton.click();
     }
 
-
     // ===================================================================
     // =================== DYNAMIC CARDS SECTION LOGIC ===================
     // ===================================================================
@@ -380,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function() {
         cardsContainer.innerHTML = cardsData.map(generateCardHtml).join('');
     }
 
-
+    
     // ===================================================================
     // =================== INTERACTIVE MAP LOGIC =========================
     // ===================================================================
@@ -467,27 +441,58 @@ document.addEventListener("DOMContentLoaded", function() {
     // ===================================================================
     const zoneContainer = document.querySelector(".container-zone");
     if (zoneContainer) {
-        const originalZoneBoxes = Array.from(zoneContainer.children);
-        if (originalZoneBoxes.length > 0) {
-            const SCROLL_SPEED = 1;
-            const INTERVAL_TIME = 25;
-            let autoplayZoneInterval = null;
+        let scrollInterval;
+        let isPaused = false;
 
-            // Clone for infinite effect
-            originalZoneBoxes.forEach(box => zoneContainer.appendChild(box.cloneNode(true)));
+        // Clone items for a seamless, infinite scrolling effect
+        const originalItems = Array.from(zoneContainer.children);
+        originalItems.forEach(item => {
+            const clone = item.cloneNode(true);
+            zoneContainer.appendChild(clone);
+        });
 
-            function continuousScroll() {
-                zoneContainer.scrollLeft += SCROLL_SPEED;
+        // Function to start the automatic scrolling animation
+        const startScrolling = () => {
+            // If the user is hovering, don't start the animation
+            if (isPaused) return;
+
+            // Clear any previously running interval to avoid multiple, stacking animations
+            clearInterval(scrollInterval);
+
+            scrollInterval = setInterval(() => {
+                // Check if the scroll position has reached the end of the original set of items
+                // The total scrollable width is scrollWidth, and we duplicated the items,
+                // so the end of the original set is at the halfway point.
                 if (zoneContainer.scrollLeft >= zoneContainer.scrollWidth / 2) {
+                    // Silently jump back to the beginning to create the infinite loop
                     zoneContainer.scrollLeft = 0;
+                } else {
+                    // Increment the scroll position to move the content
+                    zoneContainer.scrollLeft += 1; // Adjust this value to change scroll speed
                 }
-            }
+            }, 25); // Adjust interval timing for smoother or faster animation
+        };
 
-            autoplayZoneInterval = setInterval(continuousScroll, INTERVAL_TIME);
+        // Function to stop the scrolling animation
+        const stopScrolling = () => {
+            clearInterval(scrollInterval);
+        };
 
-            zoneContainer.addEventListener('mouseenter', () => clearInterval(autoplayZoneInterval));
-            zoneContainer.addEventListener('mouseleave', () => autoplayZoneInterval = setInterval(continuousScroll, INTERVAL_TIME));
-        }
+        // Add event listeners to pause the scrolling when the user's mouse enters the container
+        zoneContainer.addEventListener("mouseenter", () => {
+            isPaused = true;
+            stopScrolling();
+        });
+
+        // Resume scrolling when the user's mouse leaves the container
+        zoneContainer.addEventListener("mouseleave", () => {
+            isPaused = false;
+            startScrolling();
+        });
+
+        // Initially start the scrolling animation when the page loads
+        startScrolling();
     }
-
 });
+
+
