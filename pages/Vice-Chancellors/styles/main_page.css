@@ -76,7 +76,7 @@ header {
     background-image: var(--initial-header-bg-image);
     background-size: 100% 100%, 100% 100%, cover;
     background-repeat: no-repeat;
-    height: 50vh;
+    height: 80vh;
     flex-direction: column;
     color: var(--text-color);
     position: relative;
