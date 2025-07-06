@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 { title: 'رونمایی از ۱۷ سردیس مشاهیر شیراز در باغ ارم', description: 'در مراسمی رسمی و فرهنگی، از ۱۷ سردیس مشاهیر و نخبگان شیرازی در باغ ارم رونمایی شد. این سردیس‌ها شامل چهره‌هایی چون دکتر خدادوست، دکتر ملک‌حسینی و دیگر برگزیدگان جایزه علامه قطب‌الدین شیرازی بودند. این اقدام در راستای تقویت هویت شهری، الگوسازی برای نسل جوان و پاسداشت مفاخر علمی و فرهنگی شیراز انجام شد. باغ ارم، با معماری تاریخی و فضای سبز دل‌انگیز، بستر مناسبی برای این رویداد فاخر بود', image: '../images/roydad/رونمایی از ۱۷ سردیس مشاهیر شیراز در باغ ارم.jpg' }
             ],
             'هم قدم با شیراز': [
-                { title: 'درخت‌کاری در شیراز  مشارکت مردمی برای شهری سبزتر', description: 'در یک صبح بهاری، گروهی از دانش‌آموزان، فعالان محیط‌زیست و شهروندان داوطلب در تپه الله‌اکبر گرد هم اومدن تا با کاشت نهال، سهمی در آینده سبز شیراز داشته باشن. این برنامه که با همکاری شهرداری و سازمان‌های مردم‌نهاد برگزار شد، بخشی از طرح «شیراز نفس می‌کشد» بود.در کنار کاشت درخت، کارگاه‌های آموزشی درباره حفظ منابع طبیعی و بازیافت هم برگزار شد. بچه‌ها با دست‌های خاکی و دل‌های شاد، نهال‌هایی کاشتن که شاید روزی سایه‌سار نسل بعدی بشن.«هم‌قدم با شیراز» یعنی همین—قدم زدن در مسیر مسئولیت‌پذیری و عشق به زمین', image: '../images/hamgam/درخت‌کاری داوطلبانه در تپه الله‌اکبر.jpg' },
+                { title: 'درخت‌کاری در شیراز  مشارکت مردمی برای شهری سبزتر', description: 'در یک صبح بهاری، گروهی از دانش‌آموزان، فعالان محیط‌زیست و شهروندان داوطلب در تپه الله‌اکبر گرد هم اومدن تا با کاشت نهال، سهمی در آینده سبز شیراز داشته باشن. این برنامه که با همکاری شهرداری و سازمان‌های مردم‌نهاد برگزار شد، بخشی از طرح «شیراز نفس می‌کشد» بود.در کنار کاشت درخت، کارگاه‌های آموزشی درباره حفظ منابع طبیعی و بازیافت هم برگزار شد. بچه‌ها با دست‌های خاکی و دل‌های شاد، نهال‌هایی کاشتن که شاید روزی سایه‌سار نسل بعدی بشن.«هم‌قدم با شیراز» یعنی همین—قدم زدن در مسیر مسئولیت‌پذیری و عشق به زمین', image: '../images/hamgam/درخت‌کاری داوطلبانه در تپه الله‌اکبر.jpg' },
                 { title: 'روایت یک روز با پاکبانان شیراز؛ قهرمانان خاموش شهر', description: 'ساعت ۴ صبح، وقتی بیشتر شهر هنوز در خواب فرو رفته، پاکبانان شیراز کارشون رو شروع می‌کنن. با جاروهای بلند و لباس‌های فسفری، خیابون‌ها رو تمیز می‌کنن تا ما روزمون رو با آرامش شروع کنیم. در یکی از برنامه‌های «هم‌قدم با شیراز»، خبرنگار محلی یک روز کامل رو با یکی از این پاکبان‌ها گذروند؛ از جمع‌آوری زباله تا گفت‌وگو با مردم. نتیجه؟ احترام بیشتر، آگاهی بیشتر، و قدردانی از کسانی که بی‌صدا، شهر رو زنده نگه می‌دارن', image: '../images/hamgam/پاکبان .jpg' },
                 { title: 'قصه‌های محله سنگ‌سیاه؛ جایی که تاریخ هنوز نفس می‌کشه', description: 'در دل بافت تاریخی شیراز، محله‌ای هست که هنوز صدای پای تاریخ در کوچه‌هاش شنیده می‌شه: سنگ‌سیاه. این محله با معماری سنتی، بازارچه‌های قدیمی، و حضور آرامگاه سید تاج‌الدین غریب، یکی از قطب‌های فرهنگی و مذهبی شهره. اما چیزی که سنگ‌سیاه رو خاص‌تر می‌کنه، مردمشه؛ پیرمردی که هنوز با چرخ دستی‌اش فالوده می‌فروشه، یا مادری که هر روز جلوی در خونه‌اش گلدون‌ها رو آب می‌ده و با رهگذرا خوش‌وبش می‌کنه.«هم‌قدم با شیراز» یعنی ایستادن کنار همین آدم‌ها، شنیدن قصه‌هاشون، و دیدن شهری که با مردمش زنده‌ست', image: '../images/hamgam/قصه‌های محله سنگ‌سیاه.jpg' },
                 { title: 'بازارهای سنتی و خرید سوغاتی در شیراز.', description: 'در قلب شیراز، جایی هست که هنوز صدای چکش مس‌گران، عطر ادویه‌های شرقی و گفت‌وگوی گرم فروشنده‌ها، تو رو به قرن‌ها پیش می‌بره: بازار وکیل. این بازار تاریخی که به دستور کریم‌خان زند ساخته شده، نه‌فقط یک مرکز خرید، بلکه موزه‌ای زنده از فرهنگ و اقتصاد مردمیهدر برنامه «هم‌قدم با شیراز»، همراه شدیم با یک استاد خاتم‌کار که بیش از ۴۰ ساله در حجره کوچکش هنر می‌آفرینه. از خاطراتش گفت، از روزهایی که بازار پر از صدای ساز و آواز بود، و از گردشگرهایی که با چشم‌های پر از شگفتی به هنر ایرانی نگاه می‌کردن.بازار وکیل، جاییه که هنوز می‌شه با مردم حرف زد، چای خورد، و فهمید شیراز فقط یک شهر نیست—یه حسه', image: '../images/hamgam/یک روز در بازار وکیل.jpg' }
@@ -354,8 +354,6 @@ document.addEventListener("DOMContentLoaded", function() {
         cardsContainer.innerHTML = cardsData.map(generateCardHtml).join('');
     }
 
-    
-
     // ===================================================================
     // =================== INTERACTIVE MAP LOGIC =========================
     // ===================================================================
@@ -372,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "8": { name: "منطقه ۸", address: "شیراز، سه راه آستانه، شهرداری منطقه ۸", phone: "۰۷۱-۳۷۳۶۲۰۲۴" },
             "9": { name: "منطقه ۹", address: "شیراز،انتهای بلوار فرزانگان، بلوار طلاییه، شهرداری منطقه ۹", phone: "۰۷۱-۳۸۴۱۰۲۰۰" },
             "10": { name: "منطقه ۱۰", address: "شیراز،بلوار دکتر حسابی، خیابان هاتف، شهرداری منطقه ۱۰", phone: "۰۷۱-۳۶۵۰۱۷۱۷" },
-            "11": { name: "منطقه ۱۱", address: "شیراز،بلوار سرداران، نرسیده به ضلع غربی پل غدیر، شهرداری منطقه ۱۱", phone: "۰۷۱-۳۷۲۵۹۹۰۹    " }
+            "11": { name: "منطقه ۱۱", address: "شیراز،بلوار سرداران، نرسیده به ضلع غربی پل غدیر، شهرداری منطقه ۱۱", phone: "۰۷۱-۳۷۲۵۹۹۰۹" }
         };
 
         const hoverLabel = document.getElementById("district-hover-label");
@@ -436,7 +434,6 @@ document.addEventListener("DOMContentLoaded", function() {
         loadDistrictInfo();
     }
 
-
     // ===================================================================
     // =================== HORIZONTAL ZONE SCROLLER ======================
     // ===================================================================
@@ -452,48 +449,37 @@ document.addEventListener("DOMContentLoaded", function() {
             zoneContainer.appendChild(clone);
         });
 
-        // Function to start the automatic scrolling animation
         const startScrolling = () => {
-            // If the user is hovering, don't start the animation
             if (isPaused) return;
-
-            // Clear any previously running interval to avoid multiple, stacking animations
+            zoneContainer.classList.add('no-smooth-scroll');
             clearInterval(scrollInterval);
-
             scrollInterval = setInterval(() => {
-                // Check if the scroll position has reached the end of the original set of items
-                // The total scrollable width is scrollWidth, and we duplicated the items,
-                // so the end of the original set is at the halfway point.
                 if (zoneContainer.scrollLeft >= zoneContainer.scrollWidth / 2) {
-                    // Silently jump back to the beginning to create the infinite loop
                     zoneContainer.scrollLeft = 0;
                 } else {
-                    // Increment the scroll position to move the content
-                    zoneContainer.scrollLeft += 1; // Adjust this value to change scroll speed
+                    zoneContainer.scrollLeft += 1;
                 }
-            }, 25); // Adjust interval timing for smoother or faster animation
+            }, 25);
         };
 
-        // Function to stop the scrolling animation
         const stopScrolling = () => {
             clearInterval(scrollInterval);
+            zoneContainer.classList.remove('no-smooth-scroll');
         };
 
-        // Add event listeners to pause the scrolling when the user's mouse enters the container
         zoneContainer.addEventListener("mouseenter", () => {
             isPaused = true;
             stopScrolling();
         });
 
-        // Resume scrolling when the user's mouse leaves the container
         zoneContainer.addEventListener("mouseleave", () => {
             isPaused = false;
             startScrolling();
         });
 
-        // Initially start the scrolling animation when the page loads
-        startScrolling();
+        // Use a small timeout to ensure the browser has calculated the new scrollWidth
+        setTimeout(() => {
+            startScrolling();
+        }, 0);
     }
 });
-
-
