@@ -1,175 +1,79 @@
-<!-- Body -->
+<body>
+    <div class="news-container">
+        <!-- پنل سمت راست برای لیست اخبار -->
+        <aside class="news-timeline-panel">
+            <div class="timeline-header">
+                <h1>آخرین رویدادها</h1>
+                <p>مرکز اخبار شیراز</p>
+            </div>
+            <div class="timeline-list-container" id="timeline-list-container">
+                <!-- آیتم‌های تایم‌لاین توسط جاوااسکریپت اینجا قرار می‌گیرند -->
+            </div>
+        </aside>
 
-    <body class="bg">
-        <main>
-            <!-- Section 2: Services -->
-            <section id="services">
-                <div class="bg-shape-1"></div>
-                <h2 class="section-title animate-on-load">آشنایی با شهرداری شیراز</h2>
-                <p class="section-subtitle animate-on-load">نگاهی به بخش‌های کلیدی و فرصت‌های ارتباطی با مدیریت شهری شیراز
-                </p>
-                <div class="service-timeline">
-                    <!-- Service Item 1 -->
-                    <div class="service-item animate-on-load">
-                        <div class="service-icon-container">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <div class="service-text">
-                            <h3>شهردار شیراز</h3>
-                            <p>آشنایی با شهردار محترم، سوابق و دیدگاه‌های ایشان برای توسعه شهر</p>
-                        </div>
-                    </div>
-                    <!-- Service Item 2 -->
-                    <div class="service-item animate-on-load">
-                        <div class="service-icon-container">
-                            <i class="fas fa-users-cog"></i>
-                        </div>
-                        <div class="service-text">
-                            <h3>مدیران شهرداری</h3>
-                            <p>معرفی معاونین و مدیران مناطق مختلف شهرداری شیراز</p>
-                        </div>
-                    </div>
-                    <!-- Service Item 3 -->
-                    <div class="service-item animate-on-load">
-                        <div class="service-icon-container">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <div class="service-text">
-                            <h3>سالنامه و آمار شهری</h3>
-                            <p>دسترسی به گزارش‌های سالانه، آمار و اطلاعات جامع شهری</p>
-                        </div>
-                    </div>
-                    <!-- Service Item 4 -->
-                    <div class="service-item animate-on-load">
-                        <div class="service-icon-container">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <div class="service-text">
-                            <h3>مشارکت شهروندی</h3>
-                            <p>راهکارهای مشارکت در طرح‌ها و پیشنهاد ایده‌های سازنده به شهرداری</p>
-                        </div>
-                    </div>
+        <!-- پنل سمت چپ برای نمایش جزئیات -->
+        <section class="news-detail-panel">
+            <div class="detail-content-wrapper" id="detail-content-wrapper">
+                <!-- جزئیات خبر توسط جاوااسکریپت اینجا قرار می‌گیرد -->
+                <div class="placeholder">
+                    <i class="fas fa-newspaper"></i>
+                    <h2>یک خبر را برای نمایش انتخاب کنید</h2>
                 </div>
-            </section>
-
-            <!-- Section: Mayor's Message -->
-            <section id="mayor-message">
-                <div class="mayor-message-wrapper animate-on-load">
-                    <div class="mayor-photo-container">
-                        <img src="images/mayer.jpg" alt="تصویر شهردار شیراز" class="mayor-photo">
-                    </div>
-                    <div class="mayor-text-container">
-                        <i class="fas fa-quote-right quote-icon"></i>
-                        <h2>پیام شهردار</h2>
-                        <blockquote>
-                            شیراز، شهر شعر و ادب، امانتی گران‌بها در دستان ماست. با همت شما شهروندان عزیز و تلاش بی‌وقفه خادمانتان در شهرداری، می‌کوشیم تا این نگین ایران را برای نسل‌های آینده، درخشان‌تر و زیباتر از همیشه بسازیم. مشارکت شما، کلید توسعه پایدار شهر ماست.
-                        </blockquote>
-                        <p class="mayor-name">محمدحسن اسدی</p>
-                        <span class="mayor-title">شهردار کلان‌شهر شیراز</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section: Building Showcase -->
-            <section id="building-showcase">
-                <div class="bg-shape-3"></div>
-                <h2 class="section-title animate-on-load">نمایی از ساختمان مرکزی</h2>
-                <p class="section-subtitle animate-on-load">معماری مدرن در قلب تاریخی شیراز، نماد تعهد ما به پیشرفت و خدمت‌رسانی.
-                </p>
-                <div class="showcase-wrapper animate-on-load">
-                    <div class="showcase-container">
-                        <img src="images/building.jpg" alt="نمای ساختمان شهرداری شیراز" class="showcase-image">
-                        <div class="showcase-overlay">
-                            <i class="fas fa-search-plus"></i>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section: Quick Links -->
-            <section id="quick-links">
-                <h2 class="section-title animate-on-load">دسترسی سریع</h2>
-                <p class="section-subtitle animate-on-load">به بخش‌های مهم و کاربردی پورتال شهرداری شیراز دسترسی پیدا کنید.
-                </p>
-                <div class="quick-links-container animate-on-load">
-                    <a href="#" class="quick-link-blade">
-                        <div class="link-icon"><i class="fas fa-map-marked-alt"></i></div>
-                        <h3>نقشه هوشمند شهری</h3>
-                        <span class="arrow-icon"><i class="fas fa-arrow-left"></i></span>
-                    </a>
-                    <a href="#" class="quick-link-blade">
-                        <div class="link-icon"><i class="fas fa-building"></i></div>
-                        <h3>نقشه بافت فرسوده</h3>
-                        <span class="arrow-icon"><i class="fas fa-arrow-left"></i></span>
-                    </a>
-                    <a href="#" class="quick-link-blade">
-                        <div class="link-icon"><i class="fas fa-traffic-light"></i></div>
-                        <h3>ترافیک و حمل و نقل</h3>
-                        <span class="arrow-icon"><i class="fas fa-arrow-left"></i></span>
-                    </a>
-                    <a href="#" class="quick-link-blade">
-                        <div class="link-icon"><i class="fas fa-info-circle"></i></div>
-                        <h3>راهنمای اماکن خدماتی</h3>
-                        <span class="arrow-icon"><i class="fas fa-arrow-left"></i></span>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Section 4: Contact -->
-            <section id="contact">
-                <div class="bg-shape-2"></div>
-                <h2 class="section-title animate-on-load">ارتباط با شهرداری</h2>
-                <p class="section-subtitle animate-on-load">پل ارتباطی شما با ما. منتظر شنیدن نظرات و پیشنهادات سازنده شما هستیم.
-                </p>
-                <div class="contact-wrapper animate-on-load">
-                    <div class="form-container">
-                        <form id="contact-form">
-                            <div class="input-group">
-                                <label for="name" class="form-label">نام و نام خانوادگی</label>
-                                <input type="text" id="name" name="name" class="form-input" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="email" class="form-label">ایمیل</label>
-                                <input type="email" id="email" name="email" class="form-input" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="message" class="form-label">پیام شما</label>
-                                <textarea id="message" name="message" class="form-input" required rows="5"></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">ارسال پیام</button>
-                        </form>
-                    </div>
-                    <div class="info-panel">
-                        <div class="info-content">
-                            <div class="info-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div class="info-text">
-                                    <h4>آدرس</h4>
-                                    <p>خیابان شهید پیشرو، خیابان راهنمایی، ساختمان شهرداری مرکزی</p>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-phone-alt"></i>
-                                <div class="info-text">
-                                    <h4>شماره تماس</h4>
-                                    <p>۰۷۱-۳۲۲۲۶۸۵۸<br>۰۷۱-۳۲۲۲۳۶۲۴-۶</p>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-envelope"></i>
-                                <div class="info-text">
-                                    <h4>ایمیل</h4>
-                                    <p>info@shiraz.ir</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="logo-container">
-                            <img src="images/City Logo (Footer).png" alt="لوگوی شهرداری شیراز" class="municipality-logo">
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-    </body>
+            </div>
+        </section>
+    </div>
     <!-- End Body -->
+
+
+
+    <!-- footer -->
+
+    <footer class="main-footer">
+
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section links">
+                    <h3>پیوندها</h3>
+                    <ul>
+                        <li><a href="#">دفتر مقام معظم رهبری</a></li>
+                        <li><a href="#">پایگاه اطلاع رسانی دولت</a></li>
+                        <li><a href="#">پایگاه اطلاع رسانی ریاست جمهوری</a></li>
+                        <li><a href="#">سامانه ملی خدمات دولت</a></li>
+                        <li><a href="#">سامانه خبری اداره کل حراست</a></li>
+                        <li><a href="#">سامانه 111</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>راه های ارتباطی</h3>
+                    <p><i class="fas fa-phone-alt"></i> 071-32223624-6 - 071-32226858</p>
+                    <p><i class="fas fa-envelope"></i> info@shiraz.ir</p>
+                    <p><i class="fas fa-map-marker-alt"></i> خیابان شهید پیشرو، خیابان راهنمایی، ساختمان شهرداری مرکزی</p>
+                    <p><i class="fas fa-file-alt"></i> بیانیه حریم خصوصی</p>
+                    <p><i class="fas fa-file-alt"></i> بیانیه سطح توافق خدمات</p>
+                </div>
+                <div class="footer-section logos">
+                    <img src="images/Footer Logos.png" alt="">
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#" aria-label="واتساپ"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="آپارات">
+                        <img src="images/icons8-aparat-144.svg" alt="آپارات" style="width: 24px; height: 24px; vertical-align: middle;">
+                    </a>
+                    <a href="mailto:info@shiraz.ir" aria-label="ایمیل"><i style="width: 21px; height: 21x; vertical-align: middle;" class="fas fa-envelope"></i></a>
+                </div>
+                <p>کلیه حقوق این سایت متعلق به شهرداری شیراز میباشد</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- footer -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+    <script src="scripts/all.min.js"></script>
+    <script src="scripts/template.js"></script>
+</body>
