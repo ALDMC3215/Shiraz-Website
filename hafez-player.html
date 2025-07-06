@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پخش‌کننده اشعار</title>
+    <style>
+        /* تعریف فونت‌های محلی */
+        @font-face {
+            font-family: 'Shabnam';
+            src: url('./fonts/Shabnam.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'IranNastaliq';
+            src: url('./fonts/NotoNastaliqUrdu-Regular.ttf') format('truetype');
+        }
+
+        /* پالت رنگی */
+        :root {
+            --primary-color: #D4AF37;
+            --secondary-color: #CC7722;
+            --text-color: #002f5f;
+            --pale-gold-color: #EADDAA;
+            --progress-bg-color: #e0e0e0;
+        }
+
+        /* استایل‌های اصلی */
+        html, body {
+            height: 100%;
+            /* padding: 0; */
+            overflow: hidden;
+            font-family: 'Shabnam', sans-serif;
+            background-color: transparent;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin: 0px;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* بخش نمایش شعر */
+        #ghazal-text {
+            font-family: 'IranNastaliq', 'Shabnam', sans-serif;
+            font-size: 2rem;
+            line-height: 2.8;
+            text-align: center;
+            color: var(--text-color);
+            transition: opacity 0.4s ease-in-out;
+            width: 100%;
+            height: 150px; /* ارتفاع ثابت برای متن */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+        
+        .fade-out { opacity: 0; }
+
+        /* نگهدارنده پخش‌کننده (تمام عرض) */
+        .player-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            width: 100%;
+            padding: 0 2rem;
+            box-sizing: border-box;
+            margin-top: 1rem;
+        }
+        
+        /* دکمه‌های کنترل */
+        .control-btn {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 5px;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+        .control-btn:hover {
+            opacity: 1;
+        }
+        .control-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* نوار پیشرفت */
+        .progress-container {
+            flex-grow: 1;
+            height: 4px;
+            background-color: var(--pale-gold-color);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+        }
+        #progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+            transition: width 0.1s linear;
+        }
+    </style>
+</head>
+<body>
+    <p id="ghazal-text"></p>
+
+    <div class="player-container">
+        <button class="control-btn" id="next-btn" title="شعر بعدی">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg>
+        </button>
+        <div class="progress-container" id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <button class="control-btn" id="play-pause-btn" title="پخش/توقف">
+            <!-- آیکون داینامیک -->
+        </button>
+    </div>
+
+    <audio id="audio-source" style="display: none;"></audio>
+
+    <script>
+        const ghazals = [
+            { text: `خوشا شیراز و وضع بی‌مثالش<br>خداوندا نگه دار از زوالش`, audioSrc: './audio/ghazal1.mp3' },
+            { text: `همه عالم تن است و ایران دل<br>نیست گوینده زین قیاس خجل<br>شیراز دل ایران است`, audioSrc: './audio/ghazal2.mp3' },
+            { text: `به شیرین‌سخنی مشهور گشتم<br>به شیراز آمدم با روی روشن`, audioSrc: './audio/ghazal3.mp3' },
+            { text: `هزار جوی شیرین بر آید از شیراز<br>اگر به خاک درش بگذرد نسیم بهار`, audioSrc: './audio/ghazal4.mp3' },
+            { text: `اگر آن تُرک شیرازی به دست آرد دل ما را<br>به خال هندویش بخشم سمرقند و بخارا را`, audioSrc: './audio/ghazal5.mp3' },
+            { text: `بلبلان را بنگر اندر روضه‌های شیراز<br>کز طَرَب بر می‌زنند از گل‌رخان دُستـــان`, audioSrc: './audio/ghazal6.mp3' },
+            { text: `به شیراز آی و فیض روح قدسی<br>ببین کز دور دارالملک بگذشت`, audioSrc: './audio/ghazal7.mp3' },
+            { text: `آب رکن‌آباد ما هرگز نگردد تیره‌رنگ<br>تا جهان باقی است این شیراز خواهد ماند خوش`, audioSrc: './audio/ghazal8.mp3' }
+        ];
+
+        const ghazalTextElement = document.getElementById('ghazal-text');
+        const audio = document.getElementById('audio-source');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const progressContainer = document.getElementById('progress-container');
+        
+        const playIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+        const pauseIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+
+        let currentGhazalIndex = -1;
+
+        function loadGhazal(index, play = false) {
+            const selectedGhazal = ghazals[index];
+            ghazalTextElement.classList.add('fade-out');
+            setTimeout(() => {
+                ghazalTextElement.innerHTML = selectedGhazal.text;
+                audio.src = selectedGhazal.audioSrc;
+                audio.load();
+                if (play) {
+                    audio.play();
+                }
+                ghazalTextElement.classList.remove('fade-out');
+            }, 400);
+        }
+
+        function loadRandomGhazal(play = false) {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * ghazals.length);
+            } while (ghazals.length > 1 && randomIndex === currentGhazalIndex);
+            
+            currentGhazalIndex = randomIndex;
+            loadGhazal(currentGhazalIndex, play);
+        }
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        });
+
+        audio.addEventListener('play', () => { playPauseBtn.innerHTML = pauseIcon; });
+        audio.addEventListener('pause', () => { playPauseBtn.innerHTML = playIcon; });
+        audio.addEventListener('timeupdate', () => {
+            const { duration, currentTime } = audio;
+            if (duration) {
+                const progressPercent = (currentTime / duration) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+            }
+        });
+        audio.addEventListener('ended', () => loadRandomGhazal(true));
+
+        nextBtn.addEventListener('click', () => {
+            const isPlaying = !audio.paused;
+            loadRandomGhazal(isPlaying);
+        });
+
+        progressContainer.addEventListener('click', (e) => {
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            if (duration) {
+                audio.currentTime = (clickX / width) * duration;
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            playPauseBtn.innerHTML = playIcon;
+            loadRandomGhazal(false);
+        });
+    </script>
+</body>
+</html>
