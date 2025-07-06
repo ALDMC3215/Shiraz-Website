@@ -286,7 +286,9 @@ header {
   margin: auto;
 }
 
-
+.logo-text{
+    width: 500px;
+}
 
 .navbar.navbar-fixed {
   position: fixed;
