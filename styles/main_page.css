@@ -242,6 +242,11 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
 /* =================================================================== */
 
 /* --- Main Header Container --- */
+/* ===================================================================
+ * ==================== FINAL & COMPLETE STYLES ======================
+ * =================================================================== */
+
+/* --- Base & Desktop Styles --- */
 header {
     font-family: shabnamMedium, sans-serif;
     background-image: radial-gradient(circle at 50% 50%, var(--primary-color) 0%, var(--secondary-color) 100%);
@@ -256,7 +261,6 @@ header {
     justify-content: flex-start;
 }
 
-/* --- Navbar General (Reverted to V1 Size) --- */
 .navbar {
     position: relative;
     z-index: 1050;
@@ -270,24 +274,24 @@ header {
     align-items: center;
     border-radius: 100px;
     background-color: rgba(var(--primary-pale-color-rgb, 234, 221, 170), 0.8);
-    --webkit-backdrop-filter: blur(10px);
-    padding: 10px; /* Reverted to larger padding */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 1px solid rgba(var(--white-color-rgb), 0.1);
     box-shadow: 0 8px 32px rgba(var(--black-color-rgb), 0.1);
 }
 
 .navbar-nav {
-    display: flex; /* Added for alignment */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    padding: 0; /* Reverted to larger padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     background-color: transparent !important;
     box-shadow: none !important;
     width: 100%;
 }
 
-/* --- Nav Links & FINAL Hover Effects --- */
 .navbar-nav .nav-link {
     color: var(--text-color);
     margin: 0 20px;
@@ -298,7 +302,6 @@ header {
     white-space: nowrap;
 }
 
-/* FINAL: Underline is now invisible before hover */
 .navbar-nav .nav-link::after {
     content: '';
     position: absolute;
@@ -308,9 +311,7 @@ header {
     width: 100%;
     height: 1px;
     background-color: var(--primary-color);
-    /* Start scaled to zero (invisible) */
     transform: scaleX(0);
-    /* Animate the transform property */
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -318,7 +319,6 @@ header {
     color: var(--accent-2-color) !important;
 }
 
-/* On hover, scale it back to full width */
 .navbar-nav .nav-link:hover::after {
     transform: scaleX(1);
 }
@@ -333,11 +333,10 @@ header {
     transform: translateY(-1px);
 }
 
-
-/* --- Dropdown Menu (Right-aligned & Styled) --- */
 .dropdown-menu {
     background-color: rgba(var(--primary-pale-color-rgb, 234, 221, 170), 0.97);
-    --webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-radius: 16px;
     box-shadow: 0px 10px 30px rgba(var(--black-color-rgb), 0.2);
     padding: 15px;
@@ -364,18 +363,11 @@ header {
     font-size: 0.9em;
     border-radius: 10px;
     margin-bottom: 5px;
-    text-align: right; /* Ensuring right alignment */
-    direction: rtl; /* Ensuring correct direction for flex items */
-    justify-content: flex-start; /* Aligns items to the start (right in RTL) */
+    text-align: right;
+    direction: rtl;
+    justify-content: flex-start;
 }
 
-
-.dropdown-item svg{
-  margin-left: 10px;
-}
-
-
-/* --- Mayor Profile (Circular Image) --- */
 .mayor-profile {
     display: flex;
     align-items: center;
@@ -389,7 +381,7 @@ header {
 .mayor-image-wrapper {
     width: 70px;
     height: 70px;
-    border-radius: 50%; /* Reverted to circle */
+    border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--secondary-color);
     box-shadow: 0 4px 15px rgba(var(--secondary-color-rgb), 0.3);
@@ -409,7 +401,6 @@ header {
     object-fit: cover;
 }
 
-/* --- Search Bar & AI Button (Focus Fixed) --- */
 .search-container {
     width: 100%;
     display: flex;
@@ -426,6 +417,7 @@ header {
     border-radius: 100px;
     background-color: rgba(var(--white-color-rgb), 0.15);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     width: 100%;
     max-width: 550px;
     height: 45px;
@@ -450,7 +442,6 @@ header {
     height: 100%;
 }
 
-/* FIX: Prevent white background on focus */
 .search-input:focus {
     outline: none !important;
     box-shadow: none !important;
@@ -477,6 +468,7 @@ header {
     margin-right: 15px;
     background-color: rgba(var(--white-color-rgb), 0.15);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     flex-shrink: 0;
@@ -493,7 +485,6 @@ header {
     transition: transform 0.4s ease;
 }
 
-/* --- Main Content (Repositioned) --- */
 .main {
     flex-grow: 1;
     display: flex;
@@ -535,18 +526,15 @@ header {
     animation: fadeInUp 1.2s 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-/* --- STICKY NAVBAR STYLE --- */
-/* This class is added via JavaScript on scroll */
 .navbar.navbar-fixed {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     padding-top: 0;
-    /* background-color: rgba(var(--background-color-rgb, 255, 251, 239), 0.85);  */
-    --webkit-backdrop-filter: blur(45px);
+    backdrop-filter: blur(45px);
+    -webkit-backdrop-filter: blur(45px);
     animation: slideInFromTop 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.2); */
 }
 
 .navbar.navbar-fixed .navbar-collapse {
@@ -555,6 +543,7 @@ header {
     box-shadow: 0 10px 30px rgba(var(--black-color-rgb), 0.1);
 }
 
+/* --- Keyframe Animations --- */
 @keyframes slideInFromTop {
     from {
         transform: translateY(-100%);
@@ -566,10 +555,138 @@ header {
     }
 }
 
-/* --- Keyframe Animations --- */
 @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
+
+/* --- Desktop Dropdown Animation --- */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dropdown-menu li, .dropdown-menu .mayor-profile, .dropdown-menu .dropdown-divider {
+  opacity: 0;
+  animation: none;
+}
+
+.dropdown:hover .dropdown-menu li,
+.dropdown:hover .dropdown-menu .mayor-profile,
+.dropdown:hover .dropdown-menu .dropdown-divider {
+  animation: slideInFromLeft 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.dropdown:hover .dropdown-menu > *:nth-child(1) { animation-delay: 0.05s; }
+.dropdown:hover .dropdown-menu > *:nth-child(2) { animation-delay: 0.1s; }
+.dropdown:hover .dropdown-menu > *:nth-child(3) { animation-delay: 0.15s; }
+.dropdown:hover .dropdown-menu > *:nth-child(4) { animation-delay: 0.2s; }
+.dropdown:hover .dropdown-menu > *:nth-child(5) { animation-delay: 0.25s; }
+.dropdown:hover .dropdown-menu > *:nth-child(6) { animation-delay: 0.3s; }
+.dropdown:hover .dropdown-menu > *:nth-child(7) { animation-delay: 0.35s; }
+.dropdown:hover .dropdown-menu > *:nth-child(8) { animation-delay: 0.4s; }
+
+
+/* ===============================================================
+ * ================= MOBILE & TABLET STYLES ======================
+ * =============================================================== */
+@media (max-width: 991.98px) {
+	
+  .navbar {
+    position: relative;
+  }
+
+  .navbar-collapse {
+    position: absolute;
+    top: calc(100% + 10px); 
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    z-index: 1100; /* این خط مهم‌ترین بخش برای حل مشکل لایه‌بندی است */
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    margin-top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-nav,
+  .nav-item {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 12px 10px;
+    margin: 0 0 5px 0;
+    width: 100%;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    color: var(--white-color);
+  }
+
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-nav .nav-link::after {
+    display: none;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown-menu.show {
+    display: block;
+    position: static !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    padding: 0 15px 0 0;
+    float: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .dropdown-item {
+    color: #f0f0f0;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .dropdown-item:hover, .dropdown-item:focus {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .main, .search-container {
+    z-index: 1;
+  }
+
+  .logo-text {
+    width: 80%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .description-text-head {
+    font-size: 0.9em;
+  }
+  
+  .botom-img {
+    opacity: 0.2;
+    z-index: 0;
+  }
+}
 
 
 
