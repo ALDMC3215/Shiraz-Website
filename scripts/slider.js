@@ -40,12 +40,17 @@ function setBulletAnimation(swiper) {
     bullets.forEach((bullet, index) => {
         const progressCircle = bullet.querySelector('.shiraz-news-progress-circle');
         if (progressCircle) {
+            // Always reset animation first
+            progressCircle.style.animation = 'none';
+            
             if (index === realIndex) {
-                progressCircle.style.animation = 'none';
-                void progressCircle.offsetWidth;
+                // Trigger reflow to ensure animation restarts
+                void progressCircle.offsetWidth; 
+                
+                // Apply the 'fill-circle' animation
                 progressCircle.style.animation = `fill-circle ${autoplayDelay / 1000}s linear forwards`;
             } else {
-                progressCircle.style.animation = 'none';
+                // For non-active bullets, reset the progress to empty
                 progressCircle.style.strokeDashoffset = '100.5';
             }
         }
