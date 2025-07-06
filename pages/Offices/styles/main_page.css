@@ -813,7 +813,7 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.8);
   border-color: rgba(255, 255, 255, 0.5);
-  color: var(--primary-color); /* Changed to use primary-color */
+  color: var(--black-color); /* Changed to use primary-color */
 }
 
 .card-button h5 {

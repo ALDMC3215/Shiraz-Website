@@ -791,7 +791,7 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.8);
   border-color: rgba(255, 255, 255, 0.5);
-  color: #CC7722;
+  color: #000000;
 }
 
 .card-button h5 {
@@ -805,7 +805,7 @@ body {
 .card-main-icon {
   font-size: 2.5rem; /* Larger icon size */
   transition: transform 0.3s ease, color 0.3s ease;
-  color: #CC7722;
+  color: #D4AF37;
 }
 
 .card-button:hover .card-main-icon {

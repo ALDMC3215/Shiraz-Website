@@ -35,45 +35,42 @@
 }
 
 :root {
-  /* New Color Palette */
-  --primary-color: #7993f0;
-  --primary-pale-color: #aeb2ff;
-  --secondary-color: #d9ac3a;
-  --secondary-pale-color: #ffe783;
-  --background-color: #fffdf7;
-  --accent-1-color: #fd5e53;
+  --primary-color: #D4AF37; /* Gold */
+  --primary-pale-color: #EADDAA; /* Pale Gold */
+  --secondary-color: #CC7722; /* Ochre */
+  --secondary-pale-color: #E0A96D; /* Pale Ochre */
+  --background-color: #FFFBEF; /* Creamy Background */
+  --accent-1-color: #40E0D0; /* Turquoise */
+  --accent-2-color: #0047AB; /* Lapis Lazuli Blue */
   --black-color: #000000;
   --white-color: #ffffff;
-  --text-color: #383d38;
-  --footer-background-color: #f5f7fe;
-  --primary-purple: #8a2be2;
-  --light-purple: #d8bfd8;
-  --lighter-purple: #e6e6fa;
-  --background-start: #b39ddb;
-  --background-end: #8e24aa;
-  --white-text: #fff;
-  --brand-purple: #7c3aed;
-  --brand-light-purple: #c4b5fd;
+  --text-color: #4E3629; /* Dark Brown/Ochre Text */
+  --footer-background-color: #F5EEDC; /* Light Beige for Footer */
+  --gold-gradient: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
+
+  --brand-color-main: #D4AF37;
+  --brand-color-light: #EADDAA;
   --autoplay-duration: 4000ms;
+
   --dynamic-bg-color: initial;
   --dynamic-card-bg-color: initial;
   --dynamic-text-color: initial;
-  --initial-header-bg-image: url("../images/Landing Page.png");
-  --primary-color: #6a85f1;
-  --primary-color-light: #aeb2ff;
-  --secondary-color: #e6b93f;
-  --secondary-color-light: #ffe783;
-  --text-primary: #333733;
-  --text-secondary: #5c615c;
-  --background-color: #fbfbff;
-  --surface-color: #ffffff;
-  --border-color: #eaeaea;
-  --shadow-color: rgba(90, 100, 120, 0.1);
-  --shadow-hover-color: rgba(90, 100, 120, 0.2);
-  --card-radius: 20px;
-  --transition-speed: 0.35s;
+  
+  --primary-color-rgb: 212, 175, 55;
+  --secondary-color-rgb: 204, 119, 34;
+  --black-color-rgb: 0, 0, 0;
+  --white-color-rgb: 255, 255, 255;
 
-  --transition-easing: cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* Existing variables - DO NOT MODIFY */
+  --text-primary: var(--text-color);
+  --text-secondary: rgba(var(--text-color-rgb), 0.7);
+  --surface-color: var(--white-color);
+  --border-color: rgba(var(--text-color-rgb), 0.1);
+  --shadow-color: rgba(var(--text-color-rgb), 0.08);
+  --shadow-hover-color: rgba(var(--text-color-rgb), 0.15);
+  --card-radius: 20px;
+  --transition-speed: 0.4s;
+  --transition-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* header */
@@ -863,7 +860,7 @@ section {
   height: 40vw;
   background: linear-gradient(
     135deg,
-    var(--primary-color-light),
+    var(--primary-pale-color),
     var(--background-color)
   );
   border-radius: 47% 53% 70% 30% / 30% 50% 50% 70%;
@@ -899,7 +896,7 @@ section {
   height: 30vw;
   background: linear-gradient(
     135deg,
-    var(--secondary-color-light),
+    var(--secondary-pale-color),
     var(--background-color)
   );
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -928,7 +925,7 @@ section {
   width: 3px;
   background: linear-gradient(
     to bottom,
-    var(--primary-color-light),
+    var(--primary-pale-color),
     var(--secondary-color)
   );
   border-radius: 3px;
@@ -1226,7 +1223,7 @@ section {
   background: linear-gradient(
     160deg,
     var(--primary-color),
-    var(--primary-color-light)
+    var(--primary-pale-color)
   );
   z-index: 0;
   transition: height var(--transition-speed) var(--transition-easing);
@@ -1271,7 +1268,7 @@ section {
 
 .quick-link-blade:hover .link-icon {
   transform: translateY(-10px) scale(1.1);
-  color: var(--secondary-color-light);
+  color: var(--secondary-pale-color);
 }
 
 .quick-link-blade:hover h3 {
@@ -1362,7 +1359,7 @@ section {
   background: linear-gradient(
     160deg,
     var(--primary-color),
-    var(--primary-color-light)
+    var(--primary-pale-color)
   );
   color: #fff;
   padding: 4rem;
@@ -1387,7 +1384,7 @@ section {
   font-size: 1.5rem;
   opacity: 0.9;
   padding-top: 5px;
-  color: var(--secondary-color-light);
+  color: var(--secondary-pale-color);
 }
 
 .info-text h4 {
