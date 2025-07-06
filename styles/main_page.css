@@ -726,7 +726,6 @@ header {
 
 .row {
     background: transparent !important;
-    overflow-y: hidden;
 }
 
 /* --- Base Pushable Button Container --- */
