@@ -1682,14 +1682,16 @@ header {
     width: 100%;
     max-width: 100%;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row-reverse; 
     gap: 90px;
-    /* flex-wrap: wrap; */
     align-items: center;
+    /* align-items: stretch; */
+      /* align-items: flex-start; */
 }
 
+
 .map-section {
-    flex: 1 1 50%; /* Map section takes up half the space */
+    flex: 1 1 40%; 
     min-width: 450px;
     display: flex;
     align-items: center;
@@ -1697,38 +1699,23 @@ header {
     position: sticky; 
     top: 100px;
     padding: 20px;
-    /* background-color: black; */
 }
+
 
 .info-section {
-    flex: 1 1 45%; /* Info section takes the other half */
+    flex: 1 1 55%; 
     min-width: 00px;
-    /* background: var(--map-info-bg); */
+
     padding: 10px;
     border-radius: 16px;
-    /* border: 1px solid var(--map-border-color); */
-    /* box-shadow: 0 8px 24px rgba(var(--map-shadow-color-rgb), 0.05); */
-    /* Set a max-height to ensure it doesn't get too long */
-    max-height: 60vh; 
+    max-height: 70vh; 
     overflow-y: auto;
     direction: rtl;
+
+    display: flex;
+    flex-direction: column;
 }
 
-/* Custom Scrollbar Styling */
-/* .info-section::-webkit-scrollbar {
-    width: 8px;
-}
-.info-section::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-.info-section::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-}
-.info-section::-webkit-scrollbar-thumb:hover {
-    background: #aaa;
-} */
 
 .info-section h2 {
     color: var(--map-label-color);
@@ -1753,11 +1740,8 @@ header {
   stroke: var(--map-district-stroke);
   stroke-width: 2.5;
   transition: fill 0.3s, stroke 0.3s, filter 0.3s, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  /* filter: drop-shadow(0 4px 12px rgba(var(--map-shadow-color-rgb), 0.18)); */
   cursor: pointer;
-  /* Add a subtle gradient overlay for depth */
-  /* This requires SVG structure, but for CSS: */
-  /* Use a slight pattern or highlight on hover/active */
+
 }
 
 .district:hover, .district:focus {
@@ -1851,6 +1835,12 @@ a:hover .district {
     box-shadow: 0 4px 10px rgba(var(--map-shadow-color-rgb), 0.2);
     white-space: nowrap;
     transition: opacity 0.2s;
+}
+
+#district-info-list {
+    flex-grow: 1;      /* باعث می‌شود این بخش فضای خالی عمودی را پر کند */
+    overflow-y: auto;  /* اسکرول فقط به این بخش اعمال می‌شود */
+    padding-left: 15px; /* یک فاصله کوچک برای اسکرول‌بار ایجاد می‌کند تا روی محتوا نیفتد */
 }
 
 /* Responsive adjustments */
