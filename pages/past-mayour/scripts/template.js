@@ -1,18 +1,29 @@
 // header
-document.addEventListener("DOMContentLoaded", function () {
-    const navbar = document.querySelector(".navbar");
-    const header = document.querySelector("header");
+document.addEventListener("DOMContentLoaded", function() {
 
-    const headerHeight = header.offsetHeight;
+    // ===================================================================
+    // ==================== STICKY NAVBAR ON SCROLL ======================
+    // ===================================================================
+    // This script makes the navbar stick to the top after scrolling down.
+    const navbar = document.querySelector('.navbar');
+    const header = document.querySelector('header');
 
-    window.addEventListener("scroll", function () {
-        if (window.scrollY >= headerHeight) {
-            navbar.classList.add("fix-navbar-nav");
-        } else {
-            navbar.classList.remove("fix-navbar-nav");
-        }
-    });
-   
+    // We only run this if a header and navbar element actually exist on the page.
+    if (header && navbar) {
+        // The point at which the navbar should become sticky is the bottom of the header.
+        const stickyPoint = header.offsetHeight;
+
+        window.addEventListener("scroll", function() {
+            // When scroll position is greater than the bottom of the header
+            if (window.scrollY > stickyPoint) {
+                // Add the 'navbar-fixed' class. The corresponding styles must exist in the CSS file.
+                navbar.classList.add('navbar-fixed');
+            } else {
+                // Remove the class when the user scrolls back to the top.
+                navbar.classList.remove('navbar-fixed');
+            }
+        });
+    }
 });
 
 // header
