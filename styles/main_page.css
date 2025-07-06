@@ -1881,6 +1881,7 @@ a:hover .district {
 }
 
 .main-footer::before {
+  height: 83%;
   content: "";
   position: absolute;
   inset: 0;
@@ -1888,8 +1889,8 @@ a:hover .district {
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-  background-size: 80% 80%;
-  opacity: 1;
+  background-size: 80% 100%;
+  opacity: 0.4;
 }
 
 .footer-content {
@@ -1921,7 +1922,7 @@ a:hover .district {
 }
 
 .footer-section.links ul li {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .footer-section.links ul li a {
@@ -1972,6 +1973,7 @@ a:hover .district {
   justify-content: space-between;
   align-items: center;
   flex-direction: row-reverse;
+
 }
 
 .footer-bottom p {
@@ -1980,7 +1982,6 @@ a:hover .district {
   opacity: 0.8;
   text-align: left;
   margin-right: 20px;
-  z-index: 2;
 }
 
 .social-icons {
@@ -2004,13 +2005,12 @@ a:hover .district {
 
 .social-icons a:hover {
   background-color: var(--primary-color);
-  color: var(--white-color);
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(var(--black-color-rgb), 0.1);
 }
 
 @media (max-width: 768px) {
-  .main-footer::before{ background-size: 95% ;  margin-top: 655px;} 
+  .main-footer::before{ height: 15%; background-size: 95% ; margin-top: 650px; } 
   .footer-content { flex-direction: column; align-items: center; }
   .footer-section { min-width: unset; width: 100%; text-align: center; }
   .footer-section h3::after { right: 50%; transform: translateX(50%); }
