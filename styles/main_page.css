@@ -1870,6 +1870,7 @@ a:hover .district {
     background-color: #fff;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    line-height: 1.7
 }
 
 .district-info h3 {
