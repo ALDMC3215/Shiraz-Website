@@ -237,7 +237,7 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
 
 
 /* ===================================================================
- * ==================== FINAL & COMPLETE STYLES ======================
+ * ==================== HEADER FINAL DESIGN ======================
  * =================================================================== */
 
 /* --- Base & Desktop Styles --- */
@@ -495,16 +495,17 @@ header {
 .logo-text {
     width: 411px;
     height: 157px;
-    margin-top: 0;
+    margin-top: -50px;
     animation: fadeInUp 0.8s 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .description-text-head {
     width: 80%;
     max-width: 700px;
-    font-size: 1em;
-    line-height: 1.8;
-    margin-top: 2rem;
+    font-size: 1.02em;
+    /* line-height: 1.8; */
+    z-index: 1000;
+    margin-top: 1rem;
     color: var(--white-color) !important;
     animation: fadeInUp 0.8s 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -848,14 +849,16 @@ header {
 
 /* ---------- Slider 1 (Events) ---------- */
 
+
+
 .pms-container-fluid-my-5 {
-  margin-top: 120px !important;
+  height: 500px;
+  margin-top:200px !important;
   margin-bottom: 3rem !important;
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 150px);
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -863,11 +866,14 @@ header {
 .pms-swiper {
   width: 100%;
   max-width: 1280px;
-  height: 750px;
+  height: 660px;
   overflow: hidden;
   padding: 0;
   margin-top: 0;
 }
+
+
+
 
 .pms-swiper-slide {
   background-color: var(--white-color);
@@ -879,10 +885,10 @@ header {
   font-weight: bold;
   color: var(--text-color);
   border-radius: 25px;
-  box-shadow: 0 8px 25px rgba(var(--black-color-rgb), 0.15);
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+  box-shadow: 0 8px 5px rgba(var(--black-color-rgb), 0.15);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
   width: 100% !important;
-  height: 600px;
+  height: 500px;
   cursor: pointer;
   border: 2px solid transparent;
 }
@@ -963,6 +969,7 @@ header {
 .pms-swiper-button-next { right: 20px; }
 
 .pms-swiper-pagination {
+  margin-top: 500px;
   position: absolute;
   bottom: 30px !important;
   width: 100%;
@@ -1021,7 +1028,7 @@ header {
 .pms-progress-circle {
   stroke-dasharray: 100.5;
   stroke-dashoffset: 100.5;
-  stroke: var(--secondary-color);
+  stroke: var(--accent-2-color);
   animation: none;
 }
 
