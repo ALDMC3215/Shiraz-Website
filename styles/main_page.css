@@ -726,6 +726,7 @@ header {
 
 .row {
     background: transparent !important;
+    overflow-y: hidden;
 }
 
 /* --- Base Pushable Button Container --- */
@@ -1122,7 +1123,8 @@ header {
 .info-section {
   width: 100%;
   padding: 3rem 0; /* Base padding for mobile */
-  background-color: var(--light-background-color); /* Assuming a light bg */
+  background-color: var(--light-background-color);
+  overflow-y: hidden; /* Assuming a light bg */
 }
 
 .section-title {
@@ -1868,13 +1870,10 @@ header {
 .info-section {
     flex: 1 1 55%; 
     min-width: 00px;
-
     padding: 10px;
     border-radius: 16px;
     max-height: 70vh; 
-    overflow-y: auto;
     direction: rtl;
-
     display: flex;
     flex-direction: column;
 }
