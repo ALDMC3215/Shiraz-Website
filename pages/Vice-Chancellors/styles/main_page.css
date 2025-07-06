@@ -35,36 +35,42 @@
 }
 
 :root {
-  /* New Color Palette */
-  --primary-color: #7993f0;
-  --primary-pale-color: #aeb2ff;
-  --secondary-color: #d9ac3a;
-  --secondary-pale-color: #ffe783;
-  --background-color: #fffdf7;
-  --accent-1-color: #fd5e53;
+  --primary-color: #D4AF37; /* Gold */
+  --primary-pale-color: #EADDAA; /* Pale Gold */
+  --secondary-color: #CC7722; /* Ochre */
+  --secondary-pale-color: #E0A96D; /* Pale Ochre */
+  --background-color: #FFFBEF; /* Creamy Background */
+  --accent-1-color: #40E0D0; /* Turquoise */
+  --accent-2-color: #0047AB; /* Lapis Lazuli Blue */
   --black-color: #000000;
   --white-color: #ffffff;
-  --text-color: #383d38;
-  --footer-background-color: #f5f7fe;
-  /* Old variables - kept for reference or if still used elsewhere */
-  --primary-purple: #8a2be2;
-  --light-purple: #d8bfd8;
-  --lighter-purple: #e6e6fa;
-  --background-start: #b39ddb;
-  --background-end: #8e24aa;
-  --white-text: #fff;
-  /* This should probably be --white-color now */
-  /* Variables for Carousel */
-  --brand-purple: #7c3aed;
-  /* Consider replacing with --primary-color or similar */
-  --brand-light-purple: #c4b5fd;
-  /* Consider replacing with --primary-pale-color or similar */
+  --text-color: #4E3629; /* Dark Brown/Ochre Text */
+  --footer-background-color: #F5EEDC; /* Light Beige for Footer */
+  --gold-gradient: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
+
+  --brand-color-main: #D4AF37;
+  --brand-color-light: #EADDAA;
   --autoplay-duration: 4000ms;
-  /* NEW: Dynamic Variables for Accessibility Panel Background/Text Colors */
+
   --dynamic-bg-color: initial;
   --dynamic-card-bg-color: initial;
   --dynamic-text-color: initial;
-  --initial-header-bg-image: url("../images/Landing\ Page.png");
+  
+  --primary-color-rgb: 212, 175, 55;
+  --secondary-color-rgb: 204, 119, 34;
+  --black-color-rgb: 0, 0, 0;
+  --white-color-rgb: 255, 255, 255;
+
+   /* Existing variables - DO NOT MODIFY */
+   --text-primary: var(--text-color);
+   --text-secondary: rgba(var(--text-color-rgb), 0.7);
+   --surface-color: var(--white-color);
+   --border-color: rgba(var(--text-color-rgb), 0.1);
+   --shadow-color: rgba(var(--text-color-rgb), 0.08);
+   --shadow-hover-color: rgba(var(--text-color-rgb), 0.15);
+   --card-radius: 20px;
+   --transition-speed: 0.4s;
+   --transition-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 
@@ -803,7 +809,7 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.8);
   border-color: rgba(255, 255, 255, 0.5);
-  color: #0d6efd;
+  color: var(--black-color);
 }
 
 .card-button h5 {
@@ -817,12 +823,12 @@ body {
 .card-main-icon {
   font-size: 2.5rem; /* Larger icon size */
   transition: transform 0.3s ease, color 0.3s ease;
-  color: #5a67d8;
+  color: var(--primary-color);
 }
 
 .card-button:hover .card-main-icon {
   transform: scale(1.1); /* Icon grows on hover */
-  color: #0d6efd; /* Inherits the primary blue color on hover */
+  color: var(--secondary-color); /* Inherits the primary blue color on hover */
 }
 
 /* End Moavenat ha */

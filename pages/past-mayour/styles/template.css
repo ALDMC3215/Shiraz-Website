@@ -34,37 +34,43 @@
     font-display: swap;
 }
 
-:root {
-    /* New Color Palette */
-    --primary-color: #7993F0;
-    --primary-pale-color: #AEB2FF;
-    --secondary-color: #D9AC3A;
-    --secondary-pale-color: #FFE783;
-    --background-color: #FFFDF7;
-    --accent-1-color: #FD5E53;
-    --black-color: #000000;
-    --white-color: #FFFFFF;
-    --text-color: #383D38;
-    --footer-background-color: #F5F7FE;
-    /* Old variables - kept for reference or if still used elsewhere */
-    --primary-purple: #8a2be2;
-    --light-purple: #d8bfd8;
-    --lighter-purple: #e6e6fa;
-    --background-start: #b39ddb;
-    --background-end: #8e24aa;
-    --white-text: #fff;
-    /* This should probably be --white-color now */
-    /* Variables for Carousel */
-    --brand-purple: #7c3aed;
-    /* Consider replacing with --primary-color or similar */
-    --brand-light-purple: #c4b5fd;
-    /* Consider replacing with --primary-pale-color or similar */
-    --autoplay-duration: 4000ms;
-    /* NEW: Dynamic Variables for Accessibility Panel Background/Text Colors */
-    --dynamic-bg-color: initial;
-    --dynamic-card-bg-color: initial;
-    --dynamic-text-color: initial;
-    --initial-header-bg-image: url('../images/Landing Page.png');
+:root {   
+    --primary-color: #D4AF37; /* Gold */   
+    --primary-pale-color: #EADDAA; /* Pale Gold */   
+    --secondary-color: #CC7722; /* Ochre */   
+    --secondary-pale-color: #E0A96D; /* Pale Ochre */   
+    --background-color: #FFFBEF; /* Creamy Background */   
+    --accent-1-color: #40E0D0; /* Turquoise */   
+    --accent-2-color: #0047AB; /* Lapis Lazuli Blue */   
+    --black-color: #000000;   
+    --white-color: #ffffff;   
+    --text-color: #4E3629; /* Dark Brown/Ochre Text */   
+    --footer-background-color: #F5EEDC; /* Light Beige for Footer */   
+    --gold-gradient: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);   
+
+    --brand-color-main: #D4AF37;   
+    --brand-color-light: #EADDAA;   
+    --autoplay-duration: 4000ms;   
+
+    --dynamic-bg-color: initial;   
+    --dynamic-card-bg-color: initial;   
+    --dynamic-text-color: initial;   
+       
+    --primary-color-rgb: 212, 175, 55;   
+    --secondary-color-rgb: 204, 119, 34;   
+    --black-color-rgb: 0, 0, 0;   
+    --white-color-rgb: 255, 255, 255;
+
+    /* Existing variables - DO NOT MODIFY */
+    --text-primary: var(--text-color);
+    --text-secondary: rgba(var(--text-color-rgb), 0.7);
+    --surface-color: var(--white-color);
+    --border-color: rgba(var(--text-color-rgb), 0.1);
+    --shadow-color: rgba(var(--text-color-rgb), 0.08);
+    --shadow-hover-color: rgba(var(--text-color-rgb), 0.15);
+    --card-radius: 20px;
+    --transition-speed: 0.4s;
+    --transition-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 h1,
