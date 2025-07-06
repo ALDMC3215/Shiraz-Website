@@ -236,6 +236,7 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
 }
 
 
+
 /* ===================================================================
  * ==================== HEADER FINAL DESIGN ======================
  * =================================================================== */
@@ -246,7 +247,7 @@ header {
     background-image: radial-gradient(circle at 50% 50%, var(--primary-color) 0%, var(--secondary-color) 100%);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh; /* Changed to min-height for better flexibility */
     display: flex;
     flex-direction: column;
     color: var(--white-color);
@@ -267,11 +268,12 @@ header {
   justify-content: space-between;
   align-items: center;
   border-radius: 100px;
-  background-color: rgba(255, 255, 255, 0.65); /* More transparent white */
+  background-color: rgba(255, 255, 255, 0.65);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   padding: 10px;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border-style: none solid solid none; /* Only right and bottom */
+  border-style: none solid solid none;
   border-width: 0 2px 2px 0;
   border-color: rgba(255,255,255,0.25);
   box-shadow: 0 8px 32px rgba(var(--black-color-rgb), 0.1);
@@ -503,7 +505,6 @@ header {
     width: 80%;
     max-width: 700px;
     font-size: 1.02em;
-    /* line-height: 1.8; */
     z-index: 1000;
     margin-top: 1rem;
     color: var(--white-color) !important;
@@ -586,103 +587,129 @@ header {
 .dropdown:hover .dropdown-menu > *:nth-child(8) { animation-delay: 0.4s; }
 
 
-/* ===============================================================
- * ================= MOBILE & TABLET STYLES ======================
- * =============================================================== */
+/* ===================================================================
+ * ==================== RESPONSIVE STYLES (NEW) ====================
+ * =================================================================== */
+
+/* --- Tablet & Mobile Styles --- */
 @media (max-width: 991.98px) {
-	
-  .navbar {
-    position: relative;
-  }
+    .navbar-collapse {
+        order: 1; /* Place below toggler and icons */
+        width: 100%;
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 20px; /* Adjusted radius for rectangular shape */
+        border-width: 0 1px 1px 1px; /* Add top border */
+    }
 
-  .navbar-collapse {
-    position: absolute;
-    top: calc(100% + 10px); 
-    left: 5%;
-    right: 5%;
-    width: 90%;
-    z-index: 1100; /* این خط مهم‌ترین بخش برای حل مشکل لایه‌بندی است */
-    background-color: rgba(30, 30, 30, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 20px;
-    margin-top: 0;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
 
-  .navbar-nav,
-  .nav-item {
-    width: 100%;
-  }
+    .navbar-nav .nav-link {
+        padding: 12px 15px;
+        text-align: right;
+        border-bottom: 1px solid rgba(0, 47, 95, 0.1);
+    }
+    .navbar-nav .nav-link:hover::after {
+        transform: scaleX(0); /* Disable underline hover effect on mobile */
+    }
+    .navbar-nav li:last-child .nav-link {
+        border-bottom: none;
+    }
 
-  .navbar-nav .nav-link {
-    padding: 12px 10px;
-    margin: 0 0 5px 0;
-    width: 100%;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    color: var(--white-color);
-  }
+    .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background-color: transparent;
+        padding: 0 15px 0 0;
+        margin-top: 5px;
+        display: none; /* Hidden by default, toggled by bootstrap */
+    }
+    
+    .dropdown-menu.show {
+        display: block; /* Make sure it shows when toggled */
+    }
 
-  .navbar-nav .nav-link:hover,
-  .navbar-nav .nav-link:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+    .dropdown-item {
+        padding-right: 25px; /* Indent dropdown items */
+    }
+    
+    .main {
+        padding-bottom: 150px; /* Adjust padding for smaller image */
+        width: 90%;
+    }
 
-  .navbar-nav .nav-link::after {
-    display: none;
-  }
+    .logo-text {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin-top: 0;
+    }
 
-  .dropdown:hover .dropdown-menu {
-    display: none;
-  }
+    .description-text-head {
+        font-size: 0.95em;
+        width: 95%;
+    }
+    
+    .botom-img {
+        width: 900px; /* Scale down the image */
+        height: 300px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
-  .dropdown-menu.show {
-    display: block;
-    position: static !important;
-    width: 100% !important;
-    margin-top: 10px !important;
-    padding: 0 15px 0 0;
-    float: none !important;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-  
-  .dropdown-item {
-    color: #f0f0f0;
-    padding: 10px;
-    border-radius: 6px;
-  }
-
-  .dropdown-item:hover, .dropdown-item:focus {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-  }
-
-  .main, .search-container {
-    z-index: 1;
-  }
-
-  .logo-text {
-    width: 80%;
-    max-width: 320px;
-    height: auto;
-  }
-
-  .description-text-head {
-    font-size: 0.9em;
-  }
-  
-  .botom-img {
-    opacity: 0.2;
-    z-index: 0;
-  }
+    .sm-icon {
+      gap: 1rem;
+    }
+    .sm-icon img {
+        width: 38px;
+        height: 38px;
+    }
+    .sm-icon i {
+        font-size: 1.2rem;
+    }
+    .navbar-toggler {
+        border: none;
+        font-size: 1.4rem;
+        padding: 0;
+        color: var(--white-color);
+    }
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
 }
 
+/* --- Smaller Mobile Styles --- */
+@media (max-width: 575.98px) {
+    header {
+        justify-content: flex-start;
+        padding-top: 1rem;
+    }
+    .main {
+        padding-bottom: 100px; /* Further adjust padding */
+        justify-content: flex-start;
+        margin-top: 3rem;
+    }
 
+    .logo-text {
+        max-width: 280px;
+    }
+
+    .description-text-head {
+        font-size: 0.9em;
+        line-height: 1.7;
+    }
+
+    .botom-img {
+        width: 600px;
+        height: 200px;
+    }
+}
 
 
 /* ============================================= */
@@ -1086,28 +1113,38 @@ header {
   transform: translateY(-1px);
 }
 
-/* ---------- Information Section ---------- */
 
-.main-container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+
+/* ===================================================================
+ * ==================== INFO SECTION (RESPONSIVE) ====================
+ * =================================================================== */
+
+.info-section {
+  width: 100%;
+  padding: 3rem 0; /* Base padding for mobile */
+  background-color: var(--light-background-color); /* Assuming a light bg */
+}
+
+.section-title {
+  font-size: 1.8rem; /* Smaller base font size for mobile */
+  font-weight: 700;
 }
 
 .text-custom-purple {
-    color: var(--secondary-color) !important;
+  color: var(--secondary-color) !important;
 }
 
 .description-text {
-  font-size: 1.1rem;
+  font-size: 0.95rem; /* Smaller base font size for mobile */
   color: var(--text-color);
-  line-height: 2;
-  text-align: justify;
+  line-height: 1.8;
+  text-align: right; /* Justify looks bad on mobile; right-align is better for RTL */
+  margin-bottom: 2rem;
 }
 
 .stat-circle-container {
-  width: 90px;
-  height: 90px;
+  width: 75px; /* Smaller base size for mobile */
+  height: 75px;
   position: relative;
   margin: 0 auto;
 }
@@ -1117,6 +1154,7 @@ header {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .stat-number-container {
@@ -1128,33 +1166,95 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--text-color);
 }
 
 .stat-number {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
 .circle-bg {
   fill: none;
   stroke: var(--map-border-color);
-  stroke-width: 5;
+  stroke-width: 6;
 }
 
 .circle-progress {
   fill: none;
   stroke: var(--accent-2-color);
-  stroke-width: 5;
+  stroke-width: 6;
   stroke-linecap: round;
-  transition: stroke-dashoffset 0.3s ease;
+  transition: stroke-dashoffset 0.5s ease;
 }
 
 .stat-label {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--text-color);
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  .info-section {
+    padding: 4rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .description-text {
+    font-size: 1rem;
+    line-height: 1.9;
+    text-align: justify; /* Justify is okay on wider screens */
+  }
+
+  .stat-circle-container {
+    width: 85px;
+    height: 85px;
+  }
+  
+  .stat-number-container {
+    font-size: 1.1rem;
+  }
+  
+  .stat-number {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+  }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 992px) {
+  .info-section {
+    padding: 5rem 0;
+    min-height: 90vh; /* Reintroduce min-height for desktop view only */
+    display: flex;
+    align-items: center;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .description-text {
+    font-size: 1.1rem;
+    line-height: 2;
+  }
+  
+  .stat-circle-container {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .stat-label {
+    font-size: 1.1rem;
+  }
 }
 
 
@@ -1609,7 +1709,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  white-space: nowrap;
+  white-space: wrap;
 }
 
 .bottom-panel .information small {
@@ -1683,7 +1783,7 @@ header {
 }
 
 .stat-number-section {
-  font-size: 28px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
   letter-spacing: 0;
