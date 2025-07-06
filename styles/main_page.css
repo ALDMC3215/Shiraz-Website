@@ -849,6 +849,8 @@ header {
 
 /* ---------- Slider 1 (Events) ---------- */
 
+
+
 .pms-container-fluid-my-5 {
   height: 500px;
   margin-top:200px !important;
@@ -869,6 +871,9 @@ header {
   padding: 0;
   margin-top: 0;
 }
+
+
+
 
 .pms-swiper-slide {
   background-color: var(--white-color);
@@ -1023,7 +1028,7 @@ header {
 .pms-progress-circle {
   stroke-dasharray: 100.5;
   stroke-dashoffset: 100.5;
-  stroke: var(--secondary-color);
+  stroke: var(--accent-2-color);
   animation: none;
 }
 
@@ -1155,6 +1160,10 @@ header {
 
 /* ---------- Slider 2 (News) - CORRECTED STYLES ---------- */
 
+/* =================================================================
+   Main Container & General Styles
+   ================================================================= */
+
 .shiraz-news-main-container {
   margin-top: 50px !important;
   margin-bottom: 10rem !important;
@@ -1168,6 +1177,9 @@ header {
   padding-right: 15px;
 }
 
+/* =================================================================
+   Category Buttons
+   ================================================================= */
 .shiraz-news-category-buttons-container {
   width: 100%;
   display: flex;
@@ -1255,10 +1267,13 @@ header {
   transform: scale(1.03);
 }
 
+/* =================================================================
+   Swiper Slider Styles
+   ================================================================= */
 .shiraz-news-swiper {
   width: 100%;
   max-width: 1280px;
-  height: 600px;
+  height: 580px;
   overflow: hidden;
   padding: 10px 0;
 }
@@ -1268,15 +1283,15 @@ header {
   border-radius: 25px;
   box-shadow: 0 8px 25px rgba(var(--black-color-rgb), 0.1);
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
-  width: 400px;
-  height: 550px;
+  width: 350px;
+  height: 500px;
   cursor: pointer;
   border: 2px solid transparent;
 }
 
 .shiraz-news-swiper .swiper-slide-active {
   box-shadow: 0 12px 35px rgba(var(--black-color-rgb), 0.2);
-  border-color: var(--secondary-color);
+  border-color: var(--accent-2-color);
   transform: scale(1.03);
 }
 
@@ -1327,14 +1342,12 @@ header {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* START: FIX for News Slider Buttons Position */
 .shiraz-news-swiper-button-prev {
   left: 20px;
 }
 .shiraz-news-swiper-button-next {
   right: 20px;
 }
-/* END: FIX for News Slider Buttons Position */
 
 .shiraz-news-swiper-button-prev::after,
 .shiraz-news-swiper-button-next::after {
@@ -1347,6 +1360,17 @@ header {
   color: var(--white-color);
 }
 
+.shiraz-news-empty-message {
+  height: 100%;
+  background-color: #f0f0f0;
+  color: #666;
+  box-shadow: none;
+  border: none;
+}
+
+/* =================================================================
+   Swiper Pagination & Filling Animation
+   ================================================================= */
 .shiraz-news-swiper-pagination {
   position: absolute;
   bottom: 10px !important;
@@ -1384,21 +1408,59 @@ header {
   box-shadow: 0 4px 15px rgba(var(--secondary-color-rgb), 0.5);
 }
 
-/* START: FIX for News Slider Bullets */
-/* This hides the incorrectly generated SVG element that appears as a black circle */
-.shiraz-news-swiper-pagination-bullet svg {
-  display: none !important;
-}
-/* END: FIX for News Slider Bullets */
-
-.shiraz-news-empty-message {
+/* This rotates the SVG to start the animation from the top */
+.shiraz-news-progress-circle-svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
   height: 100%;
-  background-color: #f0f0f0;
-  color: #666;
-  box-shadow: none;
-  border: none;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
 }
 
+/* The filling progress circle */
+.shiraz-news-progress-circle {
+  stroke: var(--accent-2-color); /* Color of the filling line on active bullet */
+  stroke-width: 3;
+  fill: none;
+  /* Set dash array and offset to the circle's circumference to make it a full, empty circle */
+  stroke-dasharray: 100.5;
+  stroke-dashoffset: 100.5;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* The static background circle */
+.shiraz-news-background-circle {
+  stroke: rgba(var(--black-color-rgb), 0.2); /* Background color on active bullet */
+  stroke-width: 3;
+  fill: none;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+}
+
+.shiraz-news-swiper-pagination-bullet:not(.swiper-pagination-bullet-active) .shiraz-news-progress-circle-svg {
+    display: none; /* Hide animation elements on non-active bullets */
+}
+
+.shiraz-news-bullet-number {
+  position: relative;
+  z-index: 10;
+}
+
+/* Keyframe animation that "fills" the circle by reducing the dash offset */
+@keyframes fill-circle {
+  from {
+    stroke-dashoffset: 100.5;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* =================================================================
+   Modal Styles
+   ================================================================= */
 .shiraz-news-modal-dialog { max-width: 650px; width: 90%; z-index: 99999999999; }
 .shiraz-news-modal-body { max-height: 70vh; overflow-y: auto; padding: 25px; color: var(--text-color); }
 .shiraz-news-modal-content { border-radius: 20px; box-shadow: 0 10px 30px rgba(var(--black-color-rgb), 0.2); background-color: var(--background-color); }
@@ -1427,6 +1489,7 @@ header {
   border-color: var(--primary-color);
   transform: translateY(-1px);
 }
+
 
 
 /* ---------- Cards Section ---------- */
@@ -1684,14 +1747,16 @@ header {
     width: 100%;
     max-width: 100%;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row-reverse; 
     gap: 90px;
-    /* flex-wrap: wrap; */
     align-items: center;
+    /* align-items: stretch; */
+      /* align-items: flex-start; */
 }
 
+
 .map-section {
-    flex: 1 1 50%; /* Map section takes up half the space */
+    flex: 1 1 40%; 
     min-width: 450px;
     display: flex;
     align-items: center;
@@ -1699,38 +1764,23 @@ header {
     position: sticky; 
     top: 100px;
     padding: 20px;
-    /* background-color: black; */
 }
+
 
 .info-section {
-    flex: 1 1 45%; /* Info section takes the other half */
+    flex: 1 1 55%; 
     min-width: 00px;
-    /* background: var(--map-info-bg); */
+
     padding: 10px;
     border-radius: 16px;
-    /* border: 1px solid var(--map-border-color); */
-    /* box-shadow: 0 8px 24px rgba(var(--map-shadow-color-rgb), 0.05); */
-    /* Set a max-height to ensure it doesn't get too long */
-    max-height: 60vh; 
+    max-height: 70vh; 
     overflow-y: auto;
     direction: rtl;
+
+    display: flex;
+    flex-direction: column;
 }
 
-/* Custom Scrollbar Styling */
-/* .info-section::-webkit-scrollbar {
-    width: 8px;
-}
-.info-section::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-.info-section::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-}
-.info-section::-webkit-scrollbar-thumb:hover {
-    background: #aaa;
-} */
 
 .info-section h2 {
     color: var(--map-label-color);
@@ -1755,11 +1805,8 @@ header {
   stroke: var(--map-district-stroke);
   stroke-width: 2.5;
   transition: fill 0.3s, stroke 0.3s, filter 0.3s, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  /* filter: drop-shadow(0 4px 12px rgba(var(--map-shadow-color-rgb), 0.18)); */
   cursor: pointer;
-  /* Add a subtle gradient overlay for depth */
-  /* This requires SVG structure, but for CSS: */
-  /* Use a slight pattern or highlight on hover/active */
+
 }
 
 .district:hover, .district:focus {
@@ -1853,6 +1900,12 @@ a:hover .district {
     box-shadow: 0 4px 10px rgba(var(--map-shadow-color-rgb), 0.2);
     white-space: nowrap;
     transition: opacity 0.2s;
+}
+
+#district-info-list {
+    flex-grow: 1;      /* باعث می‌شود این بخش فضای خالی عمودی را پر کند */
+    overflow-y: auto;  /* اسکرول فقط به این بخش اعمال می‌شود */
+    padding-left: 15px; /* یک فاصله کوچک برای اسکرول‌بار ایجاد می‌کند تا روی محتوا نیفتد */
 }
 
 /* Responsive adjustments */
