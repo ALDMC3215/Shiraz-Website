@@ -38,24 +38,22 @@
             align-items: center;
             justify-content: center;
             box-sizing: border-box;
-            width: 100%;
-            max-width: 950px;
+            width: 90%;
         }
 
         /* بخش نمایش شعر */
         #ghazal-text {
             font-family: 'IranNastaliq', 'Shabnam', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--text-color);
             transition: opacity 0.4s ease-in-out;
-            width: 100%;
+            width: 80%;
             height: 150px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between; 
             flex-wrap: wrap;
-            gap: 1rem 2rem;
-            padding: 0 2rem;
+
             box-sizing: border-box;
         }
         
@@ -97,7 +95,7 @@
             height: 24px;
         }
 
-        /* نوار پیشرفت - اصلاح شده */
+        /* نوار پیشرفت */
         .progress-container {
             width: 60%;
             height: 4px;
@@ -105,7 +103,7 @@
             border-radius: 2px;
             cursor: pointer;
             position: relative;
-            direction: ltr; /* <<<< اصلاح شماره ۱: جهت نوار پیشرفت چپ‌چین شد */
+            direction: ltr;
         }
         #progress-bar {
             width: 0%;
@@ -127,7 +125,7 @@
                 height: auto;
                 min-height: 140px;
                 padding: 0 1rem;
-                gap: 0.5rem;
+                gap: 0.5rem; /* در حالت موبایل فاصله عمودی حفظ می‌شود */
             }
 
             .player-container {
@@ -220,7 +218,6 @@
                 progressBar.style.width = `${progressPercent}%`;
             }
         });
-
 
         nextBtn.addEventListener('click', () => {
             loadRandomGhazal(true);
