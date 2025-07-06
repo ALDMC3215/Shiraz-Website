@@ -369,6 +369,12 @@ header {
     justify-content: flex-start; /* Aligns items to the start (right in RTL) */
 }
 
+
+.dropdown-item svg{
+  margin-left: 10px;
+}
+
+
 /* --- Mayor Profile (Circular Image) --- */
 .mayor-profile {
     display: flex;
@@ -520,7 +526,7 @@ header {
 .botom-img {
     position: absolute;
     bottom: 0;
-    left: 20%;
+    left: 12%;
     transform: translateX(-50%);
     width: 1200px;
     height: 400px;
@@ -1883,8 +1889,7 @@ a:hover .district {
   background-position: center top;
   background-size: cover;
   background-size: 80% 80%;
-  z-index: -1;
-  opacity: 0.2;
+  opacity: 1;
 }
 
 .footer-content {
@@ -1941,9 +1946,9 @@ a:hover .district {
   align-items: center;
 }
 
-.footer-section.contact i {
+.footer-section.contact svg {
   margin-left: 10px;
-  color: var(--secondary-color);
+  color: var(--text-color);
 }
 
 .footer-section.logos {
@@ -1975,6 +1980,7 @@ a:hover .district {
   opacity: 0.8;
   text-align: left;
   margin-right: 20px;
+  z-index: 2;
 }
 
 .social-icons {
@@ -2004,6 +2010,7 @@ a:hover .district {
 }
 
 @media (max-width: 768px) {
+  .main-footer::before{ background-size: 95% ;  margin-top: 655px;} 
   .footer-content { flex-direction: column; align-items: center; }
   .footer-section { min-width: unset; width: 100%; text-align: center; }
   .footer-section h3::after { right: 50%; transform: translateX(50%); }
