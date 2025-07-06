@@ -1,216 +1,132 @@
-body{
-    font-family: shabnamMedium ;
-    background-color: var(--background-color);
+/* Body */
+
+/* --- Center the items in the grid container --- */
+
+:root {
+  --primary-color: #D4AF37; /* Gold */
+  --primary-pale-color: #EADDAA; /* Pale Gold */
+  --secondary-color: #CC7722; /* Ochre */
+  --secondary-pale-color: #E0A96D; /* Pale Ochre */
+  --background-color: #FFFBEF; /* Creamy Background */
+  --accent-1-color: #40E0D0; /* Turquoise */
+  --accent-2-color: #0047AB; /* Lapis Lazuli Blue */
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --text-color: #4E3629; /* Dark Brown/Ochre Text */
+  --footer-background-color: #F5EEDC; /* Light Beige for Footer */
+  --gold-gradient: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
+
+  --brand-color-main: #D4AF37;
+  --brand-color-light: #EADDAA;
+  --autoplay-duration: 4000ms;
+
+  --dynamic-bg-color: initial;
+  --dynamic-card-bg-color: initial;
+  --dynamic-text-color: initial;
+  
+  --primary-color-rgb: 212, 175, 55;
+  --secondary-color-rgb: 204, 119, 34;
+  --black-color-rgb: 0, 0, 0;
+  --white-color-rgb: 255, 255, 255;
+
+/* Existing variables - DO NOT MODIFY */
+  --text-primary: var(--text-color);
+  --text-secondary: rgba(var(--text-color-rgb), 0.7);
+  --surface-color: var(--white-color);
+  --border-color: rgba(var(--text-color-rgb), 0.1);
+  --shadow-color: rgba(var(--text-color-rgb), 0.08);
+  --shadow-hover-color: rgba(var(--text-color-rgb), 0.15);
+  --card-radius: 20px;
+  --transition-speed: 0.4s;
+  --transition-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.news-container {
-    display: flex;
-    flex-direction: row-reverse;
-    width: 95%;
-    height: 90vh;
-    max-width: 1600px;
-    overflow: hidden;
-    margin: 50px 0;
+body {
+  font-family: "Shabnam", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background: linear-gradient(-45deg, #aeb2ff, #e4e5ff); */
+    background: linear-gradient(
+    300deg,
+    var(--background-color),
+    #f7f5ff,
+    var(--background-color)
+  );
+  background-size: 400% 400%;
+  min-height: 100vh;
 }
 
-/* Right Panel: Timeline List */
-.news-timeline-panel {
-    flex: 0 0 400px;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    background-color: transparent; /* Panel is now transparent */
+.row {
+  justify-content: flex;
 }
 
-.timeline-header {
-    text-align: right;
-    margin-bottom: 2rem;
+/* --- Main Title Styling --- */
+
+.page-title {
+  color: #1a202c;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.timeline-header h1 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin: 0;
-    color: var(--text-primary);
+/* --- Card Button Styling (Adapted for new background) --- */
+
+.card-button {
+  display: flex;
+  /* --- Changed for vertical alignment --- */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  /* Space between icon and text */
+  padding: 2.5rem;
+  text-align: center;
+  /* Center text if it wraps */
+  /* --- Subtle Glassmorphism Effect --- */
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  text-decoration: none;
+  color: #2d3748;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-height: 180px;
+  /* Ensures all cards have the same height */
 }
 
-.timeline-header p {
-    margin: 0.25rem 0 0;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+/* --- Hover Effect --- */
+
+.card-button:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #0d6efd;
 }
 
-.timeline-list-container {
-    overflow-y: auto;
-    flex-grow: 1;
-    padding-left: 1rem;
+.card-button h5 {
+  margin-bottom: 0;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+  /* Adjusted for better fit */
 }
 
-.timeline-list-container::-webkit-scrollbar { width: 6px; }
-.timeline-list-container::-webkit-scrollbar-track { background: transparent; }
-.timeline-list-container::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 10px; }
-.timeline-list-container::-webkit-scrollbar-thumb:hover { background: var(--primary-accent); }
+/* --- Bootstrap Icon Styling --- */
 
-/* Timeline Item */
-.timeline-item {
-    position: relative;
-    padding: 1rem 1.5rem 1rem 0.5rem;
-    margin-bottom: 0.75rem;
-    cursor: pointer;
-    border-radius: var(--radius-small);
-    transition: all var(--transition-speed) var(--transition-easing);
-    border-right: 4px solid transparent;
+.card-main-icon {
+  font-size: 2.5rem;
+  /* Larger icon size */
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #5a67d8;
 }
 
-.timeline-item:hover {
-    background-color: var(--primary-light);
-    border-right-color: var(--primary-accent);
+.card-button:hover .card-main-icon {
+  transform: scale(1.1);
+  /* Icon grows on hover */
+  color: #0d6efd;
+  /* Inherits the primary blue color on hover */
 }
-
-.timeline-item.active {
-    background-color: transparent;
-    border-right-color: var(--primary-color);
-}
-
-.timeline-item.active .timeline-title {
-    color: var(--primary-color);
-    font-weight: 800;
-}
-.timeline-item.active .timeline-date {
-    color: var(--text-secondary);
-}
-
-.timeline-title {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    transition: color 0.3s ease;
-}
-
-.timeline-date {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-}
-
-/* Left Panel: News Detail */
-.news-detail-panel {
-    flex-grow: 1;
-    padding: 3rem 5rem;
-    overflow-y: auto;
-    position: relative;
-}
-
-.detail-content-wrapper {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity var(--transition-speed) var(--transition-easing), transform var(--transition-speed) var(--transition-easing);
-    max-width: 750px;
-    margin: 0 auto;
-    padding-top: 2rem; 
-}
-
-/* Added for smoother animation */
-.detail-content-wrapper.is-loading {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-/* Placeholder */
-.placeholder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    color: var(--text-secondary);
-    text-align: center;
-}
-
-.placeholder i {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    color: var(--border-color);
-}
-
-.placeholder h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-secondary);
-}
-
-/* Detail content */
-.detail-image {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: var(--radius-large);
-    margin-bottom: 2.5rem;
-    box-shadow: 0 12px 30px var(--shadow-color-medium);
-}
-
-.detail-title {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-    color: var(--text-primary);
-}
-
-.detail-meta {
-    color: var(--text-secondary);
-    margin-bottom: 2.5rem;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-}
-
-.detail-meta i {
-    margin-left: 0.75rem;
-    font-size: 1rem;
-}
-
-.detail-text p {
-    font-size: 1.1rem;
-    line-height: 1.9;
-    text-align: justify;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .news-timeline-panel { flex: 0 0 350px; }
-    .news-detail-panel { padding: 2.5rem 3rem; }
-}
-
-@media (max-width: 992px) {
-    body { height: auto; padding: 1rem 0; overflow: auto; }
-    .news-container {
-        flex-direction: column;
-        height: auto;
-        width: 95%;
-        margin: 2rem auto;
-        padding: 0;
-    }
-    .news-timeline-panel {
-        order: 1;
-        max-height: 40vh;
-        padding: 1.5rem;
-    }
-    .news-detail-panel {
-        order: 2;
-        padding: 2.5rem 1.5rem;
-        min-height: 55vh;
-    }
-    .detail-content-wrapper {
-        padding-top: 0;
-    }
-    .detail-title {
-        font-size: 1.8rem;
-    }
-    .detail-image {
-        height: 250px;
-    }
-}
-
-
 
 /* End bodyBG */

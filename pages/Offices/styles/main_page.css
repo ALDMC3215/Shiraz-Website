@@ -556,7 +556,7 @@ header {
 
 .bg {
   font-family: shabnamMedium, sans-serif;
-  background-color: white;
+  background-color: var(--background-color); /* Changed to use variable */
   background-size: cover;
   /* یا contain یا 100% 100% بسته به نیاز */
   background-repeat: no-repeat;
@@ -754,9 +754,48 @@ header {
 
 /* End footer */
 
-/* Edarat Kol */
+/* Body */
 
 /* --- Center the items in the grid container --- */
+
+:root {
+  --primary-color: #D4AF37; /* Gold */
+  --primary-pale-color: #EADDAA; /* Pale Gold */
+  --secondary-color: #CC7722; /* Ochre */
+  --secondary-pale-color: #E0A96D; /* Pale Ochre */
+  --background-color: #FFFBEF; /* Creamy Background */
+  --accent-1-color: #40E0D0; /* Turquoise */
+  --accent-2-color: #0047AB; /* Lapis Lazuli Blue */
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --text-color: #4E3629; /* Dark Brown/Ochre Text */
+  --footer-background-color: #F5EEDC; /* Light Beige for Footer */
+  --gold-gradient: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
+
+  --brand-color-main: #D4AF37;
+  --brand-color-light: #EADDAA;
+  --autoplay-duration: 4000ms;
+
+  --dynamic-bg-color: initial;
+  --dynamic-card-bg-color: initial;
+  --dynamic-text-color: initial;
+  
+  --primary-color-rgb: 212, 175, 55;
+  --secondary-color-rgb: 204, 119, 34;
+  --black-color-rgb: 0, 0, 0;
+  --white-color-rgb: 255, 255, 255;
+
+/* Existing variables - DO NOT MODIFY */
+  --text-primary: var(--text-color);
+  --text-secondary: rgba(var(--text-color-rgb), 0.7);
+  --surface-color: var(--white-color);
+  --border-color: rgba(var(--text-color-rgb), 0.1);
+  --shadow-color: rgba(var(--text-color-rgb), 0.08);
+  --shadow-hover-color: rgba(var(--text-color-rgb), 0.15);
+  --card-radius: 20px;
+  --transition-speed: 0.4s;
+  --transition-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 
 body {
   font-family: "Shabnam", sans-serif;
@@ -792,7 +831,7 @@ body {
   /* --- Changed for vertical alignment --- */
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex;
   gap: 1.25rem;
   /* Space between icon and text */
   padding: 2.5rem;
@@ -819,7 +858,7 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.8);
   border-color: rgba(255, 255, 255, 0.5);
-  color: #0d6efd;
+  color: var(--primary-color); /* Changed to use primary-color */
 }
 
 .card-button h5 {
@@ -836,14 +875,13 @@ body {
   font-size: 2.5rem;
   /* Larger icon size */
   transition: transform 0.3s ease, color 0.3s ease;
-  color: #5a67d8;
+  color: var(--primary-color); /* Changed to use primary-color */
 }
 
 .card-button:hover .card-main-icon {
   transform: scale(1.1);
   /* Icon grows on hover */
-  color: #0d6efd;
-  /* Inherits the primary blue color on hover */
+  color: var(--secondary-color); /* Changed to use accent-2-color */
 }
 
-/* End Edarat Kol */
+/* End bodyBG */
