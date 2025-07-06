@@ -1,0 +1,216 @@
+body{
+    font-family: shabnamMedium ;
+    background-color: var(--background-color);
+}
+
+.news-container {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 95%;
+    height: 90vh;
+    max-width: 1600px;
+    overflow: hidden;
+    margin: 50px 0;
+}
+
+/* Right Panel: Timeline List */
+.news-timeline-panel {
+    flex: 0 0 400px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent; /* Panel is now transparent */
+}
+
+.timeline-header {
+    text-align: right;
+    margin-bottom: 2rem;
+}
+
+.timeline-header h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.timeline-header p {
+    margin: 0.25rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.timeline-list-container {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-left: 1rem;
+}
+
+.timeline-list-container::-webkit-scrollbar { width: 6px; }
+.timeline-list-container::-webkit-scrollbar-track { background: transparent; }
+.timeline-list-container::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 10px; }
+.timeline-list-container::-webkit-scrollbar-thumb:hover { background: var(--primary-accent); }
+
+/* Timeline Item */
+.timeline-item {
+    position: relative;
+    padding: 1rem 1.5rem 1rem 0.5rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    border-radius: var(--radius-small);
+    transition: all var(--transition-speed) var(--transition-easing);
+    border-right: 4px solid transparent;
+}
+
+.timeline-item:hover {
+    background-color: var(--primary-light);
+    border-right-color: var(--primary-accent);
+}
+
+.timeline-item.active {
+    background-color: transparent;
+    border-right-color: var(--primary-color);
+}
+
+.timeline-item.active .timeline-title {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+.timeline-item.active .timeline-date {
+    color: var(--text-secondary);
+}
+
+.timeline-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.timeline-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Left Panel: News Detail */
+.news-detail-panel {
+    flex-grow: 1;
+    padding: 3rem 5rem;
+    overflow-y: auto;
+    position: relative;
+}
+
+.detail-content-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--transition-speed) var(--transition-easing), transform var(--transition-speed) var(--transition-easing);
+    max-width: 750px;
+    margin: 0 auto;
+    padding-top: 2rem; 
+}
+
+/* Added for smoother animation */
+.detail-content-wrapper.is-loading {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Placeholder */
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: var(--border-color);
+}
+
+.placeholder h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+/* Detail content */
+.detail-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: var(--radius-large);
+    margin-bottom: 2.5rem;
+    box-shadow: 0 12px 30px var(--shadow-color-medium);
+}
+
+.detail-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    color: var(--text-primary);
+}
+
+.detail-meta {
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.detail-meta i {
+    margin-left: 0.75rem;
+    font-size: 1rem;
+}
+
+.detail-text p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .news-timeline-panel { flex: 0 0 350px; }
+    .news-detail-panel { padding: 2.5rem 3rem; }
+}
+
+@media (max-width: 992px) {
+    body { height: auto; padding: 1rem 0; overflow: auto; }
+    .news-container {
+        flex-direction: column;
+        height: auto;
+        width: 95%;
+        margin: 2rem auto;
+        padding: 0;
+    }
+    .news-timeline-panel {
+        order: 1;
+        max-height: 40vh;
+        padding: 1.5rem;
+    }
+    .news-detail-panel {
+        order: 2;
+        padding: 2.5rem 1.5rem;
+        min-height: 55vh;
+    }
+    .detail-content-wrapper {
+        padding-top: 0;
+    }
+    .detail-title {
+        font-size: 1.8rem;
+    }
+    .detail-image {
+        height: 250px;
+    }
+}
+
+
+
+/* End bodyBG */
