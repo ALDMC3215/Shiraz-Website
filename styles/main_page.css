@@ -1427,7 +1427,7 @@ header {
   }
 
   .pms-swiper {
-    height: 280px !important;
+    height: 300px !important;
   }
 
   .pms-swiper-slide {
@@ -1770,21 +1770,21 @@ header {
 @media (max-width: 575.98px) {
   .shiraz-news-category-list {
     display: flex;
-    flex-wrap: nowrap; /* از خط خوردن جلوگیری کن */
-    overflow-x: auto;  /* اسکرول افقی فعال کن */
+    flex-wrap: nowrap; 
+    overflow-x: auto;  
     gap: 10px;
-    padding: 0 10px;
+    padding: 5px 5px;
     margin: 0;
   }
 
   .shiraz-news-category-list-item {
-    flex: 0 0 100px; /* اجازه میده عرضش خودکار باشه */
+    flex: 0 0 100px; 
   }
 
   .shiraz-news-btn-link {
-    padding: 4px 8px; /* کوچیکتر کن */
-    font-size: 0.6rem; /* اندازه فونت کوچکتر */
-    white-space: nowrap; /* جلوگیری از شکست کلمه */
+    padding: 8px 8px;
+    font-size: 0.6rem; 
+    white-space: nowrap; 
   }
 }
 
@@ -1802,7 +1802,7 @@ header {
   max-width: 1280px;
   height: 580px;
   overflow: hidden;
-  padding: 10px 0;
+  padding: 0 0 1px 0 ;
 }
 
 .shiraz-news-swiper .swiper-slide {
@@ -1990,6 +1990,108 @@ header {
     stroke-dashoffset: 0;
   }
 }
+
+
+/* ===========================================
+   Responsive for max-width: 991.98px (Tablet)
+   =========================================== */
+@media (max-width: 991.98px) {
+  .shiraz-news-swiper {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .shiraz-news-swiper .swiper-slide {
+    width: 300px;
+    height: 450px;
+  }
+
+  .shiraz-news-slide-content {
+    font-size: 0.95rem;
+    padding: 12px 20px;
+    max-height: none;
+    white-space: normal;
+  }
+
+  .shiraz-news-swiper-button-prev,
+  .shiraz-news-swiper-button-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .shiraz-news-swiper-button-prev::after,
+  .shiraz-news-swiper-button-next::after {
+    font-size: 1.2rem;
+  }
+
+  .shiraz-news-swiper-pagination-bullet {
+    width: 35px;
+    height: 35px;
+    font-size: 0.95rem;
+    line-height: 35px;
+  }
+}
+
+/* ===========================================
+   Responsive for max-width: 575.98px (Mobile)
+   =========================================== */
+@media (max-width: 575.98px) {
+  .shiraz-news-swiper {
+    height: 360px !important;
+    padding: 15px 0;
+  }
+
+   .swiper-slide {
+    width: 50% !important;
+    height: auto;
+    min-height: 300px;
+  }
+
+  .swiper-slide img{
+    width: 50% !important;
+  }
+
+  .shiraz-news-slide-content {
+    width: 90% !important;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    border-radius: 25px;
+    max-height: none;
+    white-space: normal;
+  }
+
+  
+
+  .shiraz-news-swiper-button-prev,
+  .shiraz-news-swiper-button-next {
+    display: none !important;
+  }
+
+  .shiraz-news-swiper-button-prev::after,
+  .shiraz-news-swiper-button-next::after {
+    display: none ;
+  }
+
+  .shiraz-news-swiper-pagination-bullet {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+    line-height: 30px;
+    margin: 0 5px !important;
+  }
+
+  .shiraz-news-progress-circle {
+    stroke-width: 2;
+  }
+
+  .shiraz-news-background-circle {
+    stroke-width: 2;
+  }
+}
+
+
+
+
 
 /* =================================================================
    Modal Styles
