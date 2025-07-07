@@ -901,19 +901,13 @@ header {
   width: 100%;
   height: 100%;
   border-radius: 24px;
-
-  background: linear-gradient(
-    to left,
-    hsl(33, 89%, 45%) 0%,
-    hsl(33, 100%, 65%) 8%,
-
   /* This gradient uses your orange color to create a 3D edge */
-    to left,
-    hsl(33, 89%, 45%) 0%,
-    /* Darker Orange */ hsl(33, 100%, 65%) 8%,
-    hsl(33, 100%, 65%) 92%,
-    hsl(33, 89%, 45%) 100%
-  );
+  background: linear-gradient(to left,
+      hsl(33, 89%, 45%) 0%,
+      /* Darker Orange */
+      hsl(33, 100%, 65%) 8%,
+      hsl(33, 100%, 65%) 92%,
+      hsl(33, 89%, 45%) 100%);
 }
 
 /* --- Shadow Layer --- */
