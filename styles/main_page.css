@@ -1767,6 +1767,33 @@ header {
   transform: scale(1.03);
 }
 
+@media (max-width: 575.98px) {
+  .shiraz-news-category-list {
+    display: flex;
+    flex-wrap: nowrap; /* از خط خوردن جلوگیری کن */
+    overflow-x: auto;  /* اسکرول افقی فعال کن */
+    gap: 10px;
+    padding: 0 10px;
+    margin: 0;
+  }
+
+  .shiraz-news-category-list-item {
+    flex: 0 0 100px; /* اجازه میده عرضش خودکار باشه */
+  }
+
+  .shiraz-news-btn-link {
+    padding: 4px 8px; /* کوچیکتر کن */
+    font-size: 0.6rem; /* اندازه فونت کوچکتر */
+    white-space: nowrap; /* جلوگیری از شکست کلمه */
+  }
+}
+
+
+@media (max-width: 991.98px) {
+
+}
+
+
 /* =================================================================
    Swiper Slider Styles
    ================================================================= */
@@ -2039,6 +2066,7 @@ header {
   border-color: var(--primary-color);
   transform: translateY(-1px);
 }
+
 
 /* ---------- Cards Section ---------- */
 
