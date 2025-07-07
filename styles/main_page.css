@@ -260,8 +260,7 @@ header {
   background-image: radial-gradient(circle at 50% 50%, var(--primary-color) 0%, var(--secondary-color) 100%);
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
-  /* Changed to min-height for better flexibility */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   color: var(--white-color);
@@ -764,30 +763,107 @@ header {
 
 /* --- Smaller Mobile Styles --- */
 @media (max-width: 575.98px) {
-  header {
-    justify-content: flex-start;
-    padding-top: 1rem;
+.navbar-collapse {
+    order: 1;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 20px;
+    border-width: 0 1px 1px 1px;
+
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 12px 15px;
+    text-align: right;
+    border-bottom: 1px solid rgba(0, 47, 95, 0.1);
+  }
+
+  .navbar-nav .nav-link:hover::after {
+    transform: scaleX(0);
+  }
+
+  .navbar-nav li:last-child .nav-link {
+    border-bottom: none;
+  }
+
+  .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+    padding: 0 15px 0 0;
+    margin-top: 5px;
+    display: none;
+  }
+
+  .dropdown-menu.show {
+    display: block;
+
+  }
+
+  .dropdown-item {
+    padding-right: 25px;
+
+  }
+  header{
+    height: 95vh;
   }
 
   .main {
-    padding-bottom: 100px;
-    /* Further adjust padding */
-    justify-content: flex-start;
-    margin-top: 3rem;
+    margin-top: 100px;
+    width: 90%;
+    margin-left: 20px;
   }
 
   .logo-text {
-    max-width: 280px;
+    width: 180px;
+    height: auto;
+    
   }
 
   .description-text-head {
-    font-size: 0.9em;
-    line-height: 1.7;
+    font-size: 0.6em;
+    line-height: 15px;
+    width: 95%;
+    margin-top:15px ;
   }
 
   .botom-img {
-    width: 600px;
-    height: 200px;
+    width: 320px;
+    height: 100px;
+    left:0;
+    transform: translateX(-50%);
+  }
+
+  .sm-icon{
+    margin-left: 20px;
+  }
+
+  .sm-icon img {
+    width:28px;
+    height: 28px;
+  }
+
+  .sm-icon svg {
+    font-size: 1.2rem;
+  }
+
+  .navbar-toggler {
+    border: none;
+    font-size: 1.2rem;
+    color: var(--white-color);
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
   }
 }
 
