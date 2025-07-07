@@ -2835,6 +2835,59 @@ a:hover .district {
   transform: translateY(-5px) scale(1.08);
 }
 
+/* ریسپانسیو برای موبایل */
+@media (max-width: 575.98px) {
+  .container-zone {
+    gap: 12px !important;
+    padding: 12px !important;
+  }
+
+  .box {
+    width: 150px !important;
+    height: 70px !important;
+    gap: 16px !important;
+    padding: 8px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .box img {
+    width: 30px !important;
+    height: 50px !important;
+  }
+
+  .box span {
+    margin-left: 15px !important;
+    font-size: 0.6rem !important;
+  }
+}
+
+/* ریسپانسیو برای تبلت */
+@media (max-width: 991.98px) {
+  .container-zone {
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .box {
+    width: 170px;
+    height: 75px;
+    gap: 20px;
+    padding: 9px;
+    font-size: 0.85rem;
+  }
+
+  .box img {
+    width: 35px;
+    height: 55px;
+  }
+
+  .box span {
+    margin-left: 20px;
+    font-size: 0.85rem;
+  }
+}
+
+
 /* ============================================= */
 /* ============= RESPONSIVE BODY ================ */
 /* ============================================= */
@@ -3078,20 +3131,7 @@ a:hover .district {
     display: none;
   }
 
-  .container-zone {
-    padding: 12px;
-    gap: 12px;
-  }
 
-  .box {
-    width: 160px;
-    height: 90px;
-  }
-
-  .box img {
-    width: 55px;
-    height: 70px;
-  }
 
   .stats-container {
     gap: 5px;
@@ -3434,6 +3474,7 @@ a:hover .district {
     min-width: unset;
     width: 100%;
     text-align: center;
+    margin-top: 0 !important;
   }
 
   .footer-section h3::after {
@@ -3442,7 +3483,7 @@ a:hover .district {
   }
 
   .footer-section.links ul li {
-    margin-bottom: 15px;
+    margin-bottom: 15px !important;
   }
 
   .footer-section.contact i {
@@ -3465,12 +3506,12 @@ a:hover .district {
 
   .footer-bottom p {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 10px !important;
   }
 
   .social-icons {
     margin-right: unset;
-    margin-top: 30px;
+    margin-top: 20px !important;
     justify-content: center;
   }
 }
