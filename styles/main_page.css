@@ -45,25 +45,16 @@
 
 :root {
   --primary-color: #D4AF37;
-  /* Gold */
   --primary-pale-color: #EADDAA;
-  /* Pale Gold */
   --secondary-color: #CC7722;
-  /* Ochre */
   --secondary-pale-color: #E0A96D;
-  /* Pale Ochre */
   --background-color: #FFFBEF;
-  /* Creamy Background */
   --accent-1-color: #40E0D0;
-  /* Turquoise */
   --accent-2-color: #0047AB;
-  /* Lapis Lazuli Blue */
   --black-color: #000000;
   --white-color: #ffffff;
   --text-color: #002f5f;
-  /* Dark Lapiz Color by (ALDMC) 😂*/
   --footer-background-color: #F5EEDC;
-  /* Light Beige for Footer */
   --gold-gradient: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
 
   --brand-color-main: #D4AF37;

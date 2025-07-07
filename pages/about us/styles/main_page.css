@@ -37,25 +37,16 @@
 
 :root {
   --primary-color: #D4AF37;
-  /* Gold */
   --primary-pale-color: #EADDAA;
-  /* Pale Gold */
   --secondary-color: #CC7722;
-  /* Ochre */
   --secondary-pale-color: #E0A96D;
-  /* Pale Ochre */
   --background-color: #FFFBEF;
-  /* Creamy Background */
   --accent-1-color: #40E0D0;
-  /* Turquoise */
   --accent-2-color: #0047AB;
-  /* Lapis Lazuli Blue */
   --black-color: #000000;
   --white-color: #ffffff;
-  --text-color: #4E3629;
-  /* Dark Brown/Ochre Text */
+  --text-color: #002f5f;
   --footer-background-color: #F5EEDC;
-  /* Light Beige for Footer */
   --gold-gradient: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
 
   --brand-color-main: #D4AF37;
@@ -70,14 +61,16 @@
   --secondary-color-rgb: 204, 119, 34;
   --black-color-rgb: 0, 0, 0;
   --white-color-rgb: 255, 255, 255;
+  --text-color-rgb: 0, 47, 95;
+
 
   /* Existing variables - DO NOT MODIFY */
   --text-primary: var(--text-color);
   --text-secondary: rgba(var(--text-color-rgb), 0.7);
   --surface-color: var(--white-color);
   --border-color: rgba(var(--text-color-rgb), 0.1);
-  --shadow-color: rgba(var(--text-color-rgb), 0.08);
-  --shadow-hover-color: rgba(var(--text-color-rgb), 0.15);
+  --shadow-color: rgba(var(--black-color-rgb), 0.08);
+  --shadow-hover-color: rgba(var(--black-color-rgb), 0.15);
   --card-radius: 20px;
   --transition-speed: 0.4s;
   --transition-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -693,6 +686,10 @@ header {
 
 /* End footer */
 
+/* ========================================= */
+/* ====== START OF UPDATED BODY CSS ====== */
+/* ========================================= */
+
 @keyframes animated-bg {
   0% {
     background-position: 0% 50%;
@@ -711,7 +708,7 @@ body {
   font-family: "Vazirmatn", sans-serif;
   background: linear-gradient(300deg,
       var(--background-color),
-      #f7f5ff,
+      var(--white-color),
       var(--background-color));
   background-size: 200% 200%;
   animation: animated-bg 35s ease infinite;
@@ -724,11 +721,11 @@ body {
 
 ::selection {
   background-color: var(--primary-color);
-  color: #fff;
+  color: var(--white-color);
 }
 
 .top-address-bar {
-  background-color: #f5f3fa;
+  background-color: var(--footer-background-color);
   text-align: center;
   padding: 0.75rem 2rem;
   font-size: 0.9rem;
@@ -737,7 +734,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--primary-pale-color);
   line-height: 1.6;
 }
 
@@ -843,7 +840,6 @@ section {
       var(--background-color));
   border-radius: 47% 53% 70% 30% / 30% 50% 50% 70%;
   opacity: 0.15;
-  /* کم‌رنگ‌تر شد */
   z-index: 0;
   transform: rotate(20deg);
 }
@@ -859,7 +855,6 @@ section {
       var(--background-color));
   border-radius: 47% 53% 70% 30% / 30% 50% 50% 70%;
   opacity: 0.1;
-  /* کم‌رنگ‌تر شد */
   z-index: 0;
   transform: rotate(-30deg);
 }
@@ -875,7 +870,6 @@ section {
       var(--background-color));
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   opacity: 0.12;
-  /* کم‌رنگ‌تر شد */
   z-index: 0;
   transform: rotate(15deg);
 }
@@ -934,7 +928,7 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 2.2rem;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   box-shadow: 0 10px 30px var(--shadow-color);
   border: 3px solid var(--background-color);
   transition: all var(--transition-speed) var(--transition-easing);
@@ -954,10 +948,9 @@ section {
 
 .service-item:hover .service-icon-container {
   transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 0 25px 5px rgba(106, 133, 241, 0.4);
-  /* Glow effect */
+  box-shadow: 0 0 25px 5px rgba(var(--primary-color-rgb), 0.4);
   background-color: var(--primary-color);
-  color: #fff;
+  color: var(--white-color);
   border-color: var(--surface-color);
 }
 
@@ -972,7 +965,6 @@ section {
 
 .service-item:hover .service-text {
   transform: translateY(-6px);
-  /* افکت هاور ظریف‌تر شد */
   box-shadow: 0 10px 30px var(--shadow-hover-color);
 }
 
@@ -1020,7 +1012,7 @@ section {
   object-fit: cover;
   border-radius: var(--card-radius);
   border: 8px solid var(--surface-color);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 50px rgba(var(--black-color-rgb), 0.15);
   transition: transform var(--transition-speed) var(--transition-easing);
 }
 
@@ -1130,7 +1122,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(86, 110, 214, 0.2);
+  background: rgba(var(--secondary-color-rgb), 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1145,7 +1137,7 @@ section {
 
 .showcase-overlay i {
   font-size: 4rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(var(--white-color-rgb), 0.9);
 }
 
 /* --- Section: Quick Links (New Hover) --- */
@@ -1177,7 +1169,6 @@ section {
   border-left: 1px solid var(--border-color);
   background: var(--surface-color);
   overflow: hidden;
-  /* For overlay effect */
   cursor: pointer;
 }
 
@@ -1192,9 +1183,7 @@ section {
   left: 0;
   width: 100%;
   height: 0;
-  background: linear-gradient(160deg,
-      var(--primary-color),
-      var(--primary-pale-color));
+  background: var(--gold-gradient);
   z-index: 0;
   transition: height var(--transition-speed) var(--transition-easing);
 }
@@ -1208,7 +1197,6 @@ section {
 .arrow-icon {
   position: relative;
   z-index: 1;
-  /* Keep content above overlay */
   transition: all var(--transition-speed) var(--transition-easing);
 }
 
@@ -1229,20 +1217,20 @@ section {
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
-  color: #fff;
+  color: var(--text-color);
 }
 
 .quick-link-blade:hover {
-  color: #fff;
+  color: var(--text-color);
 }
 
 .quick-link-blade:hover .link-icon {
   transform: translateY(-10px) scale(1.1);
-  color: var(--secondary-pale-color);
+  color: var(--white-color);
 }
 
 .quick-link-blade:hover h3 {
-  color: #fff;
+  color: var(--text-color);
   transform: translateY(-5px);
 }
 
@@ -1300,7 +1288,7 @@ section {
 .form-input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(106, 133, 241, 0.3);
+  box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb), 0.3);
 }
 
 .submit-btn {
@@ -1309,31 +1297,30 @@ section {
   padding: 1.1rem;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(45deg, var(--primary-color), #6e86e3);
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   background-size: 200% auto;
-  color: #fff;
+  color: var(--white-color);
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.4s ease;
-  box-shadow: 0 8px 25px rgba(106, 133, 241, 0.4);
+  box-shadow: 0 8px 25px rgba(var(--secondary-color-rgb), 0.4);
 }
 
 .submit-btn:hover {
-  box-shadow: 0 12px 30px rgba(106, 133, 241, 0.6);
+  box-shadow: 0 12px 30px rgba(var(--secondary-color-rgb), 0.6);
   transform: translateY(-4px);
   background-position: right center;
 }
 
 .info-panel {
-  background: linear-gradient(160deg,
-      var(--primary-color),
-      var(--primary-pale-color));
-  color: #fff;
+  background: linear-gradient(160deg, var(--primary-color), var(--brand-color-main));
+  color: var(--text-color);
   padding: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 10px 20px rgba(var(--black-color-rgb), 0.07);
 }
 
 .info-content {
@@ -1350,9 +1337,8 @@ section {
 
 .info-item i {
   font-size: 1.5rem;
-  opacity: 0.9;
   padding-top: 5px;
-  color: var(--secondary-pale-color);
+  color: var(--secondary-color);
 }
 
 .info-text h4 {
@@ -1378,8 +1364,15 @@ section {
   max-width: 60%;
   height: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1) drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 5px 10px rgba(var(--black-color-rgb), 0.2));
   opacity: 0.8;
+  transition: all 0.4s ease;
+}
+
+.municipality-logo:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+  filter: drop-shadow(0 5px 10px rgba(var(--black-color-rgb), 0.3));
 }
 
 /* --- Responsive --- */
