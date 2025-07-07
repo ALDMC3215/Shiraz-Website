@@ -1992,9 +1992,6 @@ header {
 }
 
 
-/* ===========================================
-   Responsive for max-width: 991.98px (Tablet)
-   =========================================== */
 @media (max-width: 991.98px) {
   .shiraz-news-swiper {
     height: auto;
@@ -2032,9 +2029,6 @@ header {
   }
 }
 
-/* ===========================================
-   Responsive for max-width: 575.98px (Mobile)
-   =========================================== */
 @media (max-width: 575.98px) {
   .shiraz-news-swiper {
     height: 360px !important;
@@ -2172,8 +2166,8 @@ header {
 
 /* ---------- Cards Section ---------- */
 
+
 .card {
-  height: auto;
   border-radius: 20px 80px 20px 80px !important;
   overflow: hidden;
   border-width: 1px 2px 3px 1px;
@@ -2234,7 +2228,6 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
 
@@ -2311,6 +2304,79 @@ header {
   font-weight: bold;
   line-height: 1.2em;
 }
+
+
+
+/* Small devices (mobile, max-width: 575.98px) */
+@media (max-width: 575.98px) {
+
+  .card-sm{
+    width: 50% !important;
+    margin: auto !important;
+  }
+
+  .card {
+    border-radius: 10px 40px 10px 30px  !important;
+    width: 100% !important;
+    margin-bottom: 25px !important;
+    
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 150px;
+    border-radius: 15px 40px 15px 15px;
+    margin: 10px 0 0 0;
+  }
+
+  .card-title {
+    font-size: 0.6em !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .card-text {
+    font-size: 0.33em !important;
+    line-height: 14px !important;
+    margin-top: 30px;
+  }
+
+  .bottom-panel {
+    flex-direction: column;
+    gap: 5px !important;
+    padding-top: 10px;
+    margin-bottom: 2px !important;
+  }
+
+  .bottom-panel .information {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    border-radius: 0px 40px;
+    flex-direction: row;
+    gap: 2px !important;
+  }
+
+  .bottom-panel .information .small{
+     font-size: 0.33em !important;
+  }
+
+    .bottom-panel .information .text-muted{
+    font-size: 5px !important;
+  }
+
+  .bottom-panel .like {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    margin-left: 100px !important;
+  }
+}
+
+/* Medium devices (tablet, max-width: 991.98px) */
+@media (max-width: 991.98px) {
+ 
+}
+
 
 /* ---------- Stats Section ---------- */
 
@@ -3042,7 +3108,6 @@ a:hover .district {
   .card {
     height: auto;
     min-height: 280px;
-    border-radius: 16px !important;
   }
 
   .card-img-top {
@@ -3167,7 +3232,7 @@ a:hover .district {
   .card {
     height: auto;
     min-height: 240px;
-    border-radius: 5px !important;
+
   }
 
   .card-img-top {
