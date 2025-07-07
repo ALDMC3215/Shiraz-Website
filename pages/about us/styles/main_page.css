@@ -46,13 +46,21 @@
   --primary-color-rgb: 212, 175, 55;
   --secondary-color-rgb: 204, 119, 34;
 
-  /* Body Color Palette */
+  /*
+  =========================================================
+  ===  NEW BODY COLOR PALETTE                           ===
+  =========================================================
+  */
   --background-color: #f7f8ff;
-  --body-primary-color: #aeb2ff;
-  --body-secondary-color: #e4e5ff;
-  --body-primary-color-rgb: 174, 178, 255;
-  --body-secondary-color-rgb: 228, 229, 255;
-  --body-gradient: linear-gradient(45deg, #aeb2ff, #999eff);
+  --body-primary-color: #0047ab; /* Dark Blue */
+  --body-secondary-color: #40e0d0; /* Turquoise */
+  --body-primary-color-rgb: 0, 71, 171;
+  --body-secondary-color-rgb: 64, 224, 208;
+  --body-gradient: linear-gradient(
+    45deg,
+    var(--body-primary-color),
+    var(--body-secondary-color)
+  );
 
   /* General Variables */
   --accent-1-color: #40e0d0;
@@ -75,7 +83,7 @@
   --transition-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* header (UNCHANGED) */
+/* header */
 
 header {
   font-family: shabnamMedium, sans-serif;
@@ -95,9 +103,42 @@ header {
   justify-content: flex-start;
 }
 
+/*
+=========================================================
+===  OPTIONAL: HEADER GRADIENT FADE EFFECT            ===
+=========================================================
+This adds a gradient overlay to the header to create a
+smooth transition from the body background. To remove this
+effect, simply delete this entire commented block, from
+here to the "END OF HEADER FADE EFFECT" comment.
+*/
+
+/* 1. The gradient overlay itself */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* Sits behind the main content */
+  background: linear-gradient(
+    to top,
+    var(--background-color) 5%,
+    transparent 80%
+  );
+  pointer-events: none; /* Ensures the overlay doesn't block clicks */
+}
+
+/* 2. Fix for stacking context to lift content above the overlay */
+.main {
+  position: relative; /* Establishes a stacking context */
+  z-index: 1; /* Lifts this container (and its children like .logo-text) above the ::before pseudo-element */
+}
+
+/* === END OF HEADER FADE EFFECT === */
+
+
 .navbar {
   position: relative;
-  z-index: 1050;
+  z-index: 1050; /* Navbar already has a high z-index, so it's safe */
   padding-top: 1rem;
   animation: fadeInDown 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -236,6 +277,7 @@ header {
   object-fit: cover;
 }
 
+/* Original .main rule - now includes position and z-index for stacking */
 .main {
   flex-grow: 1;
   display: flex;
@@ -245,6 +287,8 @@ header {
   text-align: center;
   width: 85%;
   margin: auto;
+  /* position: relative;  <-- Added inside the optional block */
+  /* z-index: 1;         <-- Added inside the optional block */
 }
 
 .logo-text {
@@ -708,17 +752,26 @@ section {
 .mayor-title {
   font-size: 1rem;
   color: var(--text-color);
-  /* opacity: 0.8; */
   font-family: shabnam;
 }
 
-/* --- Section: Building Showcase (UNCHANGED) --- */
+/*
+=========================================================
+===  MODIFIED: BUILDING SHOWCASE SECTION              ===
+=========================================================
+*/
+
+
 #building-showcase {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
 }
+#building-showcase .section-subtitle {
+  margin-bottom: 3rem;
+}
+
 .showcase-wrapper {
-  max-width: 1200px;
+  max-width: 800px;
   margin: auto;
 }
 .showcase-container {
@@ -731,21 +784,25 @@ section {
   aspect-ratio: 16 / 9;
   background-color: var(--border-color);
 }
+
 .showcase-container:hover {
   transform: translateY(-10px);
   box-shadow: 0 35px 70px -15px var(--shadow-hover-color);
 }
+
 .showcase-image {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fit-content;
   border-radius: var(--card-radius);
   transition: transform var(--transition-speed) var(--transition-easing);
 }
+
 .showcase-container:hover .showcase-image {
   transform: scale(1.05);
 }
+
 .showcase-overlay {
   position: absolute;
   inset: 0;
@@ -757,6 +814,7 @@ section {
   transition: opacity var(--transition-speed) var(--transition-easing);
   pointer-events: none;
 }
+
 .showcase-container:hover .showcase-overlay {
   opacity: 1;
 }
@@ -846,7 +904,7 @@ section {
   transform: translate(-50%, 5px);
 }
 
-/* --- Section 4: Contact Us (NEW MINIMAL & HORIZONTAL DESIGN) --- */
+/* --- Section 4: Contact Us (UNCHANGED) --- */
 
 #contact {
   padding-top: 5rem;
@@ -952,7 +1010,7 @@ textarea#message {
     var(--body-secondary-color),
     var(--body-primary-color)
   );
-  color: var(--text-color);
+  color: var(--background-color);
   border-radius: var(--card-radius);
   box-shadow: 0 15px 40px var(--shadow-color);
   display: flex;
