@@ -1527,7 +1527,6 @@ header {
 
 .stat-circle-container {
   width: 75px;
-  /* Smaller base size for mobile */
   height: 75px;
   position: relative;
   margin: 0 auto;
@@ -1579,69 +1578,81 @@ header {
   color: var(--text-color);
 }
 
-/* --- Tablet Styles --- */
-@media (min-width: 768px) {
+
+@media (max-width: 991.98px) {
   .info-section {
-    padding: 4rem 0;
+    padding: 3rem 1rem;
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    text-align: center;
   }
 
   .description-text {
-    font-size: 1rem;
-    line-height: 1.9;
+    font-size: 0.95rem;
+    line-height: 1.8;
     text-align: justify;
-    /* Justify is okay on wider screens */
   }
 
   .stat-circle-container {
-    width: 85px;
-    height: 85px;
+    width: 70px;
+    height: 70px;
   }
 
   .stat-number-container {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 
   .stat-number {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .stat-label {
-    font-size: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .stat-item {
+    margin-bottom: 2rem;
   }
 }
 
-/* --- Desktop Styles --- */
-@media (min-width: 992px) {
-  .info-section {
-    padding: 5rem 0;
-    min-height: 90vh;
-    /* Reintroduce min-height for desktop view only */
-    display: flex;
-    align-items: center;
-  }
 
+@media (max-width: 575.98px) {
   .section-title {
-    font-size: 2.2rem;
+    font-size: 1.4rem;
+    text-align: center;
   }
 
   .description-text {
-    font-size: 1.1rem;
-    line-height: 2;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    text-align: right;
+    display: none !important;
   }
 
   .stat-circle-container {
-    width: 90px;
-    height: 90px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .stat-number-container {
+    font-size: 0.8rem;
+  }
+
+  .stat-number {
+    font-size: 0.75rem;
   }
 
   .stat-label {
-    font-size: 1.1rem;
+    font-size: 0.75rem;
+  }
+
+  .stat-item {
+    margin-bottom: 1rem;
   }
 }
+
 
 /* ---------- Slider 2 (News) - CORRECTED STYLES ---------- */
 
