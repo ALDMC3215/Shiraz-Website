@@ -320,7 +320,7 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
  * =================================================================== */
 
 header {
-  position: relative;
+  position: relative; /* این خط برای کارکردن افکت جدید ضروری است */
   font-family: shabnamMedium, sans-serif;
   background-image: radial-gradient(
     circle at 50% 50%,
@@ -333,11 +333,63 @@ header {
   display: flex;
   flex-direction: column;
   color: var(--white-color);
-  position: relative;
-  overflow: hidden;
+  overflow: hidden; /* این خط هم ضروری است */
   justify-content: flex-start;
   align-items: center;
 }
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* تغییر ۱: ارتفاع را دو برابر می‌کنیم تا فضای کافی برای تکرار پس‌زمینه داشته باشیم */
+  height: 200%; 
+  
+  /* لیست گرادینت‌ها برای ایجاد ذرات (بدون تغییر) */
+  background-image: 
+    radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.2) 2px, transparent 0),
+    radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.2) 2px, transparent 0),
+    radial-gradient(circle at 15% 70%, rgba(255, 255, 255, 0.2) 3px, transparent 0),
+    radial-gradient(circle at 75% 80%, rgba(255, 255, 255, 0.3) 2px, transparent 0),
+    radial-gradient(circle at 45% 50%, rgba(255, 255, 255, 0.15) 3px, transparent 0),
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.25) 2px, transparent 0),
+    radial-gradient(circle at 85% 55%, rgba(255, 255, 255, 0.2) 3px, transparent 0),
+    radial-gradient(circle at 10% 5%, rgba(255, 255, 255, 0.3) 2px, transparent 0),
+    radial-gradient(circle at 95% 30%, rgba(255, 255, 255, 0.25) 2px, transparent 0),
+    radial-gradient(circle at 5% 90%, rgba(255, 255, 255, 0.3) 3px, transparent 0),
+    radial-gradient(circle at 30% 60%, rgba(255, 255, 255, 0.1) 2px, transparent 0),
+    radial-gradient(circle at 65% 35%, rgba(255, 255, 255, 0.2) 3px, transparent 0),
+    radial-gradient(circle at 90% 95%, rgba(255, 255, 255, 0.35) 2px, transparent 0),
+    radial-gradient(circle at 35% 5%, rgba(255, 255, 255, 0.2) 2px, transparent 0),
+    radial-gradient(circle at 25% 40%, rgba(255, 255, 255, 0.2) 4px, transparent 0),
+    radial-gradient(circle at 60% 85%, rgba(255, 255, 255, 0.3) 2px, transparent 0),
+    radial-gradient(circle at 5% 30%, rgba(255, 255, 255, 0.2) 3px, transparent 0),
+    radial-gradient(circle at 95% 70%, rgba(255, 255, 255, 0.25) 3px, transparent 0),
+    radial-gradient(circle at 40% 75%, rgba(255, 255, 255, 0.15) 2px, transparent 0),
+    radial-gradient(circle at 70% 5%, rgba(255, 255, 255, 0.3) 3px, transparent 0);
+
+  /* تغییر ۲: اندازه‌ی پس‌زمینه را طوری تنظیم می‌کنیم که نصف ارتفاع را بپوشاند */
+  background-size: 100% 50%;
+  /* ویژگی جدید: پس‌زمینه را در محور عمودی تکرار می‌کنیم */
+  background-repeat: repeat-y;
+
+  /* تغییر ۳: کلمه کلیدی 'alternate' را حذف می‌کنیم تا انیمیشن همیشه در یک جهت حرکت کند */
+  animation: moveParticles 40s linear infinite;
+}
+
+/* تعریف انیمیشن حرکت ذرات */
+@keyframes moveParticles {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    /* تغییر ۴: به جای ۱۰۰%، به اندازه ۵۰% ارتفاع لایه حرکت می‌کنیم 
+       (که معادل ۱۰۰% ارتفاع اصلی هدر است) و یک حلقه بی‌نقص ایجاد می‌کند */
+    transform: translateY(-50%);
+  }
+}
+
 
 .navbar {
   position: relative;
