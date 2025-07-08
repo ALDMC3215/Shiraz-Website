@@ -841,6 +841,11 @@ header {
 
 /* --- Smaller Mobile Styles --- */
 @media (max-width: 575.98px) {
+
+  .navbar{
+    width: 100%  !important;
+  }
+
   .navbar-collapse {
     order: 1;
     width: 100%;
