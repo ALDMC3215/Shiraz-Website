@@ -253,6 +253,69 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
   background-color: #c82333;
 }
 
+
+/* موبایل */
+@media (max-width: 575.98px) {
+  .open-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .font-controls-sidebar {
+    width: 50px;
+    padding: 6px;
+    gap: 10px;
+  }
+
+  .control-icon-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .close-btn {
+    font-size: 18px;
+    padding: 4px;
+  }
+
+  .current-color-indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* تبلت */
+@media (max-width: 991.98px) {
+  .open-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 19px;
+  }
+
+  .font-controls-sidebar {
+    width: 55px;
+    padding: 8px;
+    gap: 12px;
+  }
+
+  .control-icon-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 17px;
+  }
+
+  .close-btn {
+    font-size: 19px;
+    padding: 4px;
+  }
+
+  .current-color-indicator {
+    width: 9px;
+    height: 9px;
+  }
+}
+
 /* ===================================================================
  * ==================== HEADER FINAL DESIGN ======================
  * =================================================================== */
