@@ -1433,7 +1433,7 @@ header {
   }
 
   .pms-swiper {
-    height: 500px;
+    height: 520px;
   }
 
   .pms-swiper-slide {
@@ -1500,7 +1500,7 @@ header {
   }
 
   .pms-swiper {
-    height: 300px !important;
+    height: 270px !important;
   }
 
   .pms-swiper-slide {
@@ -1511,12 +1511,12 @@ header {
   }
 
   .pms-swiper-slide img {
-  max-width: 100%;
+  max-width: 110%;
   height: auto;
-  max-height: 110px;
+  max-height: 120px;
   object-fit: cover;
   border-radius: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   box-shadow: 0 5px 15px rgba(var(--black-color-rgb), 0.1);
   }
 
@@ -1702,6 +1702,12 @@ header {
     line-height: 1.7;
     text-align: right;
     display: none !important;
+  }
+
+  .description-text-sm{
+    display: flex !important;
+    line-height: 20px;
+    margin-top: 25px;
   }
 
   .stat-circle-container {
