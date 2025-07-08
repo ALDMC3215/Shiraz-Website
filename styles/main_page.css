@@ -1766,8 +1766,11 @@ header::after {
 
   .description-text-sm {
     display: flex !important;
+    text-align: center;
     line-height: 20px;
     margin-top: 25px;
+    font-size: 12px;
+    font-size: shabnamMedium, sans-serif;
   }
 
   .stat-circle-container {
