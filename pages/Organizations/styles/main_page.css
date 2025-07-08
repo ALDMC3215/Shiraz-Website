@@ -38,7 +38,7 @@
   --primary-pale-color: #EADDAA; /* Pale Gold */
   --secondary-color: #CC7722; /* Ochre */
   --secondary-pale-color: #E0A96D; /* Pale Ochre */
-  --background-color: #FFFBEF; /* Creamy Background */
+  --background-color: #f7f8ff; /* Creamy Background */
   --accent-1-color: #40E0D0; /* Turquoise */
   --accent-2-color: #0047AB; /* Lapis Lazuli Blue */
   --black-color: #000000;
@@ -112,7 +112,7 @@ header::before {
   background: linear-gradient(
     to top,
     var(--background-color) 5%,
-    transparent 80%
+    transparent 100%
   );
   pointer-events: none; /* Ensures the overlay doesn't block clicks */
 }
@@ -511,32 +511,7 @@ header::before {
   }
 
 }
-
-
-
 /* End header */
-
-/* bodyBG */
-
-.bg {
-  font-family: shabnamMedium, sans-serif;
-  background-color: white;
-  background-size: cover;
-  /* یا contain یا 100% 100% بسته به نیاز */
-  background-repeat: no-repeat;
-  /* یا repeat بسته به نیاز */
-  background-attachment: fixed;
-  /* اگر میخواهید عکس با اسکرول ثابت بماند */
-  height: 100vh;
-  /* این را اگر میخواهید کل صفحه را پوشش دهد نگه دارید */
-  flex-direction: column;
-  color: var(--text-color);
-  position: relative;
-  background-color: var(--dynamic-bg-color) !important;
-}
-
-/* End bodyBG */
-
 
 
 /* Sazman ha */

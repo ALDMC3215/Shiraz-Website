@@ -39,7 +39,7 @@
     --primary-pale-color: #EADDAA; /* Pale Gold */   
     --secondary-color: #CC7722; /* Ochre */   
     --secondary-pale-color: #E0A96D; /* Pale Ochre */   
-    --background-color: #FFFBEF; /* Creamy Background */   
+    --background-color: #f7f8ff; /* Creamy Background */   
     --accent-1-color: #40E0D0; /* Turquoise */   
     --accent-2-color: #0047AB; /* Lapis Lazuli Blue */   
     --black-color: #000000;   
@@ -156,7 +156,7 @@ header::before {
   background: linear-gradient(
     to top,
     var(--background-color) 5%,
-    transparent 80%
+    transparent 100%
   );
   pointer-events: none; /* Ensures the overlay doesn't block clicks */
 }
@@ -559,14 +559,10 @@ header::before {
 
 /* End header */
 
+body{
+  background-color: var(--background-color);
+}
 
-/* bodyBG */
-
-
-
-
-
-/* End bodyBG */
 
 
 
@@ -827,7 +823,7 @@ header::before {
 
 .mayor-name {
   margin: 0.75rem 0 0.25rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-family: shabnamBold, sans-serif;
   color: var(--light-black);
 }
