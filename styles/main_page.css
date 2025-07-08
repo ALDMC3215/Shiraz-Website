@@ -862,6 +862,11 @@ header {
   .navbar-toggler:focus {
     box-shadow: none;
   }
+
+  .navbar.navbar-fixed{
+    margin-top: 15px !important;
+  }
+
 }
 
 /* ============================================= */
@@ -1031,24 +1036,27 @@ header {
 
 
 @media (max-width: 575.98px) {
-  .front {
-    padding: auto;
-    height: 20px;
+
+  .pushable-button .front{
+    gap: 16px !important;
+    min-height: 30px !important;
+    padding: 10px !important;
   }
 
+
   .front .icon-wrapper img {
-    width: 30px;
-    height: 30px;
+    width: 25px  !important;
+    height: 25px !important;
   }
 
   .front .card-text-box {
 
-    width: 100%;
+    width: 100% !important;
 
 }
 
   .front .card-text-top {
-
+    width: 200px !important;
     font-size: 0.5em;
   }
 
@@ -3477,6 +3485,10 @@ a:hover .district {
     margin-top: 0 !important;
   }
 
+  .footer-section img{
+    width: 280px !important;
+  }
+
   .footer-section h3::after {
     right: 50%;
     transform: translateX(50%);
@@ -3497,6 +3509,7 @@ a:hover .district {
 
   .footer-section.logos {
     justify-content: center;
+    width: 150px !important;
   }
 
   .footer-bottom {
@@ -3507,6 +3520,7 @@ a:hover .district {
   .footer-bottom p {
     text-align: center;
     margin-top: 10px !important;
+    font-size: 12px !important;
   }
 
   .social-icons {
