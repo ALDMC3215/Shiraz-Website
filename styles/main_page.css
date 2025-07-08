@@ -253,7 +253,6 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
   background-color: #c82333;
 }
 
-
 /* موبایل */
 @media (max-width: 575.98px) {
   .open-btn {
@@ -320,8 +319,8 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
  * ==================== HEADER FINAL DESIGN ======================
  * =================================================================== */
 
-/* --- Base & Desktop Styles --- */
 header {
+  position: relative;
   font-family: shabnamMedium, sans-serif;
   background-image: radial-gradient(
     circle at 50% 50%,
@@ -337,6 +336,7 @@ header {
   position: relative;
   overflow: hidden;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .navbar {
@@ -598,13 +598,27 @@ header {
 .botom-img {
   position: absolute;
   bottom: 0;
-  left: 12%;
-  transform: translateX(-50%);
-  width: 1200px;
-  height: 400px;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
   mix-blend-mode: multiply;
   opacity: 0.7;
-  animation: fadeInUp 1.2s 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  pointer-events: none;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeInUpBotomImg 0.8s 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+}
+
+@keyframes fadeInUpBotomImg {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(40px);
+  }
+  to {
+    opacity: 0.7;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .navbar.navbar-fixed {
@@ -797,10 +811,7 @@ header {
 
   .botom-img {
     width: 900px;
-    /* Scale down the image */
     height: 300px;
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   .sm-icon {
@@ -901,8 +912,6 @@ header {
   .botom-img {
     width: 320px;
     height: 100px;
-    left: 0;
-    transform: translateX(-50%);
   }
 
   .sm-icon {
@@ -928,10 +937,9 @@ header {
     box-shadow: none;
   }
 
-  .navbar.navbar-fixed{
+  .navbar.navbar-fixed {
     margin-top: 15px !important;
   }
-
 }
 
 /* ============================================= */
@@ -972,12 +980,13 @@ header {
   height: 100%;
   border-radius: 24px;
   /* This gradient uses your orange color to create a 3D edge */
-  background: linear-gradient(to left,
-      hsl(33, 89%, 45%) 0%,
-      /* Darker Orange */
-      hsl(33, 100%, 65%) 8%,
-      hsl(33, 100%, 65%) 92%,
-      hsl(33, 89%, 45%) 100%);
+  background: linear-gradient(
+    to left,
+    hsl(33, 89%, 45%) 0%,
+    /* Darker Orange */ hsl(33, 100%, 65%) 8%,
+    hsl(33, 100%, 65%) 92%,
+    hsl(33, 89%, 45%) 100%
+  );
 }
 
 /* --- Shadow Layer --- */
@@ -1096,29 +1105,23 @@ header {
   }
 }
 
-
 /* --- For Mobile --- */
 
-
 @media (max-width: 575.98px) {
-
-  .pushable-button .front{
+  .pushable-button .front {
     gap: 16px !important;
     min-height: 30px !important;
     padding: 10px !important;
   }
 
-
   .front .icon-wrapper img {
-    width: 25px  !important;
+    width: 25px !important;
     height: 25px !important;
   }
 
   .front .card-text-box {
-
     width: 100% !important;
-
-}
+  }
 
   .front .card-text-top {
     width: 200px !important;
@@ -1126,7 +1129,6 @@ header {
   }
 
   .front .card-text-description-top {
-
     font-size: 0.3em;
   }
 }
@@ -1505,21 +1507,20 @@ header {
 
   .pms-swiper-slide {
     height: auto !important;
-    padding: 10px 0; 
-    background-color: transparent; 
-    box-shadow: none !important; 
+    padding: 10px 0;
+    background-color: transparent;
+    box-shadow: none !important;
   }
 
   .pms-swiper-slide img {
-  max-width: 110%;
-  height: auto;
-  max-height: 120px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 60px;
-  box-shadow: 0 5px 15px rgba(var(--black-color-rgb), 0.1);
+    max-width: 110%;
+    height: auto;
+    max-height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 60px;
+    box-shadow: 0 5px 15px rgba(var(--black-color-rgb), 0.1);
   }
-
 
   .pms-slide-content {
     bottom: 15px;
@@ -1568,7 +1569,6 @@ header {
     font-size: 0.9rem;
   }
 }
-
 
 /* ===================================================================
  * ==================== INFO SECTION (RESPONSIVE) ====================
@@ -1652,7 +1652,6 @@ header {
   color: var(--text-color);
 }
 
-
 @media (max-width: 991.98px) {
   .info-section {
     padding: 3rem 1rem;
@@ -1691,10 +1690,8 @@ header {
   }
 }
 
-
 @media (max-width: 575.98px) {
-
-  .text-custom-purple{
+  .text-custom-purple {
     margin-bottom: 0 !important;
   }
 
@@ -1710,7 +1707,7 @@ header {
     display: none !important;
   }
 
-  .description-text-sm{
+  .description-text-sm {
     display: flex !important;
     line-height: 20px;
     margin-top: 25px;
@@ -1737,7 +1734,6 @@ header {
     margin-bottom: 1rem;
   }
 }
-
 
 /* ---------- Slider 2 (News) - CORRECTED STYLES ---------- */
 
@@ -1855,29 +1851,26 @@ header {
 @media (max-width: 575.98px) {
   .shiraz-news-category-list {
     display: flex;
-    flex-wrap: nowrap; 
-    overflow-x: auto;  
+    flex-wrap: nowrap;
+    overflow-x: auto;
     gap: 10px;
     padding: 5px 5px;
     margin: 0;
   }
 
   .shiraz-news-category-list-item {
-    flex: 0 0 100px; 
+    flex: 0 0 100px;
   }
 
   .shiraz-news-btn-link {
     padding: 8px 8px;
-    font-size: 0.6rem; 
-    white-space: nowrap; 
+    font-size: 0.6rem;
+    white-space: nowrap;
   }
 }
 
-
 @media (max-width: 991.98px) {
-
 }
-
 
 /* =================================================================
    Swiper Slider Styles
@@ -1887,7 +1880,7 @@ header {
   max-width: 1280px;
   height: 580px;
   overflow: hidden;
-  padding: 0 0 1px 0 ;
+  padding: 0 0 1px 0;
 }
 
 .shiraz-news-swiper .swiper-slide {
@@ -2076,7 +2069,6 @@ header {
   }
 }
 
-
 @media (max-width: 991.98px) {
   .shiraz-news-swiper {
     height: auto;
@@ -2120,13 +2112,13 @@ header {
     padding: 15px 0;
   }
 
-   .swiper-slide {
+  .swiper-slide {
     width: 50% !important;
     height: auto;
     min-height: 300px;
   }
 
-  .swiper-slide img{
+  .swiper-slide img {
     width: 50% !important;
   }
 
@@ -2139,8 +2131,6 @@ header {
     white-space: normal;
   }
 
-  
-
   .shiraz-news-swiper-button-prev,
   .shiraz-news-swiper-button-next {
     display: none !important;
@@ -2148,7 +2138,7 @@ header {
 
   .shiraz-news-swiper-button-prev::after,
   .shiraz-news-swiper-button-next::after {
-    display: none ;
+    display: none;
   }
 
   .shiraz-news-swiper-pagination-bullet {
@@ -2167,10 +2157,6 @@ header {
     stroke-width: 2;
   }
 }
-
-
-
-
 
 /* =================================================================
    Modal Styles
@@ -2248,9 +2234,7 @@ header {
   transform: translateY(-1px);
 }
 
-
 /* ---------- Cards Section ---------- */
-
 
 .card {
   border-radius: 20px 80px 20px 80px !important;
@@ -2390,21 +2374,17 @@ header {
   line-height: 1.2em;
 }
 
-
-
 /* Small devices (mobile, max-width: 575.98px) */
 @media (max-width: 575.98px) {
-
-  .card-sm{
+  .card-sm {
     width: 50% !important;
     margin: auto !important;
   }
 
   .card {
-    border-radius: 10px 40px 10px 30px  !important;
+    border-radius: 10px 40px 10px 30px !important;
     width: 100% !important;
     margin-bottom: 25px !important;
-    
   }
 
   .card-img-top {
@@ -2442,11 +2422,11 @@ header {
     gap: 2px !important;
   }
 
-  .bottom-panel .information .small{
-     font-size: 0.33em !important;
+  .bottom-panel .information .small {
+    font-size: 0.33em !important;
   }
 
-    .bottom-panel .information .text-muted{
+  .bottom-panel .information .text-muted {
     font-size: 5px !important;
   }
 
@@ -2459,9 +2439,7 @@ header {
 
 /* Medium devices (tablet, max-width: 991.98px) */
 @media (max-width: 991.98px) {
- 
 }
-
 
 /* ---------- Stats Section ---------- */
 
@@ -2972,7 +2950,6 @@ a:hover .district {
   }
 }
 
-
 /* ============================================= */
 /* ============= RESPONSIVE BODY ================ */
 /* ============================================= */
@@ -3216,8 +3193,6 @@ a:hover .district {
     display: none;
   }
 
-
-
   .stats-container {
     gap: 5px;
   }
@@ -3357,7 +3332,6 @@ a:hover .district {
   .card {
     height: auto;
     min-height: 240px;
-
   }
 
   .card-img-top {
@@ -3562,7 +3536,7 @@ a:hover .district {
     margin-top: 0 !important;
   }
 
-  .footer-section img{
+  .footer-section img {
     width: 280px !important;
   }
 
