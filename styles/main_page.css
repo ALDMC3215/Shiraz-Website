@@ -1588,6 +1588,7 @@ header {
 
 .text-custom-purple {
   color: var(--secondary-color) !important;
+  margin-bottom: 30px;
 }
 
 .description-text {
@@ -1692,6 +1693,11 @@ header {
 
 
 @media (max-width: 575.98px) {
+
+  .text-custom-purple{
+    margin-bottom: 0 !important;
+  }
+
   .section-title {
     font-size: 1.4rem;
     text-align: center;
