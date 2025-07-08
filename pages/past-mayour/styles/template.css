@@ -121,7 +121,11 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
 
 header {
   font-family: shabnamMedium, sans-serif;
-  background-image: radial-gradient(circle at 50% 50%, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 65vh;
@@ -133,9 +137,42 @@ header {
   justify-content: flex-start;
 }
 
+/*
+=========================================================
+===  OPTIONAL: HEADER GRADIENT FADE EFFECT            ===
+=========================================================
+This adds a gradient overlay to the header to create a
+smooth transition from the body background. To remove this
+effect, simply delete this entire commented block, from
+here to the "END OF HEADER FADE EFFECT" comment.
+*/
+
+/* 1. The gradient overlay itself */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* Sits behind the main content */
+  background: linear-gradient(
+    to top,
+    var(--background-color) 5%,
+    transparent 80%
+  );
+  pointer-events: none; /* Ensures the overlay doesn't block clicks */
+}
+
+/* 2. Fix for stacking context to lift content above the overlay */
+.main {
+  position: relative; /* Establishes a stacking context */
+  z-index: 1; /* Lifts this container (and its children like .logo-text) above the ::before pseudo-element */
+}
+
+/* === END OF HEADER FADE EFFECT === */
+
+
 .navbar {
   position: relative;
-  z-index: 1050;
+  z-index: 1050; /* Navbar already has a high z-index, so it's safe */
   padding-top: 1rem;
   animation: fadeInDown 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -177,7 +214,7 @@ header {
 }
 
 .navbar-nav .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -212,7 +249,6 @@ header {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-radius: 16px;
-  box-shadow: 0px 10px 30px rgba(var(--black-color-rgb), 0.2);
   padding: 15px;
   min-width: 250px;
   z-index: 1060;
@@ -275,6 +311,7 @@ header {
   object-fit: cover;
 }
 
+/* Original .main rule - now includes position and z-index for stacking */
 .main {
   flex-grow: 1;
   display: flex;
@@ -284,10 +321,12 @@ header {
   text-align: center;
   width: 85%;
   margin: auto;
+  /* position: relative;  <-- Added inside the optional block */
+  /* z-index: 1;         <-- Added inside the optional block */
 }
 
-.logo-text{
-    width: 500px;
+.logo-text {
+  width: 500px;
 }
 
 .navbar.navbar-fixed {
@@ -302,10 +341,8 @@ header {
 .navbar.navbar-fixed .navbar-collapse {
   margin-top: 10px;
   margin-bottom: 10px;
-  box-shadow: 0 10px 30px rgba(var(--black-color-rgb), 0.1);
 }
 
-/* --- Keyframe Animations --- */
 @keyframes slideInFromTop {
   from {
     transform: translateY(-100%);
@@ -321,7 +358,6 @@ header {
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-30px);
   }
 
   to {
@@ -342,8 +378,6 @@ header {
   }
 }
 
-
-/* --- Desktop Dropdown Animation --- */
 @keyframes slideInFromLeft {
   from {
     opacity: 0;
@@ -369,35 +403,28 @@ header {
   animation: slideInFromLeft 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-.dropdown:hover .dropdown-menu>*:nth-child(1) {
+.dropdown:hover .dropdown-menu > *:nth-child(1) {
   animation-delay: 0.05s;
 }
-
-.dropdown:hover .dropdown-menu>*:nth-child(2) {
+.dropdown:hover .dropdown-menu > *:nth-child(2) {
   animation-delay: 0.1s;
 }
-
-.dropdown:hover .dropdown-menu>*:nth-child(3) {
+.dropdown:hover .dropdown-menu > *:nth-child(3) {
   animation-delay: 0.15s;
 }
-
-.dropdown:hover .dropdown-menu>*:nth-child(4) {
+.dropdown:hover .dropdown-menu > *:nth-child(4) {
   animation-delay: 0.2s;
 }
-
-.dropdown:hover .dropdown-menu>*:nth-child(5) {
+.dropdown:hover .dropdown-menu > *:nth-child(5) {
   animation-delay: 0.25s;
 }
-
-.dropdown:hover .dropdown-menu>*:nth-child(6) {
+.dropdown:hover .dropdown-menu > *:nth-child(6) {
   animation-delay: 0.3s;
 }
-
-.dropdown:hover .dropdown-menu>*:nth-child(7) {
+.dropdown:hover .dropdown-menu > *:nth-child(7) {
   animation-delay: 0.35s;
 }
-
-.dropdown:hover .dropdown-menu>*:nth-child(8) {
+.dropdown:hover .dropdown-menu > *:nth-child(8) {
   animation-delay: 0.4s;
 }
 
