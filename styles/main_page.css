@@ -893,7 +893,9 @@ header::after {
 
 /* --- Smaller Mobile Styles --- */
 @media (max-width: 575.98px) {
-
+  header{
+    height: 94vh;
+  }
   .navbar{
     width: 100%  !important;
   }
@@ -972,7 +974,12 @@ header::after {
   }
 
   .sm-icon {
-    margin-left: 20px;
+    margin-left: 15px;
+  }
+
+
+  .navbar-toggler{
+    margin-right: 20px;
   }
 
   .sm-icon img {
@@ -1182,11 +1189,11 @@ header::after {
 
   .front .card-text-top {
     width: 200px !important;
-    font-size: 0.5em;
+    font-size: 0.7em;
   }
 
   .front .card-text-description-top {
-    font-size: 0.3em;
+    font-size: 0.5em;
   }
 }
 
@@ -1570,9 +1577,9 @@ header::after {
   }
 
   .pms-swiper-slide img {
-    max-width: 110%;
+    max-width: 100%;
     height: auto;
-    max-height: 120px;
+    max-height: 150px;
     object-fit: cover;
     border-radius: 15px;
     margin-bottom: 60px;
@@ -1748,6 +1755,10 @@ header::after {
 }
 
 @media (max-width: 575.98px) {
+  .row-sm{
+    margin: 0 50px;
+  }
+
   .text-custom-purple {
     margin-bottom: 0 !important;
   }
@@ -1767,9 +1778,9 @@ header::after {
   .description-text-sm {
     display: flex !important;
     text-align: center;
-    line-height: 20px;
-    margin-top: 25px;
-    font-size: 12px;
+    line-height: 25px;
+    margin-top: 30px;
+    font-size: 13px;  
     font-size: shabnamMedium, sans-serif;
   }
 
@@ -1909,21 +1920,29 @@ header::after {
 }
 
 @media (max-width: 575.98px) {
+
+  .shiraz-news-category-buttons-container{
+
+    padding: 30px;
+  }
+
+
+
   .shiraz-news-category-list {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 10px;
-    padding: 5px 5px;
+    padding: 5px 30px;
     margin: 0;
   }
 
   .shiraz-news-category-list-item {
-    flex: 0 0 100px;
+    flex: 0 0 140px;
   }
 
   .shiraz-news-btn-link {
-    padding: 8px 8px;
+    padding: 10px 8px;
     font-size: 0.6rem;
     white-space: nowrap;
   }
@@ -2436,6 +2455,11 @@ header::after {
 
 /* Small devices (mobile, max-width: 575.98px) */
 @media (max-width: 575.98px) {
+  .bottom-panel .information{
+    margin-top: 30px ;
+  }
+
+
   .card-sm {
     width: 50% !important;
     margin: auto !important;
@@ -2443,7 +2467,8 @@ header::after {
 
   .card {
     border-radius: 10px 40px 10px 30px !important;
-    width: 100% !important;
+    width: 90% !important;
+    margin: auto;
     margin-bottom: 25px !important;
   }
 
@@ -2491,9 +2516,14 @@ header::after {
   }
 
   .bottom-panel .like {
-    margin-top: 5px !important;
-    margin-bottom: 5px !important;
-    margin-left: 100px !important;
+    position: absolute;
+    right: 5px;
+    bottom: 35px;
+    
+  }
+
+  .bottom-panel .like svg{
+    font-size: 10px;
   }
 }
 
@@ -2615,6 +2645,7 @@ header::after {
   .stats-container {
     flex-wrap: wrap;
     justify-content: center;
+    padding: 35px !important;
   }
 
   .stat-item {
@@ -3047,9 +3078,6 @@ a:hover .district {
     font-size: 0.9em;
   }
 
-  .bottom-panel .information p {
-    font-size: 0.7em;
-  }
 }
 
 @media (max-width: 991.98px) {
@@ -3581,7 +3609,7 @@ a:hover .district {
   .main-footer::before {
     height: 15%;
     background-size: 95%;
-    margin-top: 650px;
+    margin-top: 565px;
   }
 
   .footer-content {
@@ -3597,7 +3625,7 @@ a:hover .district {
   }
 
   .footer-section img {
-    width: 280px !important;
+    width: 250px !important;
   }
 
   .footer-section h3::after {
@@ -3607,6 +3635,7 @@ a:hover .district {
 
   .footer-section.links ul li {
     margin-bottom: 15px !important;
+    font-size: 14px;
   }
 
   .footer-section.contact i {
@@ -3616,6 +3645,8 @@ a:hover .district {
 
   .footer-section.contact p {
     justify-content: center;
+    font-size: 12px;
+    margin: 18px 0;
   }
 
   .footer-section.logos {
