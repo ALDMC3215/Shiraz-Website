@@ -2645,7 +2645,7 @@ header::after {
   .stats-container {
     flex-wrap: wrap;
     justify-content: center;
-    padding: 35px !important;
+    padding: 40px !important;
   }
 
   .stat-item {
