@@ -336,6 +336,7 @@ header {
   overflow: hidden; /* این خط هم ضروری است */
   justify-content: flex-start;
   align-items: center;
+  transition: background-position-y 0.2s ease-out;
 }
 header::after {
   content: "";
@@ -658,8 +659,8 @@ header::after {
   pointer-events: none;
   left: 50%;
   transform: translateX(-50%);
-  animation: fadeInUpBotomImg 0.8s 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
+  animation: fadeInUpBotomImg 0.8s 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 
+   both;
 }
 
 @keyframes fadeInUpBotomImg {

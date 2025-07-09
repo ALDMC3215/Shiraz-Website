@@ -1,28 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // ===================================================================
-  // ==================== STICKY NAVBAR ON SCROLL ======================
-  // ===================================================================
-  // This script makes the navbar stick to the top after scrolling down.
   const navbar = document.querySelector(".navbar");
   const header = document.querySelector("header");
+  const mainContent = document.querySelector(".main");
+  const bottomImage = document.querySelector(".botom-img");
 
-  // We only run this if a header and navbar element actually exist on the page.
-  if (header && navbar) {
-    // The point at which the navbar should become sticky is the bottom of the header.
+  if (header && navbar && mainContent && bottomImage) {
     const stickyPoint = header.offsetHeight;
 
     window.addEventListener("scroll", function () {
-      // When scroll position is greater than the bottom of the header
-      if (window.scrollY > stickyPoint) {
-        // Add the 'navbar-fixed' class. The corresponding styles must exist in the CSS file.
+      let scrollY = window.scrollY;
+
+      // Sticky Navbar Logic
+      if (scrollY > stickyPoint) {
         navbar.classList.add("navbar-fixed");
       } else {
-        // Remove the class when the user scrolls back to the top.
         navbar.classList.remove("navbar-fixed");
       }
+
+      // Cinematic Scroll Effect Logic
+      let scrollProgress = Math.min(scrollY / (stickyPoint * 0.8), 1.0);
+      const newOpacity = 1 - scrollProgress;
+
+      // Apply Zoom-Out effect to main content
+      const newContentScale = 1 - (scrollProgress * 0.2);
+      mainContent.style.opacity = newOpacity;
+      mainContent.style.transform = `scale(${newContentScale})`;
+
+      // Apply Zoom-IN effect to the bottom image
+      const newImageScale = 1 + (scrollProgress * 0.25);
+      bottomImage.style.opacity = newOpacity;
+      bottomImage.style.transform = `translateX(-50%) scale(${newImageScale})`;
     });
   }
-
+});
   // ===================================================================
   // ==================== UNIFIED MODAL FUNCTION =====================
   // ===================================================================
@@ -890,4 +900,4 @@ document.addEventListener("DOMContentLoaded", function () {
       startScrolling();
     }, 0);
   }
-});
+
