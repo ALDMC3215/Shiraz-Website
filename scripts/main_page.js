@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
       bottomImage.style.transform = `translateX(-50%) scale(${newImageScale})`;
     });
   }
-});
+
   // ===================================================================
   // ==================== UNIFIED MODAL FUNCTION =====================
   // ===================================================================
@@ -900,4 +900,4 @@ document.addEventListener("DOMContentLoaded", function () {
       startScrolling();
     }, 0);
   }
-
+});
