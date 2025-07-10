@@ -235,6 +235,7 @@ header::before {
   text-align: right;
   direction: rtl;
   justify-content: flex-start;
+  color: #002f5f;
 }
 
 .mayor-profile {
