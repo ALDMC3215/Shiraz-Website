@@ -870,7 +870,11 @@ header::after {
 
 
 @media (max-width: 1100px) {
-  
+
+.navbar-nav .nav-link {
+  font-size: 0.75em;
+}
+
 }
 
 /* --- Tablet Styles (and below) --- */
