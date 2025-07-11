@@ -315,7 +315,6 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
   }
 }
 
-
 /* ===================================================================
  * ==================== HEADER FINAL DESIGN ======================
  * =================================================================== */
@@ -856,18 +855,14 @@ header::after {
   animation-delay: 0.4s;
 }
 
-
 /* ===================================================================
  * ==================== RESPONSIVE STYLES (NEW) ====================
  * =================================================================== */
 
-
 @media (max-width: 1100px) {
-
-.navbar-nav .nav-link {
-  font-size: 0.75em;
-}
-
+  .navbar-nav .nav-link {
+    font-size: 0.75em;
+  }
 }
 
 /* --- Tablet Styles (and below) --- */
@@ -943,7 +938,7 @@ header::after {
   .navbar-nav li:last-child .nav-link {
     border-bottom: none;
   }
-  
+
   .dropdown-menu {
     all: unset; /* ریست کردن تمام استایل‌های دسکتاپ */
     display: none; /* مخفی‌سازی اولیه برای Bootstrap JS */
@@ -1110,7 +1105,6 @@ header::after {
     gap: 150px;
   }
 }
-
 
 /* ============================================= */
 /* =================== BODY ==================== */
@@ -2056,20 +2050,20 @@ header::after {
 @media (max-width: 991.98px) {
 }  */
 
-
-
-.shiraz-news-category-buttons-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 20px 0;
-}
-
+/* =================================================================== */
+/* ============== Unified Styles for All Screen Sizes =============== */
+/* =================================================================== */
 .shiraz-news-category-list {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
+  gap: 15px;
+  border-bottom: 2px solid var(--shiraz-border-color);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 15px;
 }
 
 .shiraz-news-category-list-item {
@@ -2077,86 +2071,83 @@ header::after {
 }
 
 .shiraz-news-btn-link {
+  font-family: inherit;
   background-color: transparent;
-  border: 1px solid transparent;
-  padding: 10px 20px;
-  font-size: 25px;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1.1rem;
   font-weight: 500;
-  color: var(--tab-text-color);
+  color: var(--shiraz-text-color);
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.4s, color 0.4s, border-color 0.4s;
-  border-bottom: 3px solid rgba(var(--secondary-color-rgb), 0.3);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
 }
 
 .shiraz-news-btn-link:not(.active):hover {
-  color: var(--secondary-pale-color);
+  color: var(--shiraz-primary-color);
+  transform: translateY(-2px);
 }
 
 .shiraz-news-btn-link.active {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--secondary-color);
-  background-color: transparent;
-  border: 3px solid rgba(var(--secondary-color-rgb), 0.3);
-  border-radius: 8px 8px 0 0;
-  border-bottom: none;
+  border-bottom-color: var(--shiraz-primary-color);
+  background: linear-gradient(135deg, rgba(var(--shiraz-primary-color-rgb), 0.1) 0%, rgba(var(--secondary-color-rgb), 0.1) 100%);
 }
 
+.shiraz-news-swiper {
+  padding: 25px;
+  background-color: #fff;
+  border: 1px solid var(--shiraz-border-color);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  min-height: 200px;
+  text-align: center;
+  color: #999;
+  box-shadow: 0 4px 12px rgba(var(--shiraz-border-color-rgb), 0.1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-
-
-/* ================================================================= */
-/* ============= استایل‌های ریسپانسیو موبایل (کد نهایی) ============= */
-/* ================================================================= */
-
-/* برای تمام صفحات کوچک‌تر از 576px */
-@media (max-width: 575.98px) {
-
-  /* FIX 1: حذف پدینگ اضافی از کانتینر اصلی بوت‌استرپ */
-  .shiraz-news-main-container.container-fluid {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .shiraz-news-category-buttons-container {
-    justify-content: flex-start;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin: 0;
-  }
-
-/* FIX 2: تضمین چیدمان افقی و اسکرولی با !important */
- .shiraz-news-category-list {
-   display: flex !important;
-   flex-direction: row-reverse !important; /* FIX: این خط مشکل اسکرول در حالت فارسی را حل می‌کند */
-   flex-wrap: nowrap !important;
-   overflow-x: auto !important;
-   
-   gap: 2px;
-   padding: 10px 15px;
-   margin: 0;
-   -webkit-overflow-scrolling: touch;
- }
-
-  /* مخفی کردن نوار اسکرول برای ظاهر تمیزتر */
-  .shiraz-news-category-list::-webkit-scrollbar { display: none; }
-  .shiraz-news-category-list { -ms-overflow-style: none; scrollbar-width: none; }
-
-  .shiraz-news-category-list-item {
-    flex: 0 0 auto; /* عرض هر آیتم به اندازه محتواش باشه */
+@media (max-width: 550px) {
+  .shiraz-news-category-list {
+    flex-direction: column;
+    align-items: center;
   }
 
   .shiraz-news-btn-link {
-    font-size: 1rem;   /* فونت مناسب موبایل */
-    padding: 8px 16px;
+    width: 100%;
+    text-align: center;
+    padding: 14px 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
   }
-  
-  /* استایل دکمه فعال */
-  .shiraz-news-btn-link.active {
-    border: 3px solid rgba(var(--secondary-color-rgb), 0.3);
-    border-radius: 8px; /* گرد کردن کامل گوشه‌ها در موبایل */
+
+  .shiraz-news-swiper {
+    margin-top: 15px;
+    border-radius: 8px;
+    border-top: 1px solid var(--shiraz-border-color);
+    box-shadow: 0 4px 12px rgba(var(--shiraz-border-color-rgb), 0.1);
   }
 }
+
+@media (max-width: 450px) {
+  .shiraz-news-btn-link {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .shiraz-news-btn-link {
+    font-size: 0.7rem;
+  }
+}
+
+
+
 
 
 
@@ -3200,8 +3191,7 @@ a:hover .district {
 
 /* ریسپانسیو برای موبایل */
 @media (max-width: 575.98px) {
-
-  .shiraz-map-svg{
+  .shiraz-map-svg {
     display: none;
   }
 
