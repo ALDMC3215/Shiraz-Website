@@ -315,7 +315,6 @@ a:not(.nav-link):not(.dropdown-item):not(.social-icons a) {
   }
 }
 
-
 /* ===================================================================
  * ==================== HEADER FINAL DESIGN ======================
  * =================================================================== */
@@ -621,7 +620,7 @@ header::after {
   align-items: center;
   margin-top: 2rem;
   padding: 0 1rem;
-  animation: fadeInUp 0.8s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: fadeInDown 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .serach {
@@ -715,7 +714,7 @@ header::after {
   width: 411px;
   height: 157px;
   margin-top: -50px;
-  animation: fadeInUp 0.8s 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: fadeInDown 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .description-text-head {
@@ -725,7 +724,8 @@ header::after {
   z-index: 1000;
   margin-top: 1rem;
   color: var(--white-color) !important;
-  animation: fadeInUp 0.8s 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  /* animation: fadeInUp 0.8s 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; */
+  animation: fadeInDown 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .botom-img {
@@ -737,20 +737,12 @@ header::after {
   mix-blend-mode: multiply;
   opacity: 0;
   pointer-events: none;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: fadeInScale 1s 1s ease-in-out both;
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) scale(0.8);
-  }
-  to {
-    opacity: 0.7;
-    transform: translateX(-50%) scale(1);
-  }
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transform: none;
+  animation: fadeInDown 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .navbar.navbar-fixed {
@@ -863,18 +855,14 @@ header::after {
   animation-delay: 0.4s;
 }
 
-
 /* ===================================================================
  * ==================== RESPONSIVE STYLES (NEW) ====================
  * =================================================================== */
 
-
 @media (max-width: 1100px) {
-
-.navbar-nav .nav-link {
-  font-size: 0.75em;
-}
-
+  .navbar-nav .nav-link {
+    font-size: 0.75em;
+  }
 }
 
 /* --- Tablet Styles (and below) --- */
@@ -950,7 +938,7 @@ header::after {
   .navbar-nav li:last-child .nav-link {
     border-bottom: none;
   }
-  
+
   .dropdown-menu {
     all: unset; /* ریست کردن تمام استایل‌های دسکتاپ */
     display: none; /* مخفی‌سازی اولیه برای Bootstrap JS */
@@ -1117,7 +1105,6 @@ header::after {
     gap: 150px;
   }
 }
-
 
 /* ============================================= */
 /* =================== BODY ==================== */
@@ -2063,6 +2050,102 @@ header::after {
 @media (max-width: 991.98px) {
 }  */
 
+/* =================================================================== */
+/* ============== Unified Styles for All Screen Sizes(ALDMC) =============== */
+/* =================================================================== */
+/* .shiraz-news-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 15px;
+  border-bottom: 2px solid var(--shiraz-border-color);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 15px;
+}
+
+.shiraz-news-category-list-item {
+  margin: 0;
+}
+
+.shiraz-news-btn-link {
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--shiraz-text-color);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+
+.shiraz-news-btn-link:not(.active):hover {
+  color: var(--shiraz-primary-color);
+  transform: translateY(-2px);
+}
+
+.shiraz-news-btn-link.active {
+  font-weight: 700;
+  color: var(--secondary-color);
+  border-bottom-color: var(--shiraz-primary-color);
+  background: linear-gradient(135deg, rgba(var(--shiraz-primary-color-rgb), 0.1) 0%, rgba(var(--secondary-color-rgb), 0.1) 100%);
+}
+
+.shiraz-news-swiper {
+  padding: 25px;
+  background-color: #fff;
+  border: 1px solid var(--shiraz-border-color);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  min-height: 200px;
+  text-align: center;
+  color: #999;
+  box-shadow: 0 4px 12px rgba(var(--shiraz-border-color-rgb), 0.1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 550px) {
+  .shiraz-news-category-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .shiraz-news-btn-link {
+    width: 100%;
+    text-align: center;
+    padding: 14px 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .shiraz-news-swiper {
+    margin-top: 15px;
+    border-radius: 8px;
+    border-top: 1px solid var(--shiraz-border-color);
+    box-shadow: 0 4px 12px rgba(var(--shiraz-border-color-rgb), 0.1);
+  }
+}
+
+@media (max-width: 450px) {
+  .shiraz-news-btn-link {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .shiraz-news-btn-link {
+    font-size: 0.7rem;
+  }
+} */
+
 
 
 .shiraz-news-category-buttons-container {
@@ -2153,47 +2236,12 @@ header::after {
   }
 }
 
-@media (max-width: 991.98px) {
-}
 
 
-/* ===== Responsive Styles for Mobile & Tablet ===== */
-/* @media (max-width: 991.98px) {
-  .shiraz-news-category-buttons-container {
-    -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black 95%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 20px, black 95%, transparent);
-  }
 
-  .shiraz-news-category-list {
-    border-bottom: none; 
-    justify-content: flex-start; 
-    flex-wrap: nowrap; 
-    overflow-x: auto; 
-    gap: 12px;
-    padding: 10px 20px;
 
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
-  }
 
-  .shiraz-news-category-list::-webkit-scrollbar {
-    display: none;
-  }
 
-  .shiraz-news-btn-link {
-    border: 1px solid var(--tab-border-color);
-    border-radius: 30px; 
-    margin-bottom: 0;
-    color: var(--accent-2-color);
-    background-color: var(--white-color);
-  }
-  
-  .shiraz-news-btn-link.active {
-    border-color: var(--accent-2-color);
-    background-color: var(--accent-2-color);
-    color: var(--white-color);
-    border-radius: 30px;
-  } */
 
 /* =================================================================
    Swiper Slider Styles
@@ -3233,8 +3281,7 @@ a:hover .district {
 
 /* ریسپانسیو برای موبایل */
 @media (max-width: 575.98px) {
-
-  .shiraz-map-svg{
+  .shiraz-map-svg {
     display: none;
   }
 
