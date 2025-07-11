@@ -2068,9 +2068,8 @@ header::after {
 .shiraz-news-category-buttons-container {
   width: 100%;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   padding: 20px 0;
-  margin: 20px;
 }
 
 .shiraz-news-category-list {
@@ -2086,114 +2085,89 @@ header::after {
 
 .shiraz-news-btn-link {
   background-color: transparent;
-  border: 1px solid transparent; 
+  border: 1px solid transparent;
   padding: 10px 20px;
   font-size: 25px;
   font-weight: 500;
   color: var(--tab-text-color);
   cursor: pointer;
-  transition: color 0.3s, background-color 0.3s;
-  margin-bottom: -1px;
   white-space: nowrap;
-  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  border-bottom:  3px solid rgba(var(--secondary-color-rgb), 0.3);
-  
+  transition: background-color 0.4s, color 0.4s, border-color 0.4s;
+  border-bottom: 3px solid rgba(var(--secondary-color-rgb), 0.3);
 }
 
 .shiraz-news-btn-link:not(.active):hover {
   color: var(--secondary-pale-color);
-
 }
-
 
 .shiraz-news-btn-link.active {
   font-weight: 600;
   color: var(--secondary-color);
-  background-color:transparent;
+  background-color: transparent;
   border: 3px solid rgba(var(--secondary-color-rgb), 0.3);
-  border-radius: 8px 8PX 0 0;
-  border-bottom: none ; 
-
+  border-radius: 8px 8px 0 0;
+  border-bottom: none;
 }
- @media (max-width: 575.98px) {
 
-  .shiraz-news-category-buttons-container{
 
-    padding: 20px;
+
+
+/* ================================================================= */
+/* ============= استایل‌های ریسپانسیو موبایل (کد نهایی) ============= */
+/* ================================================================= */
+
+/* برای تمام صفحات کوچک‌تر از 576px */
+@media (max-width: 575.98px) {
+
+  /* FIX 1: حذف پدینگ اضافی از کانتینر اصلی بوت‌استرپ */
+  .shiraz-news-main-container.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
-
-
-  .shiraz-news-category-list {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 5px 10px;
+  .shiraz-news-category-buttons-container {
+    justify-content: flex-start;
+    padding-top: 15px;
+    padding-bottom: 15px;
     margin: 0;
   }
 
-  .shiraz-news-category-list-item {
-    flex: 0 0 140px;
-  }
-
-  .shiraz-news-btn-link {
-    padding: 10px 8px;
-    font-size: 1rem;
-    white-space: nowrap;
-  }
-  .shiraz-news-btn-link.active {
-      border: 3px solid rgba(var(--secondary-color-rgb), 0.3) !important;
-      border-radius: 8px;
-
-  }
-}
-
-@media (max-width: 991.98px) {
-}
-
-
-/* ===== Responsive Styles for Mobile & Tablet ===== */
-/* @media (max-width: 991.98px) {
-  .shiraz-news-category-buttons-container {
-    -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black 95%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 20px, black 95%, transparent);
-  }
-
+  /* FIX 2: تضمین چیدمان افقی و اسکرولی با !important */
   .shiraz-news-category-list {
-    border-bottom: none; 
-    justify-content: flex-start; 
-    flex-wrap: nowrap; 
-    overflow-x: auto; 
-    gap: 12px;
-    padding: 10px 20px;
-
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
+    display: flex !important;           /* چیدمان فلکس رو اجباری می‌کنه */
+    flex-direction: row !important;      /* جهت افقی رو اجباری می‌کنه */
+    flex-wrap: nowrap !important;        /* جلوی شکستن و زیر هم رفتن خطوط رو می‌گیره */
+    overflow-x: auto !important;         /* اسکرول افقی رو فعال می‌کنه */
+    
+    gap: 2px;
+    padding: 10px 15px;
+    margin: 0;
+    -webkit-overflow-scrolling: touch; /* اسکرول نرم در iOS */
   }
 
-  .shiraz-news-category-list::-webkit-scrollbar {
-    display: none;
+  /* مخفی کردن نوار اسکرول برای ظاهر تمیزتر */
+  .shiraz-news-category-list::-webkit-scrollbar { display: none; }
+  .shiraz-news-category-list { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .shiraz-news-category-list-item {
+    flex: 0 0 auto; /* عرض هر آیتم به اندازه محتواش باشه */
   }
 
   .shiraz-news-btn-link {
-    border: 1px solid var(--tab-border-color);
-    border-radius: 30px; 
-    margin-bottom: 0;
-    color: var(--accent-2-color);
-    background-color: var(--white-color);
+    font-size: 1rem;   /* فونت مناسب موبایل */
+    padding: 8px 16px;
   }
   
+  /* استایل دکمه فعال */
   .shiraz-news-btn-link.active {
-    border-color: var(--accent-2-color);
-    background-color: var(--accent-2-color);
-    color: var(--white-color);
-    border-radius: 30px;
-  } */
+    border: 3px solid rgba(var(--secondary-color-rgb), 0.3);
+    border-radius: 8px; /* گرد کردن کامل گوشه‌ها در موبایل */
+  }
+}
+
+
+
+
 
 /* =================================================================
    Swiper Slider Styles
