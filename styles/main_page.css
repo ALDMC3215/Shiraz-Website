@@ -1959,6 +1959,7 @@ header::after {
   display: flex;
   justify-content: center; 
   padding: 20px 0;
+  margin: 20px;
 }
 
 .shiraz-news-category-list {
@@ -1976,7 +1977,7 @@ header::after {
   background-color: transparent;
   border: 1px solid transparent; 
   padding: 10px 20px;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 500;
   color: var(--tab-text-color);
   cursor: pointer;
@@ -2107,7 +2108,7 @@ header::after {
 
 .shiraz-news-swiper .swiper-slide-active {
   box-shadow: 0 12px 35px rgba(var(--black-color-rgb), 0.2);
-  border-color: var(--accent-2-color);
+  /* border-color: var(--accent-2-color); */
   transform: scale(1.03);
 }
 
