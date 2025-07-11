@@ -2143,7 +2143,7 @@ header::after {
 
   .shiraz-news-btn-link {
     padding: 10px 8px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     white-space: nowrap;
   }
   .shiraz-news-btn-link.active {
