@@ -53,23 +53,33 @@
     <!-- ========================== HEADER SECTION ========================= -->
     <!-- =================================================================== -->
     <header>
+
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <button class="navbar-toggler ms-auto text-dark" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
 
-                <div class="sm-icon d-flex align-items-center d-lg-none">
-                    <span class="fs-5 text-dark">
-                        <i class="fas fa-search"></i>
-                    </span>
-                    <img src="images/icon/AI Button.png" alt="AI Assistant">
+                <!-- مرحله 1: ایجاد یک ردیف جداگانه برای هدر موبایل -->
+                <!-- این ردیف فقط در سایز تبلت و موبایل نمایش داده می‌شود -->
+                <div class="mobile-header-row d-flex d-lg-none">
+
+                    <!-- بخش راست: دکمه همبرگری -->
+                    <button class="navbar-toggler ms-5 me-3" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation" style="margin-left: 2.5rem;">
+                        <i class="fa-solid fa-bars text-dark" style="font-size: 1rem;" ></i>
+                    </button>
+
+                    <!-- بخش چپ: آیکون‌های جستجو و هوش مصنوعی -->
+                    <div class="mobile-header-icons-left">
+                        <i class="fas fa-search text-dark mobile-header-icon search-icon" style="font-size: 1rem;" ></i>
+                        <img src="images/icon/AI Button.png" alt="AI Assistant" class="mobile-header-icon ai-icon" style="width: 1.5rem; height: 1.5rem;">
+                    </div>
+
                 </div>
 
+                <!-- مرحله 2: منوی اصلی سایت که در دسکتاپ نمایش داده شده و در موبایل باز می‌شود -->
                 <div class="container collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
+                        <!-- تمام li های منو بدون تغییر در اینجا قرار می‌گیرند -->
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#"><i class="fas fa-home"></i> صفحه اصلی</a>
                         </li>
@@ -236,7 +246,6 @@
 
         <img class="botom-img" src="images/enhanced_Shiraz.png" alt="shiraz vector image">
     </header>
-
 
 
 
@@ -488,7 +497,7 @@
             </div>
 
 
-            <div  class="row row-sm text-center ">
+            <div class="row row-sm text-center ">
 
                 <div class="col-3 mb-4 stat-item">
                     <div class="stat-circle-container">
@@ -867,7 +876,7 @@
     <!-- =================================================================== -->
     <!-- ======================== SCRIPT LIBRARIES ======================= -->
     <!-- =================================================================== -->
-     <script src="scripts/main_page.js"></script>
+    <script src="scripts/main_page.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="scripts/bootstrap.bundle.min.js"></script>
     <script src="scripts/all.min.js"></script>
