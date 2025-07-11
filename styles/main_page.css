@@ -621,7 +621,7 @@ header::after {
   align-items: center;
   margin-top: 2rem;
   padding: 0 1rem;
-  animation: fadeInUp 0.8s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: fadeInDown 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .serach {
@@ -715,7 +715,7 @@ header::after {
   width: 411px;
   height: 157px;
   margin-top: -50px;
-  animation: fadeInUp 0.8s 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: fadeInDown 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .description-text-head {
@@ -725,7 +725,8 @@ header::after {
   z-index: 1000;
   margin-top: 1rem;
   color: var(--white-color) !important;
-  animation: fadeInUp 0.8s 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  /* animation: fadeInUp 0.8s 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; */
+  animation: fadeInDown 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .botom-img {
@@ -737,20 +738,12 @@ header::after {
   mix-blend-mode: multiply;
   opacity: 0;
   pointer-events: none;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: fadeInScale 1s 1s ease-in-out both;
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) scale(0.8);
-  }
-  to {
-    opacity: 0.7;
-    transform: translateX(-50%) scale(1);
-  }
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transform: none;
+  animation: fadeInDown 0.8s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .navbar.navbar-fixed {
@@ -2132,18 +2125,18 @@ header::after {
     margin: 0;
   }
 
-  /* FIX 2: تضمین چیدمان افقی و اسکرولی با !important */
-  .shiraz-news-category-list {
-    display: flex !important;           /* چیدمان فلکس رو اجباری می‌کنه */
-    flex-direction: row !important;      /* جهت افقی رو اجباری می‌کنه */
-    flex-wrap: nowrap !important;        /* جلوی شکستن و زیر هم رفتن خطوط رو می‌گیره */
-    overflow-x: auto !important;         /* اسکرول افقی رو فعال می‌کنه */
-    
-    gap: 2px;
-    padding: 10px 15px;
-    margin: 0;
-    -webkit-overflow-scrolling: touch; /* اسکرول نرم در iOS */
-  }
+/* FIX 2: تضمین چیدمان افقی و اسکرولی با !important */
+ .shiraz-news-category-list {
+   display: flex !important;
+   flex-direction: row-reverse !important; /* FIX: این خط مشکل اسکرول در حالت فارسی را حل می‌کند */
+   flex-wrap: nowrap !important;
+   overflow-x: auto !important;
+   
+   gap: 2px;
+   padding: 10px 15px;
+   margin: 0;
+   -webkit-overflow-scrolling: touch;
+ }
 
   /* مخفی کردن نوار اسکرول برای ظاهر تمیزتر */
   .shiraz-news-category-list::-webkit-scrollbar { display: none; }
