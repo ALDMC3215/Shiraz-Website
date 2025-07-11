@@ -4081,6 +4081,11 @@ a:hover .district {
 
 /* ریسپانسیو برای موبایل */
 @media (max-width: 575.98px) {
+
+  .shiraz-map-svg{
+    display: none;
+  }
+
   .container-zone {
     gap: 12px !important;
     padding: 12px !important;
